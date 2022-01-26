@@ -1,0 +1,460 @@
+#############################################
+Design patterns - padrao de projeto  https://www.youtube.com/watch?v=PrrbDOJLVfI&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=2
+#############################################			
+INTRODUÇÃO 
+	*soluções que ja foram testadas
+	*tornar sistema facil de manter e entender
+	*comunicação entre programadores mais eficiente
+	
+TIPO DE PADROES DE PROJETO DO GOF
+	Padrao de criação - abstrai de instanciação 
+	Padrão de estrutural - quebrar o projeto em partes ficar mais facil de visualizar 
+	Padrão de comportamental - define responsabilidade entre objetos e a classe 
+
+**************************************************************************************
+PADRÃO SINGLETON - não permite mais de uma instancia de classe no projeto 
+	https://www.youtube.com/watch?v=F9D6yJPzk2s&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=3
+
+	ex: conexão com o banco de dados tem que haver somente uma 
+
+**************************************************************************************	
+PADRÃO FACTORY METHOD - Criar objeto sem especificar de qual classe vai ser utilizada
+                        quem delega a forma são as subClass ou implements
+	https://www.youtube.com/watch?v=sq4kZnS9cd4&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=4
+	
+	ex: envio de mensagem 
+	
+		public interface Mensagem {
+			void enviar(String mensagem);
+		}
+	
+		------
+		public class MensagemSMS implements Mensagem{
+			public void enviar (String mensagem){
+				JOptionPane.showMessageDialog(null,"SMS: " + mensagem);
+			}
+		}
+		------
+	    public class MensagemEmail implements Mensagem{
+			public void enviar (String mensagem){
+				JOptionPane.showMessageDialog(null,"Email: " + mensagem);
+			}
+		}
+		------
+		public class MensagemFactory{  /* faz a ligação entre os tipos de mensagem este e o padrao factory*/
+		
+			public static Mensagem getMensagem(int i){
+				if(i==1){
+					return new MensagemSMS();
+				}else if(i==2){
+					return new MensagemEmail();
+				}else{
+					return new MensagemSMS();
+				}			
+			}
+		}
+		------
+		classs principal main
+			
+			String text = JOptionPane.showInputDialog(null);
+			
+			Mensagem mensagem = MensagemFactory.getMensagem(1);
+			mensagem.enviar(text);
+
+
+**************************************************************************************
+PADRÃO BUILDER - Criação de objetos complexos
+	https://www.youtube.com/watch?v=HaLwJDfXLtM&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=5
+		
+		simplificar as classe mais todas tem metodos geters and set
+		
+		public class Cliente{
+			private int codigo;
+			private String nome;
+			private String telefone;
+			
+			/*get set
+			
+		-------------------------
+		pubic class Vendedor {
+			private int codigo;
+			private String nome;
+			
+			/*geters and seters*/
+			
+		-------------------------
+		public class Produto{
+			private String nome;
+			private int quantidade;
+			private BigDecimal valor;
+			
+			/*geters and seters*/		
+		}
+		
+		-------------------------
+		public class Pedido{
+			private String numeroPedidos
+			
+			private List<Produto>produtos;
+			private Cliente cliente;
+			private vendedor vendedor;
+			
+			public BigDecimal getValorTotal(){
+				BigDecimal total = BigDecimal.ZERO;
+				
+				For (Produto produto : produtos {
+					total = total.add(produto.getValor().multiply(new BigDecimal(produto.getQuantidade())
+				}
+				return total;
+			}
+
+			public int getTotalProdutos(){
+				int total = 0;
+				for (Produto produto : produtos){
+					total += produto.getQuantidade();
+				}
+			}
+		----------------------------------	
+			pubic class PedidoBuilder {
+				private Pedido instancia;
+				
+				public PedidoBuilder(){
+				this.instancia = new Pedido;
+				}
+				
+				public PedidoBuilder setNumPedido(String numeroPedido){
+					instancia.setNumeroPedido(numeroPedido);
+					return this;
+				}
+				
+				public PedidoBuilder setCliente(int codigo, String nome, String telefone){
+					Cliente cliente = new Cliente;
+					cliente.setCodigo(codigo);
+					cliente.setNome(nome);
+					cliente.setTelefone(telefone);
+					
+					instancia.setCliente(cliente);
+					
+					return this
+				}
+				
+				public PedidoBuilder setVendedor(int codigo, String nome){
+					Vendedor vendedor = new Vendedor ; 
+					vendedor.setCodigo(codigo);
+					vendedor.setNome(nome);
+					
+					instancia.setVendedor(vendedor);
+					
+					return this;
+				}
+			
+				public PedidoBuilder setProduto(String nome, int quantidade, BigDecimal valor){
+					Produto produto = new Produto;
+					produto.setNome(nome);
+					produto.setQuantidade(quantidade);
+					produto.setValor(valor);
+					
+					if (instancia.getProdutos() == null){
+						instancia.setProduto(new ArrayList<>())
+					}
+					instancia.getProdutos().add(produto);
+					
+					return this;
+				}
+				
+				public Pedido builder(){
+					return instancia;
+				}
+			
+			----------------------------------  			
+			public class PrincipalBuilder{
+				
+				pubic static void main(String() args){
+				
+					Pedido pedido = new PedidoBuilder()
+										.setNumPedido("9999")
+										.setCliente(100,"Luiz","(34)99645-1318")
+										.setVendedor(30,"Hebert")
+										.setProduto("Caderno",1,new BigDecimal(12.00))
+										.setProduto("Lapis",3,new BigDecimal(1.00))
+										.setProduto("Borracha",2,new BigDecimal(0.50))
+										.builder();
+										
+						pedido.informacoes	
+					}				
+			}
+			}
+
+			
+
+**************************************************************************************
+PADRÃO ABSTRACT FACTORY - familia de objtos dependentes sem expecificar suas classes concretas
+	
+	ex: realizar uma venda imprimir boleto criando a nota e o boleto 
+
+	public class Produto{
+			private String nome;
+			private int quantidade;
+			private BigDecimal valorUnitario;
+			
+			public double getValorTotal(double imposto){
+				BigDecimal valorTotal = valorUnitario.add(new BigDecimal(imposto));
+				valorTotal = valorTotal.multiply(new BigDecimal(quantidade));
+				
+				return valorTotal.doubleValue();
+			}
+			/*geters and seters*/		
+		}
+		
+     --------------------
+	 
+	 public class NFE{
+		private String uf;
+		
+		public NFE(String uf){
+			this.uf = uf;
+		}
+		
+		public double calcularImposto(){
+			if (uf.equalsIgnoreCase("MG")){
+				return 18;
+			}
+			else if (uf.equalsIgnoreCase("RJ")){
+				return 20;
+			}
+			else {
+				return 10;
+			}
+		}
+	 }
+	 
+	 --------------------
+	 
+	 public class Boleto 
+		private String banco;
+		
+		public Boleto(String banco){
+			if (banco.egualsIgnoreCase("Itau")){
+				itau(produto, imposto);
+			} 
+			else if (banco.egualsIgnoreCase("Bradesco"){
+				bradesco(produto, imposto);
+			}
+			else {
+				caixa(produto, imposto);
+			}
+		}
+		
+		private void bradesco(Produto produto, double imposto){
+			System.out.print("Bradesco");
+			System.out.print"-------------------------------");
+			System.out.print("Descricao" + produto.getNome());
+			System.out.print("Quantidade" + produto.getQuantidade());
+			System.out.print("Valor" + produto.getValorUnitario());
+			System.out.print("Imposto R$" + imposto );
+			System.out.print("Valor Total" + produto.getValorTotal);
+		}
+		
+		-------------------
+		
+		public interface VendaFactory{
+			
+			public NFE criarNFE();
+			
+			public Boleto criarBoleto();
+			
+		}
+		---------------------
+		public interface NFE{
+			public double calculaImposto(Produto produto);
+		
+		}
+		---------------------
+		public interface Boleto{
+			public void  emitir(Produto produto,double imposto);
+		
+		}
+		----------------------
+		public class venda{
+			private NFE notaFiscal;
+			privateBoleto boleto;
+			
+			public Venda(VendaFactory factory){
+				this.notaFiscal = factory.criarNFE();
+			
+				this.boleto = factory.criarBoleto();
+			}
+		
+			public void realizarVenda(Produto produto){
+			
+				double imposto = notaFiscal.calcularImposto(produto)
+				
+				boleto.emitir(produto, imposto);
+			}
+		}
+		
+		-------------------------
+		
+		public class LojaCentroInformatica implements VendaFactory {
+			
+			public NFE criarNFE(){
+				NFE notaFiscal = new NFESaoPaulo();
+				return notaFiscal;
+			}
+			
+			public NFE criarBoleto(){
+				Boleto boleto = new BoletoBancoBrasil();
+				return boleto;
+			}
+		}
+		
+		-------------------------
+		
+		public class NFESaoPaulo implements NFE {
+		
+			public double calcularImposto(Produto produto){
+				BigDecimal imposto = new BigDecimal("0.18");
+				
+				imposto = imposto.multiply(produto.getValorUnitario());
+				
+				return imposto.doubleValue();
+			}
+		
+		-------------------------
+		
+		public class BoletoBancoBrasil implements Boleto{
+		
+			public void emitir(Produto produto, double imposto){
+				System.out.print("Bradesco");
+			System.out.print"-------------------------------");
+			System.out.print("Descricao" + produto.getNome());
+			System.out.print("Quantidade" + produto.getQuantidade());
+			System.out.print("Valor" + produto.getValorUnitario());
+			System.out.print("Imposto R$" + imposto );
+			System.out.print("Valor Total" + produto.getValorTotal);
+			}
+		}
+
+		-------------------------
+		
+		public class Principal {
+			Produto produto = new Produto();
+			
+			produto.setNome("Smartphone moto x2");
+			produto.setQuantidade(1);
+			produto.setValorUnitario(new BigDecimal(1000));
+			
+			VendaFactory factory = new LojaCentroInformatica();
+			
+			Venda venda = new Venda(Factory);
+			venda.realizarVenda(produto);
+			
+		}
+
+
+
+
+**************************************************************************************
+PADRÃO MVC - model view controller 
+
+	view - interface grafica tela,formulario
+	controller - camada procesamento dos dados entre a view e model 
+	model - java been
+
+
+
+**************************************************************************************
+PADRÃO DECORATOR - add novas funcionalidades num objeto existente sem mecher na sua estrutura
+
+  seria como sobrescrever uma classe com outras funcionalidade 
+  
+  
+  ex calular o preço final do produto 
+  
+	interface caculaPreco {
+		public BigDecimal valorFinal(Produto produto)
+	}
+	class calculaPrecoComum implements CalculoPreco{
+		public BigDecimal valorFinal(Produto produto){
+			/*contem preço normal podendo criar processo padrao para todos */
+		}
+	}
+		
+	class calculaPrecoFrete implements CalculoPreco{ 
+		private CalculoPreco calculo;
+		
+		public CalculoPrecoFrete(CalculoPreco calculo){ 
+			this.calculo = calculo; /**/
+		}
+	    
+		public BigDecimal valorFinal(Produto produto){
+			BigDecimal valorFinal = calculo.valorFinal(produto);
+			
+			BigDecimal frete
+			
+			/*- acrecentando as condiçoes if para o frete acontecer um frete */
+		    return valorFinal;
+		
+		}
+	
+		
+	}
+		
+	
+	chamada Principal para interface calculaPreco 
+		CalculaPreco calculo = new CalculaPrecoFrete(new CalculoPrecoComum())
+		 
+			desta mesma forma pode ser add varias class ex brinde 
+			a classe seria como do frete com suas particularidades
+			
+			chamada: 
+				CalculaPreco calculo = new CalculaBrinde(new CalculaPrecoFrete(new CalculoPrecoComum()))
+
+
+
+**************************************************************************************
+PADRÃO STRATEGY - pa
+
+
+**************************************************************************************
+PADRÃO STATE - modificar estado de um determinado objeto
+	https://www.youtube.com/watch?v=Z_xGtNpar74&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=14
+         ex: aberto fechado finalizado etc
+
+
+**************************************************************************************
+PADRÃO ADAPTER - adaptação entre objetos nao compativos 
+	https://www.youtube.com/watch?v=v-TAm9deonE&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=15
+
+	ex: conversao do real para dolar 
+	
+	public class Cotacao{
+		double valor;
+		/*get and set*/
+	}
+
+	public class CotacaoAdapter extends Cotacao{
+	   
+	   @Override /*sobrescreve os metodos get e set com a conversao de valores*/
+		public void setValor(double valor){
+			super.setValor(valor / 3.56);
+		}
+		
+		@Override
+		public double getValor(){
+			return (super.getValor()*356);
+		}
+	
+		public double getValorDolar(){
+			return super.getValor();
+		}
+	}
+**************************************************************************************
+PADRÃO FACADE - uma fachada que simplifica a manutençao do codigo 
+	https://www.youtube.com/watch?v=PuApVFSLRZE&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=16
+	
+	quando tem uma serie de operação constroi uma facade para que 
+	a chamada nao seja direto as operaçoes assim evita de alterar uma operacao e 
+	a classe que acessa tenha que ser alterada tbm
+
+

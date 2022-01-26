@@ -1,0 +1,129 @@
+#############################################
+Metodologia Agil (mais usado scrum e kanban)
+#############################################
+E estudo que faz com que o projeto seja entregue com menos tempo 
+AGIL - surgiu 2011 
+	1 - individo ao em vez de processo
+	2 - produto que funcione ao em vez de documentaçao que informa sobre como o produto deve funcionar
+	3 - colaboração com o cliente em vez de negociação com ele
+	4 - responder a mudanças em vez de seguir um plano
+
+SPRINT OU TIME BOX - é cliclo de inspeção e adaptaçao
+     *definido de uma forma mais curta duraçao de 2 a 4 semana
+	 *parte do projeto e realizada seguindo o Agil
+	 
+
+Scrum - palavra retirada do futebol Americano a forma que fazer para chegar no objetivo
+		*Posicionamento cuidadoso
+		*Unidade de proposito
+		*Objetivo claro
+		
+		CICLO DE INSPEÇAO E ADAPTAÇÃO
+			Intervalo regular ,verificar se o time esta no caminho certo, se esta de acordo com que o cliente quer 
+			com tudo isso tbm pode verificar se pode ter melhoria
+			
+		.BUSCAR SEMPRE A MELHORA E UNIFORMIDADE DO PRODUTO 
+		.MEDIR O QUE ESTA SENDO FEITO TEMPO E MELHORAR CONTINUAMENTE
+		
+CICLO PDCA - (planejar > fazer > verificar > agir ) fica repetindo		(planejar > fazer > verificar > agir )
+        .SHU conhece as regras e formar e repete
+        .HA  vc ja conhece as formar apresentar melhorias
+        .RI  deixar as formas de lados e ser criativo 
+
+        TRANCENDENCIA - time sabe o proposito e pensa alem 
+        AUTONOMIA - time organizado e auto gerencia
+		MULTIFUNCIONAL - time tem toda a habilidade para executar o trabalho
+
+
+O gerente define o que precisa ser feito 
+Otime decide como vai ser feito 
+
+CERIMONIA - como deve ser feito 
+			Planejamento
+			Reuniao diaria
+			Revisao
+			Retrospectiva
+	(definida pelo ScrumMaster o gerente) que deve fazer a seguinte pergunta
+	1 - o que vc fez ontem para ajudar a equipe concluir o sprint
+	2 - o que vc fara hoje para ajudar o time a concluir o sprint
+	3 - quais são os obstaculos que estão atrapalhando o sprint
+	
+Qual quer funcionario pode informar o problema 
+e o time deve corrigir 
+*felicidade do time é coisa serial
+		felicidade surge quando temos um proposito 
+		pessoa nao é feliz porque e bem sucedida ela é bem sucedida porque é feliz
+    1 AUTONOMIA - capacidade de controlar o proprio destino, sensação que esta melhorando 
+	2 DOMINIO - - capacidade de melhorar aquilo que faz
+	3 PROPOSITO - servir algo maior 
+	
+FINAL DO SPRINT (serimonia de retrospectiva)
+			todo time senta fala o que deu certo 
+			o que podia ser melhoria
+			o que pode ser melhorado 
+			
+DONO DO PRODUTO  
+		gerente contato com cliente e o time 
+	
+	Como deve pensar? 
+		Quais sao os itens que tem maior impacto sobre o negocio
+		Quais sao os mais importantes para o cliente 
+		Quais que pode gerar mais dinheiro
+		Qual mais facil de concretizar 
+		
+    escolha deve ser feita na que tem mais valor e menos tempo 
+
+As pessoas nao sabem o que querem de fato ate experimentar o produto 
+    * Por isso tem que haver uma entrega evolutiva do software
+    * com o feadback do cliente ja vem as correçoes 
+
+COMEÇANDO A UTILIZAR O SCRIM 
+		1 escolhoe o dono do produto 
+		2 selecione o time
+		3 escolha o scrumMaster
+		4 crie e ordene os backLoog do produto de acordo com as prioridades
+		5 redefina e estime o backLoog
+		6 faça o planejamento do sprint
+		7 torne o trabalho visivel
+		8 realize a reuniao diaria mesmo horario maximo 15 min
+		9 faça revisao do sprint
+		10 faça retrospectiva do sprint
+		11 comece imediato o spring seginte levando em consideração tudo que ocorreu no sprint anterior 
+		
+ferramentas para Scrum
+		IceScrum 
+		Scrumhalf
+		PangoScrum
+		Taiga - bonito e agradavel
+		Mingle
+		MeisterTask - painel de projeto flexivel
+		Asana
+		Whike
+		youTrack - rastreia bugs,planeja spring cria fluxo de trabalho
+			
+
+KANBAN - melhorar desempenho e reduzir desperdicio eliminando atividades que nao traz beneficio a equipe 
+       
+        visualizar como seu trabalho esta fluindo e dos seus colegas
+	Principios
+		1 comece com que vc faz agora 
+		2 concordar em buscar mudanças revolucionarias
+		3 repeitar os papeis responsabilidades e cargos atuais
+		4 insentivar atos de lideranças em todos os niveis 
+		
+QUADRO DE VISUALIZAÇÃO DO KANBAN 
+			To Do - a fazer 
+			in Progress - em andamento
+			Done - feito
+			
+CARTOES KANBAN - objetivo mover sobre o quadro para saber que estagio esta cada atividades
+     garante foco rastreabilidade e indentificação de bloqueios e dependencias
+
+pegar um cartao por vez e finalizar a tarefa
+
+feramentas disponiveis 
+         kanbanFlow(free e paga)
+		 Kanbanize (paga)
+		 Trello (gratuita e recomendada)
+                       	 
+		
