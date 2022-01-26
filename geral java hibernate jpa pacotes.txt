@@ -1,24 +1,76 @@
 aulas spring boot thymelyve https://www.youtube.com/user/alexegidio/search?query=Spring+Boot+%2B+Thymeleaf+%2B+JPA
 site oficial do spring boot  ///      spring.io
-
 #######################################################################################################
 PORTA 8080  OUTRO SERVIÇO JA UTILIZANDO A PORTA
 ######################################################################################################
-Open Command Prompt
-
- netstat -noa | findstr 8080   Enter
-
-Check the "PID" of process that uses your port
-
-And type taskkill /PID "PID number" /F  and hit Enter
-
-As @Mxsky stated: You may have to force the processus to quit with the /F option.So the command becomes: taskkill /PID pid_number /F
-
-
 1) netstat -noa | findstr 8080 
 2) taskkill /PID "PID number" /F
 
-						
+###################################################################
+ECLIPSE
+###################################################################
+  ctrl + F11 e preste atenção à View do Console. = executar  
+  Alt + Shft + A = selecionar em bloco icone na barra ferramentas Toggle Block selection mode 
+  shift + alt + M = seleciona as linhas ele exporta criando um metodo para estas linhas e se tiver em outro local ele ja instacia o metodo 
+  Ctrl + shift + O = Organizar os imports 
+  
+  variavel.getInstance() = buscar data atual
+
+PESQUISA
+  Ctrl + H busca geral 
+  Ctrl+1 = traz sugestões para o que deve fazer 
+  Ctrl + alt + H = buscar herarquia do metodo
+  Ctrl + shift + T = abrir uma classe
+  Ctrl + .(caractere ponto) =  ir para erro mais proximo
+  F3 seleciona a variavel F3 vai para sua declaração
+  Ctrl + 3 = procurar algo do menu 
+
+MOVIMENTAR ENTRE TEXTO E ARQUIVOS
+  Ctrl + pgUp e Ctrl + pgDown ou ctrl + F6  para alternar entre as abas abertas eclipse 
+  F3  = direcionar para a classe ou metodo da linha do cursor 
+MANIPULAR TEXTO
+  Ctrl + Espaço = Completar
+  ctrl + Alt + seta para baixo = copiar linha para baixo 
+  Alt + seta = mover linha para cima ou para baixo 
+  ctrl + shift + F = formatar o codigo
+  Alt + shift + R = renomear variavel e classe e já altera todas referencias desta classe 
+  
+  
+O total em volumes 
+###################################################################
+CRIANDO TEMPLATE 
+###################################################################
+
+ctrl + espaço  (criando os seus metodos TEMPLATES)
+WINDOWS PREFERENCE > DIGITE TEMPLATE > java > editor > NEW
+ nome > 
+ context > java (dentro de uma class)
+           java Statements (dentro de um metodo de uma class)
+		   java type members (dentro da class mais fora dos metodos)
+descrition > uma qualquer 
+Pattern > codigo a ser completado 
+
+###################################################################
+Explorando Views e perspectivas
+###################################################################
+Comentarios de marcação   Ctrl + 3  = tasks
+	//TODO (algo que precisa ser feito)
+	//FIXME (bUG conhecido que precisa ser corrigido)
+	//XXX (Algo que precisa refatorar)
+	
+
+###################################################################	
+DEBUG	
+###################################################################
+F6 (proxima linha )
+F5 (Entrar no metodo)
+F8 (continuar)
+Ctrl + shift + D (mostrar valor variavel)
+CTRL + shift + I (mostrar valor variavel)
+
+***************************
+
+alt + shift + L (todos os atalhos do eclipse)						
 
 ##################################################################
 paradigmas de programação - maneiras de resolver o problema 
