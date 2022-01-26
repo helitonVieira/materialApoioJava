@@ -2372,6 +2372,9 @@ Autorização processo de identificar qual recurso o usuario pode acessar
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
+		
+		
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>

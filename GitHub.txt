@@ -1,0 +1,220 @@
+********************************************************
+	GIT (é o que roda na sua maquina local)	
+	GITHUB (é o servidor nas nuvens onde vc aloca os projetos) 
+        https://github.com/helitonVieira	faca.1...
+********************************************************
+
+
+COMANDO CONFIGURAR O GIT 
+	git config --global user.name "heliton Vieira"
+	git config --global user.email "helitondba@gmail.com"
+	git config --global core.editor springBoot  = quem é o editor texto
+        git remote set-url origin https://github.com/helitonVieira/envio-mensagem-watsapp.git = trocar a URL endereço do repositorio
+
+
+COMANDOS VERIFICAÇÃO
+	git config --list = Listar todas as configurações do git
+	git --version = SABER A VERSAO QUE ESTA SEU GIT 
+	git config user.name = verificar o nome usuario
+	git config user.email = verificar o nome email	
+	git remote -v = mostra em qual URL esta amarrado o projeto
+	git log  = verificar tudo que foi commitado 
+	git branch = saber em que branch vc esta
+	
+	git diff = mostra as alterações que foram feitas
+	git diff --name-only = mostra todos alquivos alterados
+	git diff nomeArquivo.txt = mostra oque foi alterado neste arquivo especifico
+
+
+CLONAR PROJETO
+	git clone URL = baixa o projeto e ja fica vinculada ao github
+	
+ARQUIVO README.txt (arquivo que contem como configurar o sistema deve ser criado na pasta raiz 
+						como utilizar,instruções , comentarios , versao etc)
+
+
+********************************************************
+REPOSITORIO JA EXISTENTE 
+********************************************************
+git add . ou(git add -A ou git add * ou git add nomeArquivo "para add  somente arquivo expecifico" )
+git status (verifica se esta tudo verde) 
+git commit -m "descrição do que foi feito" (salva as alterações no git local)
+git log   (verificar as alterações)
+git push  (envio para projeto web)
+
+---------------CASO O DE SIMA NAO FUNCIONE TENTE ESTE ------------------------------------------------------------------
+git remote rm origin (apagar a url que esta amarrada)
+git remote add origin https://github.com/helitonVieira/VSystem.git (vincular em qual projeto quer salvar)
+git branch -M main 
+git push -u origin main
+
+
+********************************************************
+NOVO REPOSITORIO GITHUB	 helitondba@gmail.com   faca.1234  heliton Vieira
+********************************************************
+		1 Abre o git bash dentro da pasta projeto 
+2 git init (iniciar um novo repositorio de versionamento)
+		3  Pegar o Email que esta o git caso nao saiba 
+			3.1 loga na sua pagina do github (https://github.com/)	
+			Aba canto direito entre (Seu perfil ou your profile)
+			Edite perfil > email 
+		4 configurar usuario e email que vai fazer o versionamento
+git config --global user.name "heliton Vieira"
+git config --global user.email "helitondba@gmail.com"
+	
+5 git status (cor vermelho tudo que nao esta salvo ainda)	
+6 git add .  (comando para que o git receba os arquivor que nunca foram salvos e comecem a rastrealos )
+7 git status (cor verde prontos para ser versionado commit) 
+8 git commit -m "crud produto Back end do aula1 do projeto Angular"
+9 git log (para ver informaçoes do projeto {chave, autor , email, data hora , descriçao do commit} )
+
+		10 mandar o projeto para o git hub 
+			* entra no seu git (https://github.com/)	 
+			* clica no gatinho
+			* começar um projeto ou start a projet 
+			* digita o nome do seu projeto 
+			* click botao create repository
+	
+		11 Vai aparecer uma lista de comandos mais como ja fizemos pegue os comandos abaixo do commit
+git branch -M main 
+		12(vincula o projeto da maquina com o criado no git)
+git remote add origin https://github.com/helitonVieira/backEndAula1crudProduto.git 
+
+		12 Enviar do computador para o git web 
+git push -u origin main
+
+*************BRANCH*****************************************************
+git branch nomeBranch = criar nova branch
+git branch = verificar as branch existentes, * aparece na frente da que vc esta utilizando, branch main pode nao aparecer mais existe
+git checkout nomeBranch = selecionar a branch que vai utilizar
+git push origin nomeBranch = salvar no remoto branch especifica
+git pull origin master = Baixar as atualizaçoes do remoto (origin é origem do remoto obtido(git remote -v) master é a branc que vai baixar na sua maquina)
+************************************************************************
+
+------------------------------CONFLITOS NO SERVIDOR--------------------------------------------
+git pull (Vai baixar na sua maquina codigo todo comentado que vc tera que editar e confirmando qual versao vc quer salvar no github)
+
+	<<<HEAD (é o inicio )
+	=========== (é fim da versao da sua maquina e inicio da versao do git)
+	>>>>>>>>>>>>>>>>>>>>>>>>> e1az3j... (final cod servidor da verificação com chave sha1)
+	
+	ex:   
+	<<<<<<<<<<<<<<<<<<<<<<<<<HEAD
+	codigo novo que ja estava na sua maquina 
+	====================	
+    codigo que esta no servidor git 
+	>>>>>>>>>>>>>>>>>>>>>>>>> e1az3j...	
+  
+--------------------------------------------------------------------------
+
+DESFAZER ou VOLTAR PARA VERSAO ANTERIOR
+
+		ANTES DE ADD AO GIT 
+		git restore nomeArquivo.txt  (volta a versao do ultimo commit)
+		
+		DEPOIS DO COMMIT   
+		git log = verificar as versoes disponiveis e copiar a chave do log que vai querer voltar
+		git reset --tipo chaveDoLogQueVaiVoltar = vai mandar vc ir para onde vc quer ir (voltar) existe 3 forma de utilizado 
+		TIPOS 
+			git reset --soft chave = desfaz os commits mais mantem a alteração para ser corrigida mais recomendado
+			git reset --mixed chave = desfaz o commits e as add vc vai ter que adicionar tudo novamente
+			git reset --hard chave = desfaz tudo apagando e volta para estado solicitado 	
+			
+			opção 1) git reset --soft HEAD~1      =  (HEAD~1 voltar um commit anterior)
+			opção 3) git reset --hard master@{"10 minutes ago"} = voltar por minutos atraz 
+			
+DESFAZER COMITE DE SEXTA FEIRA (volta versao anterior do commit mais o commit com suas alteraçoes fica no git para vc baixar na segunda e voltar para trabalhar nele)
+	git log (pega a chave do seu commit que vai desfazer)
+	git revert --no-edit chave	
+
+*************************************************************************************************
+DELETAR UMA BRANCH 
+
+LOCAL (nao pode estar logado na branch que sera deletada)
+	git branch -D nomeBranch
+REMOTA
+	git push origin :nomeBranch
+
+
+
+
+
+
+
+
+*************************************************************************************************	
+--------------------------------------------------------------------------
+*************************************************************************************************
+GITHUB
+*************************************************************************************************
+
+Gerar a chave no git que permite comunicação de repositorio local com o githum
+	roda no cmd >  ssh-keygen -t rsa -b 4096 -C "helitondba@gmail.com"
+	vai falar onde vai ser salvo os arquivos [presione Ent]
+	vai pedir paracria uma senha ou pode deixar vazia [presione Ent]
+	pedir a confirmação senha [presione Ent]
+	Sera criado 2 arquivo na pasta id_rsa e id_rsa_pub
+	abra o arquivo id_rsa_pub copia 
+	na sua pagina do github 
+		clicar na foto canto direito > configurações(setings) > SSH AND GPG
+		titulo (nome do computado ou gugu Home)
+		cola achave em baixo numero muito grande
+	
+*************************************************************************************************
+IGNORAR ARQUIVO PARA NAO FAZER PARTE DO GIT 
+	cria um arquivo chamado .gitignore comando = echo > .gitignore
+	Dentro deste arquivo coloca nome dos arquivos e pastas a serem ignorados
+	Vai salvar o arquivo .gitignore mais os arquivos nao vai nem aparecer
+     *.txt   ignora todos arquivos .txt
+*************************************************************************************************
+COMANDOS UNIX PARA USAR NO GITBASH
+		
+	ls -a  = (Listar a pasta oculta dentro do git)
+	cd/ ou cd /  = ir para diretorio raiz
+	clear OU CTORL +L = limpar o prompt de comandos
+	
+	sudo su = comando para liberar permissão para instalar e criar programas e pastas
+	mkdir = criar uma nova pasta
+	echo > nomeArquivo.txt  = criar o arquivo (verifica se ja existe se nao tiver ele cria)
+	del nomePasta = deleta os arquivos dentro da pasta
+	rm -rf   =  remove a pasta e tudo que tiver dentro as subpastas "f" é para forçar a remoção sem confirmação
+	
+************************************************
+FUNCIONAMENTO DO GIT
+***********************************************
+
+	SHA1 
+		*Usa este algoritiomo de criptografia 40 digitos
+		*Sempre que tem uma alteração ele troca a chave 
+		*se retirar alteração volta para msm chave de antes 
+	
+	BLOBS  =os metadados que contem tipo Objeto, tamanho todas info do arquivo etc..
+	TREE   =armazena as BLOBS e outras TREE
+	COMMIT =armazena as TREE,BLOBS, AUTOR, MENSAGEM, TIMESTAMP
+---------------------------------------------------------
+CICLO DE VIDA GIT  (Tracked = monitorador)
+	UNTRACKED =Antes do git init (ainda nao é um arquivo rastreado pelo git)
+	UNMODIFIED = depois do init
+	MODIFIED = arquivor monitorados que sofreu alteração e ainda nao foram add
+	STAGED = arquivos add prontros para o commit
+	
+	Apos o commit os arquivos voltam para o estado UNMODIFIED
+	
+	---------------------------------------------------------------------------
+	AMBIEMTE DE TRABALHO (MAQUINA LOCAL)
+		WORKING DIRECTORY = arquivos que nao foram add ao git (git add .)
+		STAGING AREA = ja foram add ao git prontos para commit
+		LOCAL REPOSITORY = arquivos ja foram commitados pronto para mandar para GITHUB
+	SERVIDOR (GITHUB)
+		REMOTE REPOSITORY = 
+	---------------------------------------------------------------------------
+		
+--------------------------------------------------------------	
+	
+			
+		
+		
+		
+		
+		
+	
