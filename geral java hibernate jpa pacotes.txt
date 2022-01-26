@@ -1,0 +1,2618 @@
+aulas spring boot thymelyve https://www.youtube.com/user/alexegidio/search?query=Spring+Boot+%2B+Thymeleaf+%2B+JPA
+site oficial do spring boot  ///      spring.io
+
+#######################################################################################################
+PORTA 8080  OUTRO SERVIÇO JA UTILIZANDO A PORTA
+######################################################################################################
+Open Command Prompt
+
+ netstat -noa | findstr 8080   Enter
+
+Check the "PID" of process that uses your port
+
+And type taskkill /PID "PID number" /F  and hit Enter
+
+As @Mxsky stated: You may have to force the processus to quit with the /F option.So the command becomes: taskkill /PID pid_number /F
+
+
+1) netstat -noa | findstr 8080 
+2) taskkill /PID "PID number" /F
+#############################################
+Metodologia Agil (mais usado scrum e kanban)
+#############################################
+E estudo que faz com que o projeto seja entregue com menos tempo 
+AGIL - surgiu 2011 
+	1 - individo ao em vez de processo
+	2 - produto que funcione ao em vez de documentaçao que informa sobre como o produto deve funcionar
+	3 - colaboração com o cliente em vez de negociação com ele
+	4 - responder a mudanças em vez de seguir um plano
+
+SPRINT OU TIME BOX - é cliclo de inspeção e adaptaçao
+     *definido de uma forma mais curta duraçao de 2 a 4 semana
+	 *parte do projeto e realizada seguindo o Agil
+	 
+
+Scrum - palavra retirada do futebol Americano a forma que fazer para chegar no objetivo
+		*Posicionamento cuidadoso
+		*Unidade de proposito
+		*Objetivo claro
+		
+		CICLO DE INSPEÇAO E ADAPTAÇÃO
+			Intervalo regular ,verificar se o time esta no caminho certo, se esta de acordo com que o cliente quer 
+			com tudo isso tbm pode verificar se pode ter melhoria
+			
+		.BUSCAR SEMPRE A MELHORA E UNIFORMIDADE DO PRODUTO 
+		.MEDIR O QUE ESTA SENDO FEITO TEMPO E MELHORAR CONTINUAMENTE
+		
+CICLO PDCA - (planejar > fazer > verificar > agir ) fica repetindo		(planejar > fazer > verificar > agir )
+        .SHU conhece as regras e formar e repete
+        .HA  vc ja conhece as formar apresentar melhorias
+        .RI  deixar as formas de lados e ser criativo 
+
+        TRANCENDENCIA - time sabe o proposito e pensa alem 
+        AUTONOMIA - time organizado e auto gerencia
+		MULTIFUNCIONAL - time tem toda a habilidade para executar o trabalho
+
+
+O gerente define o que precisa ser feito 
+Otime decide como vai ser feito 
+
+CERIMONIA - como deve ser feito 
+			Planejamento
+			Reuniao diaria
+			Revisao
+			Retrospectiva
+	(definida pelo ScrumMaster o gerente) que deve fazer a seguinte pergunta
+	1 - o que vc fez ontem para ajudar a equipe concluir o sprint
+	2 - o que vc fara hoje para ajudar o time a concluir o sprint
+	3 - quais são os obstaculos que estão atrapalhando o sprint
+	
+Qual quer funcionario pode informar o problema 
+e o time deve corrigir 
+*felicidade do time é coisa serial
+		felicidade surge quando temos um proposito 
+		pessoa nao é feliz porque e bem sucedida ela é bem sucedida porque é feliz
+    1 AUTONOMIA - capacidade de controlar o proprio destino, sensação que esta melhorando 
+	2 DOMINIO - - capacidade de melhorar aquilo que faz
+	3 PROPOSITO - servir algo maior 
+	
+FINAL DO SPRINT (serimonia de retrospectiva)
+			todo time senta fala o que deu certo 
+			o que podia ser melhoria
+			o que pode ser melhorado 
+			
+DONO DO PRODUTO  
+		gerente contato com cliente e o time 
+	
+	Como deve pensar? 
+		Quais sao os itens que tem maior impacto sobre o negocio
+		Quais sao os mais importantes para o cliente 
+		Quais que pode gerar mais dinheiro
+		Qual mais facil de concretizar 
+		
+    escolha deve ser feita na que tem mais valor e menos tempo 
+
+As pessoas nao sabem o que querem de fato ate experimentar o produto 
+    * Por isso tem que haver uma entrega evolutiva do software
+    * com o feadback do cliente ja vem as correçoes 
+
+COMEÇANDO A UTILIZAR O SCRIM 
+		1 escolhoe o dono do produto 
+		2 selecione o time
+		3 escolha o scrumMaster
+		4 crie e ordene os backLoog do produto de acordo com as prioridades
+		5 redefina e estime o backLoog
+		6 faça o planejamento do sprint
+		7 torne o trabalho visivel
+		8 realize a reuniao diaria mesmo horario maximo 15 min
+		9 faça revisao do sprint
+		10 faça retrospectiva do sprint
+		11 comece imediato o spring seginte levando em consideração tudo que ocorreu no sprint anterior 
+		
+ferramentas para Scrum
+		IceScrum 
+		Scrumhalf
+		PangoScrum
+		Taiga - bonito e agradavel
+		Mingle
+		MeisterTask - painel de projeto flexivel
+		Asana
+		Whike
+		youTrack - rastreia bugs,planeja spring cria fluxo de trabalho
+			
+
+KANBAN - melhorar desempenho e reduzir desperdicio eliminando atividades que nao traz beneficio a equipe 
+       
+        visualizar como seu trabalho esta fluindo e dos seus colegas
+	Principios
+		1 comece com que vc faz agora 
+		2 concordar em buscar mudanças revolucionarias
+		3 repeitar os papeis responsabilidades e cargos atuais
+		4 insentivar atos de lideranças em todos os niveis 
+		
+QUADRO DE VISUALIZAÇÃO DO KANBAN 
+			To Do - a fazer 
+			in Progress - em andamento
+			Done - feito
+			
+CARTOES KANBAN - objetivo mover sobre o quadro para saber que estagio esta cada atividades
+     garante foco rastreabilidade e indentificação de bloqueios e dependencias
+
+pegar um cartao por vez e finalizar a tarefa
+
+feramentas disponiveis 
+         kanbanFlow(free e paga)
+		 Kanbanize (paga)
+		 Trello (gratuita e recomendada)
+                       	 
+		
+
+						
+#############################################
+Design patterns - padrao de projeto  https://www.youtube.com/watch?v=PrrbDOJLVfI&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=2
+#############################################			
+INTRODUÇÃO 
+	*soluções que ja foram testadas
+	*tornar sistema facil de manter e entender
+	*comunicação entre programadores mais eficiente
+	
+TIPO DE PADROES DE PROJETO DO GOF
+	Padrao de criação - abstrai de instanciação 
+	Padrão de estrutural - quebrar o projeto em partes ficar mais facil de visualizar 
+	Padrão de comportamental - define responsabilidade entre objetos e a classe 
+
+**************************************************************************************
+PADRÃO SINGLETON - não permite mais de uma instancia de classe no projeto 
+	https://www.youtube.com/watch?v=F9D6yJPzk2s&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=3
+
+	ex: conexão com o banco de dados tem que haver somente uma 
+
+**************************************************************************************	
+PADRÃO FACTORY METHOD - Criar objeto sem especificar de qual classe vai ser utilizada
+                        quem delega a forma são as subClass ou implements
+	https://www.youtube.com/watch?v=sq4kZnS9cd4&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=4
+	
+	ex: envio de mensagem 
+	
+		public interface Mensagem {
+			void enviar(String mensagem);
+		}
+	
+		------
+		public class MensagemSMS implements Mensagem{
+			public void enviar (String mensagem){
+				JOptionPane.showMessageDialog(null,"SMS: " + mensagem);
+			}
+		}
+		------
+	    public class MensagemEmail implements Mensagem{
+			public void enviar (String mensagem){
+				JOptionPane.showMessageDialog(null,"Email: " + mensagem);
+			}
+		}
+		------
+		public class MensagemFactory{  /* faz a ligação entre os tipos de mensagem este e o padrao factory*/
+		
+			public static Mensagem getMensagem(int i){
+				if(i==1){
+					return new MensagemSMS();
+				}else if(i==2){
+					return new MensagemEmail();
+				}else{
+					return new MensagemSMS();
+				}			
+			}
+		}
+		------
+		classs principal main
+			
+			String text = JOptionPane.showInputDialog(null);
+			
+			Mensagem mensagem = MensagemFactory.getMensagem(1);
+			mensagem.enviar(text);
+
+
+**************************************************************************************
+PADRÃO BUILDER - Criação de objetos complexos
+	https://www.youtube.com/watch?v=HaLwJDfXLtM&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=5
+		
+		simplificar as classe mais todas tem metodos geters and set
+		
+		public class Cliente{
+			private int codigo;
+			private String nome;
+			private String telefone;
+			
+			/*get set
+			
+		-------------------------
+		pubic class Vendedor {
+			private int codigo;
+			private String nome;
+			
+			/*geters and seters*/
+			
+		-------------------------
+		public class Produto{
+			private String nome;
+			private int quantidade;
+			private BigDecimal valor;
+			
+			/*geters and seters*/		
+		}
+		
+		-------------------------
+		public class Pedido{
+			private String numeroPedidos
+			
+			private List<Produto>produtos;
+			private Cliente cliente;
+			private vendedor vendedor;
+			
+			public BigDecimal getValorTotal(){
+				BigDecimal total = BigDecimal.ZERO;
+				
+				For (Produto produto : produtos {
+					total = total.add(produto.getValor().multiply(new BigDecimal(produto.getQuantidade())
+				}
+				return total;
+			}
+
+			public int getTotalProdutos(){
+				int total = 0;
+				for (Produto produto : produtos){
+					total += produto.getQuantidade();
+				}
+			}
+		----------------------------------	
+			pubic class PedidoBuilder {
+				private Pedido instancia;
+				
+				public PedidoBuilder(){
+				this.instancia = new Pedido;
+				}
+				
+				public PedidoBuilder setNumPedido(String numeroPedido){
+					instancia.setNumeroPedido(numeroPedido);
+					return this;
+				}
+				
+				public PedidoBuilder setCliente(int codigo, String nome, String telefone){
+					Cliente cliente = new Cliente;
+					cliente.setCodigo(codigo);
+					cliente.setNome(nome);
+					cliente.setTelefone(telefone);
+					
+					instancia.setCliente(cliente);
+					
+					return this
+				}
+				
+				public PedidoBuilder setVendedor(int codigo, String nome){
+					Vendedor vendedor = new Vendedor ; 
+					vendedor.setCodigo(codigo);
+					vendedor.setNome(nome);
+					
+					instancia.setVendedor(vendedor);
+					
+					return this;
+				}
+			
+				public PedidoBuilder setProduto(String nome, int quantidade, BigDecimal valor){
+					Produto produto = new Produto;
+					produto.setNome(nome);
+					produto.setQuantidade(quantidade);
+					produto.setValor(valor);
+					
+					if (instancia.getProdutos() == null){
+						instancia.setProduto(new ArrayList<>())
+					}
+					instancia.getProdutos().add(produto);
+					
+					return this;
+				}
+				
+				public Pedido builder(){
+					return instancia;
+				}
+			
+			----------------------------------  			
+			public class PrincipalBuilder{
+				
+				pubic static void main(String() args){
+				
+					Pedido pedido = new PedidoBuilder()
+										.setNumPedido("9999")
+										.setCliente(100,"Luiz","(34)99645-1318")
+										.setVendedor(30,"Hebert")
+										.setProduto("Caderno",1,new BigDecimal(12.00))
+										.setProduto("Lapis",3,new BigDecimal(1.00))
+										.setProduto("Borracha",2,new BigDecimal(0.50))
+										.builder();
+										
+						pedido.informacoes	
+					}				
+			}
+			}
+
+			
+
+**************************************************************************************
+PADRÃO ABSTRACT FACTORY - familia de objtos dependentes sem expecificar suas classes concretas
+	
+	ex: realizar uma venda imprimir boleto criando a nota e o boleto 
+
+	public class Produto{
+			private String nome;
+			private int quantidade;
+			private BigDecimal valorUnitario;
+			
+			public double getValorTotal(double imposto){
+				BigDecimal valorTotal = valorUnitario.add(new BigDecimal(imposto));
+				valorTotal = valorTotal.multiply(new BigDecimal(quantidade));
+				
+				return valorTotal.doubleValue();
+			}
+			/*geters and seters*/		
+		}
+		
+     --------------------
+	 
+	 public class NFE{
+		private String uf;
+		
+		public NFE(String uf){
+			this.uf = uf;
+		}
+		
+		public double calcularImposto(){
+			if (uf.equalsIgnoreCase("MG")){
+				return 18;
+			}
+			else if (uf.equalsIgnoreCase("RJ")){
+				return 20;
+			}
+			else {
+				return 10;
+			}
+		}
+	 }
+	 
+	 --------------------
+	 
+	 public class Boleto 
+		private String banco;
+		
+		public Boleto(String banco){
+			if (banco.egualsIgnoreCase("Itau")){
+				itau(produto, imposto);
+			} 
+			else if (banco.egualsIgnoreCase("Bradesco"){
+				bradesco(produto, imposto);
+			}
+			else {
+				caixa(produto, imposto);
+			}
+		}
+		
+		private void bradesco(Produto produto, double imposto){
+			System.out.print("Bradesco");
+			System.out.print"-------------------------------");
+			System.out.print("Descricao" + produto.getNome());
+			System.out.print("Quantidade" + produto.getQuantidade());
+			System.out.print("Valor" + produto.getValorUnitario());
+			System.out.print("Imposto R$" + imposto );
+			System.out.print("Valor Total" + produto.getValorTotal);
+		}
+		
+		-------------------
+		
+		public interface VendaFactory{
+			
+			public NFE criarNFE();
+			
+			public Boleto criarBoleto();
+			
+		}
+		---------------------
+		public interface NFE{
+			public double calculaImposto(Produto produto);
+		
+		}
+		---------------------
+		public interface Boleto{
+			public void  emitir(Produto produto,double imposto);
+		
+		}
+		----------------------
+		public class venda{
+			private NFE notaFiscal;
+			privateBoleto boleto;
+			
+			public Venda(VendaFactory factory){
+				this.notaFiscal = factory.criarNFE();
+			
+				this.boleto = factory.criarBoleto();
+			}
+		
+			public void realizarVenda(Produto produto){
+			
+				double imposto = notaFiscal.calcularImposto(produto)
+				
+				boleto.emitir(produto, imposto);
+			}
+		}
+		
+		-------------------------
+		
+		public class LojaCentroInformatica implements VendaFactory {
+			
+			public NFE criarNFE(){
+				NFE notaFiscal = new NFESaoPaulo();
+				return notaFiscal;
+			}
+			
+			public NFE criarBoleto(){
+				Boleto boleto = new BoletoBancoBrasil();
+				return boleto;
+			}
+		}
+		
+		-------------------------
+		
+		public class NFESaoPaulo implements NFE {
+		
+			public double calcularImposto(Produto produto){
+				BigDecimal imposto = new BigDecimal("0.18");
+				
+				imposto = imposto.multiply(produto.getValorUnitario());
+				
+				return imposto.doubleValue();
+			}
+		
+		-------------------------
+		
+		public class BoletoBancoBrasil implements Boleto{
+		
+			public void emitir(Produto produto, double imposto){
+				System.out.print("Bradesco");
+			System.out.print"-------------------------------");
+			System.out.print("Descricao" + produto.getNome());
+			System.out.print("Quantidade" + produto.getQuantidade());
+			System.out.print("Valor" + produto.getValorUnitario());
+			System.out.print("Imposto R$" + imposto );
+			System.out.print("Valor Total" + produto.getValorTotal);
+			}
+		}
+
+		-------------------------
+		
+		public class Principal {
+			Produto produto = new Produto();
+			
+			produto.setNome("Smartphone moto x2");
+			produto.setQuantidade(1);
+			produto.setValorUnitario(new BigDecimal(1000));
+			
+			VendaFactory factory = new LojaCentroInformatica();
+			
+			Venda venda = new Venda(Factory);
+			venda.realizarVenda(produto);
+			
+		}
+
+
+
+
+**************************************************************************************
+PADRÃO MVC - model view controller 
+
+	view - interface grafica tela,formulario
+	controller - camada procesamento dos dados entre a view e model 
+	model - java been
+
+
+
+**************************************************************************************
+PADRÃO DECORATOR - add novas funcionalidades num objeto existente sem mecher na sua estrutura
+
+  seria como sobrescrever uma classe com outras funcionalidade 
+  
+  
+  ex calular o preço final do produto 
+  
+	interface caculaPreco {
+		public BigDecimal valorFinal(Produto produto)
+	}
+	class calculaPrecoComum implements CalculoPreco{
+		public BigDecimal valorFinal(Produto produto){
+			/*contem preço normal podendo criar processo padrao para todos */
+		}
+	}
+		
+	class calculaPrecoFrete implements CalculoPreco{ 
+		private CalculoPreco calculo;
+		
+		public CalculoPrecoFrete(CalculoPreco calculo){ 
+			this.calculo = calculo; /**/
+		}
+	    
+		public BigDecimal valorFinal(Produto produto){
+			BigDecimal valorFinal = calculo.valorFinal(produto);
+			
+			BigDecimal frete
+			
+			/*- acrecentando as condiçoes if para o frete acontecer um frete */
+		    return valorFinal;
+		
+		}
+	
+		
+	}
+		
+	
+	chamada Principal para interface calculaPreco 
+		CalculaPreco calculo = new CalculaPrecoFrete(new CalculoPrecoComum())
+		 
+			desta mesma forma pode ser add varias class ex brinde 
+			a classe seria como do frete com suas particularidades
+			
+			chamada: 
+				CalculaPreco calculo = new CalculaBrinde(new CalculaPrecoFrete(new CalculoPrecoComum()))
+
+
+
+**************************************************************************************
+PADRÃO STRATEGY - pa
+
+
+**************************************************************************************
+PADRÃO STATE - modificar estado de um determinado objeto
+	https://www.youtube.com/watch?v=Z_xGtNpar74&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=14
+         ex: aberto fechado finalizado etc
+
+
+**************************************************************************************
+PADRÃO ADAPTER - adaptação entre objetos nao compativos 
+	https://www.youtube.com/watch?v=v-TAm9deonE&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=15
+
+	ex: conversao do real para dolar 
+	
+	public class Cotacao{
+		double valor;
+		/*get and set*/
+	}
+
+	public class CotacaoAdapter extends Cotacao{
+	   
+	   @Override /*sobrescreve os metodos get e set com a conversao de valores*/
+		public void setValor(double valor){
+			super.setValor(valor / 3.56);
+		}
+		
+		@Override
+		public double getValor(){
+			return (super.getValor()*356);
+		}
+	
+		public double getValorDolar(){
+			return super.getValor();
+		}
+	}
+**************************************************************************************
+PADRÃO FACADE - uma fachada que simplifica a manutençao do codigo 
+	https://www.youtube.com/watch?v=PuApVFSLRZE&list=PLnOrFdw5rkTyDPr1yOW2H14Oq8u7IiDyP&index=16
+	
+	quando tem uma serie de operação constroi uma facade para que 
+	a chamada nao seja direto as operaçoes assim evita de alterar uma operacao e 
+	a classe que acessa tenha que ser alterada tbm
+
+
+
+##################################################################
+paradigmas de programação - maneiras de resolver o problema 
+##################################################################
+	Imperativa	, procedural, estruturado , orientado a objeto
+
+1)Imperativa - comando passo a passo de tudo que tem que ser feito 
+	codigo grande com muita repetiçao 
+	
+2) Procedural - Funçoes diminuindo a repeticao do codigo 
+
+3) estruturada - condicional,loop, try catch diminuição de codigo mais estruturado
+				sistema pequeno 
+
+4) Orientado a objeto - trazer mundo real para programação (classes,heranças,polimorfismo, encapsulamento)
+						sistema grande
+
+
+Paradigma Declarativo - programação funcional, logica, liguagem de marcaçao 
+						procupa em fazer nao como foi feito sql 
+						
+						
+
+#############################################
+Principios SOLID
+#############################################
+	
+	Spr - reponsabilidade unica - a classe tem que ter apenas uma tarefa 
+		ex: class pedido separar parte que trata do item,outra class cuidando dos pedidos , outra cuidando da impressao
+	
+	Ocp open close - aberto para extenção fechado para alteração 
+					 tem a mesma regra do Design Patter Strategy 
+					 sempre que uma classe precisa de varios if e tem
+					 possibilidade de extender pode aplicar esta regra
+					 
+	    ex:folha de pagamento 
+		errado:
+			class ContratoClt {
+				 public void salario(){
+				 /*...*/
+				 }
+			}
+			class ContratoEstagio {
+				 public void bolsaAuxilio(){
+				 /*...*/
+				 }
+		    class folha de pagamento {
+				privado double saldo;
+				
+				public void calcular(String contrato){
+				 if (contrato = "clt"){
+					/*...*/
+				 }else if(contrato = "estagio"){
+					/*...*/
+				 }				 
+			}
+		
+certo: se resolve acrescentar mais um tipo PJ pode dar problemas e dificil manutenção	
+	        
+			interface Remuneravel{
+				public function remuneracao();
+			}
+			
+			
+			class ContratoClt implements Remuneravel{
+				 public void remuneracao(){
+				 /*...*/
+				 }
+			}
+			
+			class ContratoEstagio implements Remuneravel{
+				 public void remuneracao(){
+				 /*...*/
+				 }
+				 
+			class ContratoPj implements Remuneravel{
+				 public void remuneracao(){
+				 /*...*/
+				 }
+			}
+			
+		    class folha de pagamento{
+				privado double saldo;
+				
+				public void calcular(Remuneravel contrato){
+					this.saldo = contrato.remuneracao();
+				}	
+			}
+	
+	Lsp - classe derivada substituida pela class base
+	Isp - principio da segregaçao - nao implementar interfaces que nao vai utilizar 
+		ex: 
+			public interface Ave {
+				public void setLocalizacao(int longitude,int altitude);
+				public void setAltitude(int altitude);/*existem aves que nao voa melhor criar outra interface com aves que voam assim nao havera metodos desnecessarios*/
+			}
+		
+		    class papagaio implements Ave{
+				public void setLocalizacao(int longitude,int altitude){
+					/**/
+				}
+				public void setAltitude(int altitude){
+					/**/
+				}
+			}
+			class pinguim implements Ave{
+				public void setLocalizacao(int longitude,int altitude){
+					/**/
+				}
+				public void setAltitude(int altitude){
+					/*pinguim nao voa melhor criar outra interface com aves que voam assim nao havera metodos desnecessarios*/
+				}
+			}
+			
+	D - depender das abstrações e nao de implementações
+	
+
+
+			
+#############################################
+Protocolo HTTP
+#############################################
+
+
+           ___________                 REQUEST                ___________  
+		  |           |   ------------------------------>    |           | 
+		  | NAVEGADOR |                                      |  SERVIDOR |
+		  |___________|                 RESPONSE             |___________|
+                          <------------------------------ 
+						   
+		REQUEST = seu navegador manda uma informação para o servcodEmpresaor 
+		RESPONSE = resposta do servcodEmpresaor para o navegador
+         ex:  informação enviada via TCP - IP que define o trajeto (roteadores que vai percorer)	
+			(IP) traça a rota 
+			(TCP) organiza os pacotes de forma que nao perca e se nao chegar todos ele manda novamente 
+			e organiza em ordem servcodEmpresaor tem as portas ex http 80 com isso ele sabe para onde
+			mandar ai o servcodEmpresaor sabe onde buscar (servcodEmpresaor: apache tomcat node)
+		 
+Camada de rede sao 7 mais vamos ver 4 mais importantes
+	
+         --------------  
+		 1 - APLICAÇÃO   > http,ftp,dhct,smtp  é a camada do software programa
+		 --------------
+		 2 - TRANSPORTE  > TCP,UDP
+		 --------------
+		 3 - REDE        > IP
+		 --------------
+		 4 - HARDWARE    > CABOS 	
+		 --------------
+		 
+		 sai do navegador passa pelo 1>2>3>4 chega no servcodEmpresaor pelo 4>3>2>1
+						   
+Linhas de pedcodEmpresao 		
+		GET       pegar
+        POST      alterar
+		PUT       editar todo corpo  
+		PATCH     editar apenas um valor 
+		OPTIONS   verificar se aceita a operaçao
+		HEAD      manda pedcodEmpresao para retornar apenas os cabeçarios
+		TRACE     retorna como a msg chegou
+		CONNECT	  
+	  
+	  
+Erros http 
+
+        1XX: Informativo – a solicitação foi aceita ou o processo continua em andamento;
+		2XX: Confirmação – a ação foi concluída ou entendida;
+		3XX: Redirecionamento – indica que algo mais precisa ser feito ou precisou ser feito para completar a solicitação;
+		4XX: Erro do cliente- indica que a solicitação não pode ser concluída ou contém a sintaxe incorreta;
+		5XX: Erro no servidor – o servidor falhou ao concluir a solicitação.	  
+	  
+
+Lista de Código de Status HTTP
+Agora que você sabe o que é HTTP e HTTPS, confira essa lista com códigos HTTP, que tem os códigos mais comuns e outros que raramente são usados, baseado no W3.org.
+
+Código do Status HTTP
+(Status-code)	Significado do código HTTP
+(Reason-Phrase)	Significado do código HTTP
+       100	Continue							Continuar
+         101	Switching Protocols				Mudando Protocolos
+         102	Processing						Processando
+       
+		 200	Ok								Ok
+         201	Created							Criado
+         202	Accepted						Aceito
+         203	Non-Authoritative Information	Não autorizado
+         204	No Content						Nenhum Conteúdo
+         205	Reset Content					Resetar Conteúdo
+         206	Partial Content					Conteúdo Parcial
+         
+		 300	Multiple Choices				Múltipla Escolha
+         301	Moved Permanently				Movido Permanentemente
+         302	Found							Encontrado
+         303	See Other						Veja outro
+         304	Not Modified					Não modificado
+         305	Use Proxy						Use Proxy
+         306	Proxy Switch					Proxy Trocado
+         
+		 400	Bad Request						Solicitação Inválida
+         401	Unauthorized					Não autorizado
+         402	Payment Required				Pagamento necessário
+         403	Forbidden						Proibido
+         404	Not Found						Não encontrado
+         405	Method Not Allowed				Método não permitido
+         406	Not Acceptable					Não aceito
+         407	Proxy Authentication Required	Autenticação de Proxy Necessária
+         408	Request Time-out				Tempo de solicitação esgotado
+         409	Conflict						Conflito
+         410	Gone							Perdido
+         411	Length Required					Duração necessária
+         412	Precondition Failed				Falha de pré-condição
+         413	Request Entity Too Large		Solicitação da entidade muito extensa
+         414	Request-URL Too Large			Solicitação de URL muito Longa
+         415	Unsupported Media Type			Tipo de mídia não suportado
+         416	Request Range Not Satisfiable	Solicitação de faixa não satisfatória
+         417	Expectation Failed				Falha na expectativa
+		 
+		 500	Internal Server Error			Erro do Servidor Interno
+         501	Not Implemented					Não implementado
+         502	Bad Gateway						Porta de entrada ruim
+         503	Service Unavailable				Serviço Indisponível
+         504	Gateway Time-out				Tempo limite da Porta de Entrada
+         505	HTTP Version Not Supported		Versão HTTP não suportada
+         
+#############################################
+Configuraçao IDE 
+	window > preferences > 
+	window > preferences > pesquisa jre (configurar )
+
+
+#############################################
+#############################################
+Maven - Instalando manual Spring tool e o intellyj já vem com maven imbutido(usa quando vc quer utilizar os comandos manual cmd e git bash)
+#############################################
+Oque é o maven 
+	E uma estrutura de projeto que facilita a compilação em qualquer IDE	
+	Maven (organiza seu projeto para compilar em quanquer framework)
+
+    PASTAS PADRAOo
+	src/main/java  (todos os arquivos .java)
+	src/main/resouces (todos arquivos que nao é java exemplo .properties)
+	src/test/java (tudo que for arquivos de teste)
+	target (tudo que vc compilar)
+	
+	pom.xml 
+		version SNAPSHOT (esta em desenvolvimento) RELESE(esta em producao)
+		
+		Parent (Se o projeto basea em alguem baixa varias bibliotecas.
+		Obrigatorio no spring org.springframework.boot, ele faz um monte de configuracao para o spring)
+		
+		Dependencias 
+			spring-boot-start-web (informa que é um projeto web)
+			spring-boot-devtools (auto reloud)
+			spring-boot-jpa (persistencia banco)	
+	
+	
+Baixar o Maven https://maven.apache.org/download.cgi > Arquivos > arquivos zip binario
+Descompaquitar o arquivo
+
+No Windows variaveis de Ambiente
+    Criar uma nova variavel de usuario 
+       nome =   M2_HOME    
+       valor(caminho onde descompactou o maven) =  C:\apache-maven-3.8.4
+    No Path da variavel de usuario adicione
+	C:\apache-maven-3.8.4\bin  
+	
+     salva e fecha as variaveis de ambiente 
+     
+Testar 
+	Abre o cmd digita:  mvn -version
+	
+Caso não funcione 
+	Variaveis de Ambiente > variaveis de sistemas > path add C:\apache-maven-3.8.4\bin 
+-----------------------------------------------------------------------------------------------------------------------
+CONFIGURAR O MAVEN NO ECLIPSE IDE 	
+	
+http://luizricardo.org/2014/06/instalando-configurando-e-usando-o-maven-para-gerenciar-suas-dependencias-e-seus-projetos-java/	
+-----------------------------------------------------------------------------------------------------------------------
+CRIANDO PROJETO MAVEN PELO SPRING
+
+	File > New > project > Maven > Maven Project 
+		X - Create a simple project ...  (marcar) se nao marcar vc vai para opçao de escolher um modelo de projeto
+		Next
+		Group id:  com.vsystem.financeiro  (indentifica o projeto como unico)
+		Artifact id:  contas-pagar-api (nome do projeto)
+		Version: 0.0.1-SNAPSHOT  (versão do projeto "SNAPSHOT" significa que ainda esta em desenvolvimento)
+		Packaging: jar (server tomcat ja vem imbutido)
+		           war (usar o server externo) https://www.youtube.com/watch?v=UQuinl-kHxo
+		Finaliza
+		
+	pom.xml
+	     (Definições que é um projeto maven)
+	     
+		<groupId>com.hsvSystem.mavenTreinamento</groupId>
+		<artifactId>treinamento-maven</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+
+--------------
+PROPERTIES  (DEFINIR QUAL VERSAO DO JAVA VAI ESTAR UTILIZANDO)
+
+  <properties>
+  	<maven.compiler.source> 1.8 </maven.compiler.source>
+        <maven.compiler.target> 1.8 </maven.compiler.target>
+  </properties>	
+--------------
+DEPENDENCIES () 
+    1° Tenta baixar do repositorio local na maquina se nao tiver baixa da web (Maven Dependencies esta caminho do repositorio local) cd  ~/.m2/repository/org/apache  (~/ pegar o usuario logado)
+
+    2º BtnDireito > Maven > Update projet > X marcar Force Update of Snapshots/Releases > ok
+
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.commons</groupId>
+  		<artifactId>commons.lang3</artifactId>
+  		<version>3.12.0</version> 
+  		<scope>compile</scope> <!-- compile(disponivel em todo class path do projeto ), test (disponivel somente pasta test),runtime(disponivel na execução e nao na compilação) -->
+  	</dependency>
+  </dependencies>
+  
+  Dependencias transitiva (quando baixa uma dependencia e ela tras outras dependencias)	
+  Comando VISUALIZAR DEPENDENCIAS PROJETO mvn dependency:tree
+-----------------------------------------------------------------------------------------------------------------------	
+COMANDOS DO MAVEN
+	mvn -version  (versao saber se esta funcionando, local onde esta instalado)
+	
+   CRIAR PROJETO  mvn -B archetype:generate -Dgroup=br.vsystem -DartifactId=maven  (CRIA PASTA maven QUE ESTARA O PROJETO src e pom.xml)
+	
+	VISUALIZAR DEPENDENCIAS PROJETO mvn dependency:tree
+	
+	LISTAR ls : verifica se esta no diretorio que tem o pom.xml
+	
+	COMPILAR E EMPACOTAR PROJETO 
+		ls : verifica se esta no diretorio que tem o pom.xml
+		mvn package (compilar)
+		mvn clean package (limpa compilar)
+		mvn -DskipTests clean install (gerar war ou jar sem rodar o teste)
+		
+        DELETAR PASTA TARGET:  mvn clean
+   	
+	
+	
+	
+#############################################
+Spring Boot
+#############################################
+Criando projeto sempre pela pagine do spring
+https://start.spring.io/
+1) vai escolher se o projeto é maven ou gradle 
+2) Group = br.com.hsvieira   ( convenção no java com nome da empresa que trabalha )
+3) artifact = exemplo-gradle ( nome do projeto que vc vai trabalha )
+4) informa as dependencias: web é principal
+
+projeto criado extrai a pasta 
+
+No Intellij 
+	*Projeto Maven importa pelo pom.xml
+	 Do lado direito tem os plugns do maiven 
+		install > Quando termina de build Cria a pasta target onde o projeto vai estar em tempo de execução
+	        Plugin > spring boot > run (neste momento sobe a aplicação)
+		http://localhost:8080
+		
+		executando pelo MSdos =  java -jar target/nomeArquivo.jar   
+			fica  java -jar target/exemplo-maven-0.0.1-SNAPSHOT.jar  (fica dentro pasta target o arquivo jar)
+
+		*Projeto Gradle importa pelo build.gradle (que é arquivo de config principal)
+		Do lado direito tem o gradle
+		build > build   =  faz a função do install, Quando termina de build Cria a pasta build/libs onde o projeto vai estar em tempo de execução
+		Task > aplication > bootRun (executar subir a aplicação pelo intellij)
+		
+		executando pelo MSdos =  java -jar target/nomeArquivo.jar   
+			fica  java -jar build/libs/exemplo-maven-0.0.1-SNAPSHOT.jar  (fica dentro pasta target o arquivo jar)
+			
+#############################################
+application,properties
+#############################################	
+  spring.jpa.database=POSTGRESQL      
+  spring.datasource.platform=postgres
+  spring.jpa.show-sql=false  // mostrar as consultas sql no console false(produção)   true(desenvolvimento)
+          
+  spring.jpa.hibernate.ddl-auto=none   //forma que vai modificar o banco (none produção) create ou update(desenvolvimento)
+  spring.datasource.driver-class-name=org.postgresql.Driver
+  spring.datasource.url=jdbc:postgresql://localhost:5432/osworks?createDatabaseIfNotExist=true&useSSL=false
+  spring.datasource.username=postgres
+  spring.datasource.password=851213
+
+#############################################
+Java Basico - https://www.youtube.com/watch?v=IshatInRiLo&list=PLtchvIBq_CRTAwq_xmHdITro_5vbyOvVw
+               Aula de Java 001 ate 099
+#############################################
+ comentario 
+	// para uma linha  
+	/* para varias linhas */   
+	<!--para html -->
+
+Imprimir no console 
+	System.out.print("")
+
+Criação de variavel 
+	String nome = "nome";
+	int idade = 32;
+	double altura = 1,25;
+	char sexo = "M";
+	boolean casado = true;
+	
+Operadores 
+		aritimeticos(+-*/)  ex: soma = 8+3;
+		mod %  ex: resto = x%y;
+		
+Comparação  (<,>,>=)
+		== iqual  ex:  10==10;
+        != diferente	ex:  10!=10;
+Incremento  (++ e --)
+			++valor; implementa o valor na mesma linha
+			valor++; implementa o valor so na proxima linha
+
+ IF:
+		if(expressao){
+			aplica
+		}else{
+		aplica};
+		
+ Aula 14) expressao and(&&)  if ( x>1 && x<20)
+			 or(||)  if ( x>1 || x<20)
+			 not(!)  if (!true) 
+		
+SwitchCase
+			int diaSemana;
+			
+			String nomDoDia ;
+			
+			switch(diaSemana){
+			case 1:nomDoDia="Domingo";break;
+			case 2:nomDoDia="Segunda";break;
+			case 3:nomDoDia="Terca";break;
+			default:nomDoDia="Dia invalido";break;
+			}
+
+While:
+	int x = 1;
+	while(x<10){
+		System.out.print(x);
+		x++;
+	}
+	
+DoWhile:
+		int x = 1;
+		do{
+			System.out.print(x + "passara pelo menos uma vez");
+			x++;
+		}while (x<10);
+		
+For:
+	for(int i=1;i<10;i++){
+		System.out.print(x);
+	}
+	
+Vetor
+		String[] nomes = new String[3];
+		nomes[0] = "gugu0";
+		nomes[1] = "gugu1";
+		nomes[2] = "gugu2";
+    tambem pode ser escrito desta maneira
+	
+		String[] nomes ={"gugu0","gugu1","gugu2"};
+		System.out.print(nomes[1]);
+		
+Foreach:
+	    for (String nome : nomes){
+			System.out.print(nome);
+		}
+		
+		nomes.forEach(nome -> {
+			System.out.print(nome);
+		})
+		
+Matriz 
+		int numeroDelinha = 2;
+		int numeroDeColuna = 2;
+		String[][] nomes = new String[numeroDelinha][numeroDeColuna];
+		nomes[0][0] = "gugu0";
+		nomes[0][1] = "gugu1";
+        nomes[1][0] = "ana";
+		nomes[1][1] = "kelven";		
+	tambem pode ser escrito desta maneira		
+		String[] nomes ={{"gugu0","gugu1"},{"ana","kelven"}};
+		System.out.print(nomes[1][0]);	
+
+Classe
+		public class Pessoa{
+			int id; //atributo
+			String nome; //atributo
+		}	
+
+Instanciando a class 
+		Pessoa pessoa = New Pessoa();   // objeto pessoa , New instancia da class
+		
+metodo (tipoDeRetorno nomeMetodo)
+       
+	   //void vazio sem retorno
+	   void durmir(){   
+			System.out.print("Zzzzzzzzzzzzz");
+        }	
+        
+		//retorna algo
+		String apresentar(){   
+			Return System.out.print("Meu nome é Heliton");
+        }	
+		
+		//passagem de parametro
+		String apresentar(String nome){   
+			Return System.out.print("Meu nome é: " + nome);
+        }
+		
+    //passar varios parametros indefinido
+		int somarNumeros(int ... numeros){
+			for(int n : numeros){
+			  soma +=n;
+			}
+			return soma;
+		{
+		
+		int soma = classe.somarNumeros(10,25,32,65);
+		
+Construtores - serve para inicializar os valores dos atributos 
+
+			public class Pessoa{
+				String nome;
+				
+				//Construtor vazio ja vem de padrao mais é bom criar novamento pois 
+				//se for criado um com argumento ele sera apagado 
+				//construtor vazio
+				Pessoa(){
+					nome = "Carlos"; //adicionando valor ao atributo nome
+				}
+				//construtor com argumento
+				Pessoa(String nome){					
+				}				
+			}
+			
+This:	referencia a class 
+     
+        public class Pessoa
+					String nome = "carlor";
+					Pessoa(){
+						String nome = "bruno";
+						System.out.print(this.nome); //carlos
+						System.out.print(nome); //bruno					
+					}
+		 public class Pessoa
+					String nome;
+					Pessoa(Sting nome){	
+							this.nome = nome; //nome da clase recebe o nome passado pelo metodo  
+					{
+	
+Atributo static - ele é unico não muda 
+Metodo static - só acessa os atributos staticos
+
+Pacote ou package - para acessar de pacotes diferentes tem que importar ctrl + Shift + o 
+	import nomePacote.NomeClasse;
+	 
+package atributo e metodos em outro pacote só e acessado se o modificador de acesso for public
+		public Sring nome;
+		private String senha;
+		
+		public void dormir(){
+			System.out.print("zzzzzzzzzzzzzzzz");
+		}
+	     
+		 public boolean verificarSenha(String senha){
+		  ...
+		  return true ;
+		 }
+
+
+Encapsulamento  - proteger os atributos maior controle de entrada e saida Get e Set
+         btn Direito > Souce > Generator Get and Set
+		 
+         public String getNome(){
+			return nome;
+		 }
+		 
+		 public void setNome(String nome){
+			this.nome = nome ; 
+		 }
+
+
+####################################################################################################################################################		 
+BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)
+		 
+		 deve ser instalado pelo maven arquivo pom.xml biblioteca lombok 
+		 
+		 criado automaticamente com as seguintes anotaçoes 
+		 - em cima da class para todas propriedades
+		 - em cima do atributo somente para o unico atributo 
+	
+	ctrol + O (ver as propriedades da classe)	 
+	------------------------------
+	Poderoso comando que ja vem com todas as anotações 
+		 @Data - cria @Getter @Setter  @equalsAndHashCode  @RequiredArgsConstructor(@NonNull em cima propriedades para passar para construtor argumento)
+	------------------------------
+		 @Getter 
+		 @Setter 
+		 
+		 @Getter(AccessLevel.PACKAGE) - elevar a nivel do pacote  
+		 @Getter(AccessLevel.Privente) - propriedade fica privada não acessivel 
+		 @Getter(AccessLevel.NONE) - deixa oculto nem aparece 
+		 
+	------------------------------
+		 @ToString - implementar o metodo ToString com todas propriedades em cima da classe
+		 @ToString.Exclude - Em cima da propriedade não vai para o metodo @ToString
+	outra forma de trabalhar com  @ToString
+		 @ToString(onlyExplicitlyIncluded) - implementar o metodo ToString com as propriedades que for determinadas @ToString.Inclide
+		 @ToString.Inclide - Em cima da propriedade vai para o metodo @ToString
+	------------------------------	
+                @equalsAndHashCode  - compara com todas propriedades
+		@equalsAndHashCode (onlyExplicitlyIncluded) - vc determina qual propriedade quer comparar @equalsAndHashCode.Include	
+		@equalsAndHashCode.Include - em cima da propriedade que quer atribuir ao @equalsAndHashCode
+	------------------------------
+                @AllArgsConstructor - gera construtores com todos argumentos todas propriedades
+		@NoArgsConstructor - gera construtor vazio sem argumentos 
+		@RequiredArgsConstructor - vc determina com @NonNull na propriedade qual vai estar no construtor
+        ------------------------------
+		@Builder - informado em cima da classe Facilita o jeito de fazer o set a classe 
+		
+		         
+			
+			ex: jeito normal 
+				Cliente cli = new Cliente();
+				cli.setId(1L);
+				cli.setNome("Heliton");
+				
+			ex: com Builder
+				Cliente cli = Cliente.builder()
+				.id(1L)
+				.nome("Heliton")
+				.build();
+				
+		@Singular - informado em cima propriedade List
+                        ex:
+			//declarando na classe 
+				@Singular   - (pega a propriedade telefones e passa para o singular retirando o "S"
+						existem palavras em ingles que compilador não consegue traduzir por isso é bom ja definir qual vai ser 
+						palavra usada com  ex: @Singular("informarTelefone")  )
+				private List<Telefone> telefones = new ArrayList<>();
+			
+			//carregando no set
+				Cliente cli = Cliente.builder()
+				.id(1L)
+				.nome("Heliton")
+				.telefone(new Telefone()) //caso coloque o nome ai teria ficado .informarTelefone(new Telefone())
+				.telefone(new Telefone())
+				.build();
+	------------------------------	
+				@Slf4j - em cima da class 
+	LOG 
+	biblioteca a ser usada:  import org.slf4j.Logger
+	
+	Public class Cliente
+	private static final logger log = LoggerFactory.getLogger(Cliente.class) - //  @Slf4j em cima da class elimina esta linha deixa mais elegante o codigo 
+	
+	//uso
+	log.info("Teste");
+	
+	Existem outras para log que ja esta implementada no lombok como: @Log4j, @Log4j2 , @CommonsLog 
+	------------------------------	
+		
+##End####################################################################################################################################################		
+Herança - extends  só pode ter 1 classe pai 
+
+         public class Animal {
+			 public double peso;
+			 public void falar(){
+				System.out.print("animal dormindo")
+			 }
+		}		
+	--------------  // herda atributos e metodos da classe animal 
+		public class Cachorro extends Animal{
+			 
+		}	
+
+Sobrescrita metodos   // metodo existe na class pai e filha mesmo nome msm parametros mais hage de forma diferente
+    
+	public class Galinha extends Animal{
+     public void falar(){ //nas 2 class pai e filha tem o metodo falar ele sempre utiliza a sobrescrita na filha
+				System.out.print("cocorico")
+			 }		
+			 
+			 
+classes Abstract - que nao pode ser instanciadas ex (class Animal  class Gato class Cachorro )  Animal pode ser uma class abstract
+			   public abstract class Animal
+			   public abstract void falar(); //metodo abstract o primeiro metodo concreto que herdar deve sobrescrever este metodo falar()
+			 
+			 
+Classe Final - quando e a ultima classe ou seja nao pode ser herdada ex: class(Animal , Cachorro, Gato) cachorro e gato pode ser uma class final			 
+	public final class Cachorro extends Animal{
+		final String habitate = "Planeta terra" // atributo nao muda	
+		
+	}
+	
+Interface - 100% abstract so pode ser herdada de outra interface
+	public interface Animal {
+		Sting habitat = "Planeta terra" //automaticamente ja é public abstract final  e os atributos tem que ser inicializados
+		void durmir(); // metodos são public abstract por padrao
+		
+		//*obs classe não pode extends herdar de uma interface elas implementao
+		
+		-----------
+		
+		public class Pombo implements Animal{
+			public void durmir(){ //interface nao precisa do public ja na implementação precisa
+			}
+		}
+		
+		-----------
+		//classe pode ter mais de 1 implemento
+		public class Pombo implements Animal,Ave{ //implements Animal,Ave
+			public void durmir(){ //interface nao precisa do public ja na implementação precisa
+			}
+			public void voar(){ //interface nao 	precisa do public ja na implementação precisa
+			}
+		}
+		
+Class Scanner -  import java.util.Scanner //receber entrada externa 
+			Scanner ler = new Scanner(System.in)
+			Sting texto = ler.nextLine(); //recebe o texto digitado
+			int numero = ler.nextInt();//somente numero inteiro
+			double numero = ler.nextDouble();//recebe com "," e retorna com "."
+			boolean text = ler.nextBoolean();
+			
+Class JOptionPane -	import javax.swing.JOptionPane; //caixa de dialogo grafica identico messageBox	
+			JOptionPane.showMessageDialog(null,"ola mundo");// (posição em relaçao ao pai , text)
+			//retorno de dados
+			String nome = JOptionPane.showInputDialog("Qual seu nome?");
+			int nome = JOptionPane.showConfirmDialog(null,"Voce e casado?"); //opção sim =0 nao=1 cancelar=2  fechar=-1
+			
+			
+37 Try catch tratamento	
+             
+			1)	try{//expressao pode ocorrer erro 
+				}catch(Exception erro){ //(Exception erro) captura todo tipo de excessão
+			    }
+		      
+			  //pode ter varios catch 
+			2)	try{//expressao pode ocorrer erro 
+				}catch(InputMismatchException erro){ //(troca  Exception erro) pela excessão especifica 
+			         //InputMismatchException - entrada de valor do tipo incorreto
+					JOptionPane.showMessageDialog(null,"Voce só pode informar numeros inteiros!");
+				}catch(ArithmeticException erro){ //(troca  Exception erro) pela excessão especifica 
+			         //ArithmeticException - divisao por zero
+					 System.out.print("Nenhum numero pode ser dividido por zero")
+					 
+				} finally{   // independente se ocorrer erro vai ser executado 
+					System.out.print("Fim")
+				}
+38 converte conversão dados				
+				
+		  string para inteiro   ex:  int x = Integer.parseInt("27");
+          string para double    ex:  double x = Double.parseDouble("3.65"); 
+          string para boolean   ex:  boolean x = Boolean.parseBoolean("true"); 
+          converter para string ex:  String x = String.valueOf(1);
+		   BigDecimal x  = BigDecimal.valueOf(9);
+
+39 Separa Split - nao funciona com $
+
+	1)		String nome = "Heliton Silva Vieira";
+            String[] nomes = nome.split(" "); //split cria um vetor separando (" ") pelo campo determinado no parentes
+			System.out.print(nomes[1]);//Heliton
+			System.out.print(nomes[2]);//Silva
+			System.out.print(nomes[3]);//Vieira
+
+    
+	2)		String nome = "Heliton Silva Vieira";
+            String[] nomes = nome.split(" ",2); //(" ",2) determina quantas parte quer separar
+			System.out.print(nomes[1]);//Heliton
+			System.out.print(nomes[2]);//Silva Vieira
+    
+	
+	3)  Fazendo uma soma 
+
+		int soma = calc.somar("1+1+3"); //passa string 
+		
+		public int somar(String expressao){
+		int soma = 0;
+		for(String valorSomar : expressao.split("\\+"))
+			soma += Integer.valueOf(valorSomar);			
+		
+		System.out.println(soma);
+		return soma;	//retorna valor da soma
+	}
+
+-----------------------USO VAR ARRAYS ...
+		
+		soma(10,25,30,2,4)//chamada metodo
+		
+		//...possibilita receber varios valores 
+		public int somar(int ...valores){
+			int soma =0;
+			for (int valor :valores){
+				soma += valor
+			}
+			return soma;
+		}
+
+---------------------------------------------	
+40) Replace altera texto
+              nome.replace("antigo","novo");	
+              nome.replaceFirt("antigo","novo");//altera só a primeira ocorencia que encontrar
+
+41)Length - tamanho String  
+			  nome.length()
+
+42) JFrame - Formulario janela grafica import javax.swing.JFrame
+
+		public class Formulario{
+     		JFrame jf = new JFrame();
+			jf.setTitle("Titulo da janela");
+			jf.setSize(500,400);//tamanho em px
+            jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//obrigatorio para quando fechar a janela no ficar ocupando espaço memoria
+			jf.setLocationRelativeTo(null);//centralizar a janela
+			jf.setResizable(false); //nao redimencionar a janela tamanho
+			jf.setVisible(true);//deixar janela visivel
+            }
+
+    tambem pode ser escrito como herança
+		
+		public class Formulario extends JFrame{
+     		
+			setTitle("Titulo da janela");
+			setSize(500,400);//tamanho em px
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//obrigatorio para quando fechar a janela no ficar ocupando espaço memoria
+			setLocationRelativeTo(null);//centralizar a janela
+			setResizable(false); //nao redimencionar a janela tamanho
+			setVisible(true);//deixar janela visivel
+            }
+
+
+43) adicionar botao ao formulario
+              	
+	public class Formulario extends JFrame{
+     		
+		JButton jb = new JButton("Botao 1");
+		public botao(){	
+		  
+		  setLayout(null); //eu quero controlar meus conpomentes
+		  jb.setBounds(10,20,100,60)//(x,y,alt,larg)(posiçaoHorizontal,posiçaoVertical,altura,largura)
+   		  //getContentPane().add(jb);   //só para resaltar que o botao esta dentro de um getContentPane
+			add(jb);
+			setTitle("Titulo da janela");
+			setSize(500,400);//tamanho em px
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//obrigatorio para quando fechar a janela no ficar ocupando espaço memoria
+			setLocationRelativeTo(null);//centralizar a janela
+			setResizable(false); //nao redimencionar a janela tamanho
+			setVisible(true);//deixar janela visivel
+        }
+	}		
+
+        //main chama o metodo botao
+		new botao();
+
+ArrayList - nao aceita tipo primitivo tipo int double somente String Integer 
+            vantagem nao precisa ser informado a qtde de posição inicial
+		
+		ArrayList<String> nomes = new ArrayList<Sting>();
+		nomes.add("gugu");
+		nomes.add("boi");
+		nomes.remove(0);
+		nomes.clear(); //remove todas as posicao
+		nomescontains("gugu"); // retorna true verifica se exist no array 
+		nomes.size(); // tamanho quantas posiçao preenchida
+		nomes.indexOf("boi"); //retorna posiçao que o obj encontra se nao encontrar retorna -1
+	
+
+data date  https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
+        Bibliotecas 
+			jdk 8 - import java.text.SimpleDateFormat;
+				@JsonFormat(pattern="dd/MM/yyyy HH:mm")
+				private Date instante;
+			
+			jdk 11- import java.time.LocalDateTime; 
+				@JsonFormat(pattern="dd/MM/yyyy HH:mm")
+				private LocalDateTime dtaAdmissao; 
+		
+
+		Date data = new Date();
+		SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+		String dataFormatada = formatar.format(data);
+		ctrol+v // para ver os SimpleDateFormat existentes
+
+
+Sleep - espera um tempo para executar  proximo comando 
+
+		try{
+		thread.sleep(1000); // leva 1000 milessegundo ou 1 segundo para executar proximo comando 
+         }catch(Exception erro){}
+
+
+--------------------------------StringBuilder (juntar string quando texto muito grande)------------------------------------------------------------------------
+
+public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Produto: ");
+		builder.append(getNome());		
+		builder.append(", Preço: ");
+		builder.append(getPreco());	
+		return builder.toString();
+	}
+
+-------------------------------------------------------------------------------------------------------
+Coleções collections 
+-------------------------------------------------------------------------------------------------------
+	String i1 = "uva"
+	String i2 = "pera"
+	String i3 = "vaca"
+	
+	ArrayList<String> itens = new ArrayList<>(); // declaração 
+	
+	itens.add(i1);
+	itens.add(i2);
+	itens.add(i3);
+	
+	system.out.print(itens); //retorno  [uva,pera,vaca]
+
+metodos 
+	itens.remove(0);
+	itens.get(0); //pegar primeira aula 
+	itens.size(); //qts elementos tem na coleção
+	Collections.sort(itens) // ordena ordem alfabetica
+
+Percorer a coleção	
+	for (String item : itens ){
+		system.out.print(item); 
+	}
+
+ou
+
+	for (int i = 0; i < itens.size(); i++ ){
+		system.out.print(itens.get(i)); 
+	}
+	
+ou 
+    itens.forEach(item ->{item})		
+
+------------------ITERATOR----------------------------------
+
+Iterator <String> lista = itens.iterator(); // pega todos itens e joga na lista 
+
+while (lista.hasNext()){   //hasNext retorna true enquanto existe item na lista
+	system.out.print(lista.next); // next funciona como o get	
+	lista.remove // deletar 
+}
+
+---------------------------implements Serializable serializar -------------------------------------------------
+implements Serializable = converter a classe em bits para trafegar em rede 
+		ex: public class User implements Serializable {
+			    private static final long serialVersionUID = 1L;
+
+#############################################
+Tratamento de Erros Exception 
+#############################################
+arvore		
+			________Throwable__________
+			|                          |
+		___Exception___   		Error______
+		|	       |			  |	
+  InterruptedException   RuntimeException  	      ThreadDeath
+		      _________|____________	
+		     |  	            |		      
+	ArithmeticException           NullPointerException
+	
+	
+	
+	try {
+		//codigo fonte que sera verificado	
+	}catch (){
+		throw new AcessoADadosException("Problema na criação do statement",e);
+	}finally{
+		stmt.close(); //muito usado para finalizar conecxao com banco 
+	}
+
+	
+	Throw e Throws (usado para excessão desejada em metodos)
+
+			public String recuperarUsuario(String query) throws Acesso ADadosException{
+				try {
+					//codigo fonte que sera verificado	
+				}catch (){
+					throw new AcessoADadosException("Problema na criação do statement",e);
+				}finally{
+					stmt.close(); //muito usado para finalizar conecxao com banco 
+				}
+			}
+#############################################
+JPA
+#############################################
+Outros problemas que devem ser tratados:
+	- Contexto de persistência (objetos que estão ou não atrelados a uma conexão em um dado momento)
+	- Mapa de identidade (cache de objetos já carregados)
+	- Carregamento tardio (lazy loading)
+	- Outros
+
+
+	Java Persistence API (JPA) é a especificação padrão da plataforma Java EE (pacote javax.persistence) para
+	mapeamento objeto-relacional e persistência de dados.
+	JPA é apenas uma especificação (JSR 338):
+	http://download.oracle.com/otn-pub/jcp/persistence-2_1-fr-eval-spec/JavaPersistence.pdf
+	Para trabalhar com JPA é preciso incluir no projeto uma implementação da API (ex: Hibernate).
+	Arquitetura de uma aplicação que utiliza JPA:
+	Principais classes:
+	EntityManager
+	
+-----------------------------------------
+EntityManager - Documentação  https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html
+----------------------------------------
+	EntityManager encapsula uma conexão com a base de dados e serve para efetuar operações de
+		acesso a dados (inserção, remoção, deleção, atualização) em entidades (clientes, produtos, pedidos, etc.)
+		por ele monitoradas em um mesmo contexto de persistência.
+
+		Escopo: tipicamente mantem-se uma instância única de EntityManager para cada thread do sistema (no caso
+		de aplicações web, para cada requisição ao sistema).
+		EntityManagerFactory
+		
+
+-----------------------------------------
+EntityManagerFactory - https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManagerFactory.html
+-----------------------------------------		
+Um objeto EntityManagerFactory é utilizado para instanciar objetos EntityManager.
+Escopo: tipicamente mantem-se uma instância única de EntityManagerFactory para toda aplicação.
+
+
+
+3) Configure o JPA no seu projeto por meio do arquivo persistence.xml
+ Crie uma pasta "META-INF" a partir da pasta "src"
+ Dentro da pasta META-INF crie um arquivo "persistence.xml"
+ Conteúdo do arquivo persistence.xml:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+version="2.1">
+<persistence-unit name="exemplo-jpa" transaction-type="RESOURCE_LOCAL">
+<properties>
+	<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/aulajpa" />
+<property name="javax.persistence.jdbc.user" value="root" />
+<property name="javax.persistence.jdbc.password" value="" />
+<property name="hibernate.hbm2ddl.auto" value="update" /> /*faz as atualização sempre no banco create recria toda vez o banco */
+</properties>
+</persistence-unit>
+</persistence>
+
+
+
+4) Inclua os MAPEAMENTOS na classe de domínio:
+package dominio;
+import (...)
+@Entity
+public class Pessoa implements Serializable {
+private static final long serialVersionUID = 1L;
+@Id
+@GeneratedValue(strategy=GenerationType.IDENTITY)
+private Integer id;
+(...)
+
+
+#############################################
+package domain
+#############################################
+
+https://www.youtube.com/watch?v=d_5iZJ8p9x8&list=PLbA-jMwv0cuUp3UKlLHng6E-xgD037bXz&index=2
+
+Mapeamento basico https://receitasdecodigo.com.br/hibernate/primeiros-passos-para-mapear-uma-tabela-simples-com-hibernate
+	@Entity  //informar que e um mapeamento jpa
+	@CodEmpresa // uso obrigatorio chave primaria
+	@GeneratedValue(strategy = GenerationType.AUTO)  // alto incremento
+	@Table(name="USUARIO") // determinar o nomEmpresa que sera usado no banco
+	@Column(name="cod_pessoa") // nomEmpresa coluna no banco de dados
+
+Chave composta  https://receitasdecodigo.com.br/hibernate/chaves-compostas-com-hibernate
+	@CodEmpresaClass(EmpresaCodEmpresa.class)   // Quando mais de 1 @CodEmpresa para definir qual
+	@Embeddable // cria uma classe para informar os codEmpresas (Segundo autor prefercodEmpresaa)
+
+-------------------------	
+Muitos para um https://receitasdecodigo.com.br/hibernate/hibernate-manytoone-muitos-para-um-com-objeto-relacional
+exemplo:1(	Mapeando a tab_item_pedcodEmpresao 
+
+            @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)    
+			@JoinColumn(name="cod_item")   //define qual coluna é responsável pela ligação entre os objetos.
+			private Item item; )
+	
+	//FetchType.EAGER, carrega automatico tabela refereciada ex: tab_item_pedcodEmpresao e a tab_item
+	//FetchType.LAZY,carrega com comando programador ex: so traz a tab_item_pedcodEmpresao
+	// cascade tipo de relacionamento
+	
+//Mapeando a tab_item			
+			@OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+			private Set<NomClasseItemPedcodEmpresao> lsNomClasseItemPedcodEmpresao;
+------------------------------------------		
+
+Coleções @ElementCollection
+		
+	@ElementCollection
+	@CollectionTable(name="TELEFONE")
+	private Set<String> telefones = new HashSet<>();
+------------------------------------------------
+categoria e produto caso nao haja o categoriaDTO tem que fazer um tratamento 
+1)do lado da categoria deve informar 
+	@JsonMapagedReference   // anotaçao pacote jackson associando os item a categoria 
+	@ManyToMany(mappedBy="categorias")
+	private List<Produto> produtos = new ArrayList<>();
+	
+2) do lado do item ou produto deve informar	
+    @JsonBackReference //informa que do outro lado ja foi buscado ai nao busca mais 
+	private List<Categoria> categorias = new ArrayList<>();
+	
+	
+
+-----------------------------------------------
+
+package com.helitonvieira.helisistema.domain;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.CodEmpresa;
+import javax.persistence.OneToMany;
+TipoCliente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.helitonvieira.helisistema.domain.enums.Perfil;
+import com.helitonvieira.helisistema.domain.enums.
+
+@Entity
+public class Cliente implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@CodEmpresa
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer codEmpresa;
+	private String nomEmpresa;
+	
+	@Column(unique=true)
+	private String email;   
+	private String cpfOuCnpj;
+	private Integer tipo;
+	
+	@JsonIgnore
+	private String senha;
+	
+	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL)
+	private List<Endereco> enderecos = new ArrayList<>();
+	
+	@ElementCollection
+	@CollectionTable(name="TELEFONE")
+	private Set<String> telefones = new HashSet<>();
+	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="PERFIS")
+	private Set<Integer> perfis = new HashSet<>();
+	
+	@JsonIgnore  
+	@OneToMany(mappedBy="cliente")
+	private List<PedcodEmpresao> pedcodEmpresaos = new ArrayList<>();
+	
+	public Cliente() {
+		addPerfil(Perfil.CLIENTE);
+	}
+	
+
+
+	public Cliente(Integer codEmpresa, String nomEmpresa, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
+		super();
+		this.codEmpresa = codEmpresa;
+		this.nomEmpresa = nomEmpresa;
+		this.email = email;
+		this.cpfOuCnpj = cpfOuCnpj;
+		this.tipo = (tipo==null) ? null : tipo.getCod();
+		this.senha = senha;
+		addPerfil(Perfil.CLIENTE);
+	}
+
+	public Integer getCodEmpresa() {
+		return codEmpresa;
+	}
+
+	public vocodEmpresa setCodEmpresa(Integer codEmpresa) {
+		this.codEmpresa = codEmpresa;
+	}
+
+	public String getNomEmpresa() {
+		return nomEmpresa;
+	}
+
+	public vocodEmpresa setNomEmpresa(String nomEmpresa) {
+		this.nomEmpresa = nomEmpresa;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public vocodEmpresa setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
+	}
+
+	public vocodEmpresa setCpfOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
+	}
+
+	public TipoCliente getTipo() {
+		return TipoCliente.toEnum(tipo);
+	}
+
+	public vocodEmpresa setTipo(TipoCliente tipo) {
+		this.tipo = tipo.getCod();
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+	
+	public vocodEmpresa setSenha(String senha) {
+		this.senha = senha;
+	}
+	
+	public Set<Perfil> getPerfis() {
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+	
+	public vocodEmpresa addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
+	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+	public vocodEmpresa setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
+	public Set<String> getTelefones() {
+		return telefones;
+	}
+
+	public vocodEmpresa setTelefones(Set<String> telefones) {
+		this.telefones = telefones;
+	}
+
+	public List<PedcodEmpresao> getPedcodEmpresaos() {
+		return pedcodEmpresaos;
+	}
+
+	public vocodEmpresa setPedcodEmpresaos(List<PedcodEmpresao> pedcodEmpresaos) {
+		this.pedcodEmpresaos = pedcodEmpresaos;
+	}
+	
+	@OverrcodEmpresae
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codEmpresa == null) ? 0 : codEmpresa.hashCode());
+		return result;
+	}
+
+	@OverrcodEmpresae
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (codEmpresa == null) {
+			if (other.codEmpresa != null)
+				return false;
+		} else if (!codEmpresa.equals(other.codEmpresa))
+			return false;
+		return true;
+	}
+}
+	
+#############################################
+package resources ou cotrollers 
+#############################################
+
+ @Component @Controller @RestController  (descreve um endpoint que deve ser disponibilizado na web)
+	1) a ser criado @Component
+	2) a ser criado @Controller veio com tudo que  o @Component tem e mais 
+	3) a ser criado @RestController veio com tudo que  o @Controller tem e mais 
+
+@Autowired
+	@Autowired	// Função do New ai nao precisa usar new	
+	private EmpresaRepository repository;
+	
+@RequestMapping(method = RequestMethod.GET, value="/empresa")  ou  @GetMapping("/empresa")
+	  //mapeamento requeste recebendo da tela 
+	  //method = RequestMethod.GET, GET pela url
+
+	@GetMapping("/hello")
+	public String hello(@RequestParam(value = "name", defaultValue = "Heliton") String name) {
+	return String.format("Hello %s!", name);
+	}
+	//http://localhost:8080/hello?name=Juliana	
+	//Esta esperando um nome na passagem de parametro mais se não passar por default pega Heliton
+
+@RequestMapping(method = RequestMethod.POST, value="/empresa")  ou  @PostMapping("/empresa")	  
+	  //method = RequestMethod.POST,POST oculto 
+	  
+	 -------------------------------------
+	package com.vsystem.clienteSystem.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.vsystem.clienteSystem.domain.model.Cliente;
+import com.vsystem.clienteSystem.domain.repository.ClienteRepository;
+
+@RestController
+@RequestMapping("/clientes")
+public class ClientesController {
+	
+	@Autowired
+	private ClienteRepository repo;	
+	
+	@GetMapping
+	public List<Cliente> listar() {				
+		return repo.findAll();
+	}
+	
+	/*@GetMapping("/{nome}") // passando parameto pela url   localhost:8080/clientes/1
+	public List<Cliente> listarNome(@PathVariable String nome) {	//@PathVariable receber o parametro		
+		return repo.findByNome(nome);
+	}
+	
+	@GetMapping("/{Like}")
+	public List<Cliente> listarLike(@PathVariable String nome){
+	    return repo.findByNomeContaining(nome);
+	}*/
+	
+	@GetMapping("/{clienteId}")
+	public ResponseEntity<Cliente> busca(@PathVariable Long clienteId){
+		Optional<Cliente>cliente =	repo.findById(clienteId);
+		
+		if (cliente.isPresent()) {  //.isPresent() = se tiver informação     .empty = vazio 
+			return ResponseEntity.ok(cliente.get()); //ResponseEntity.ok  resposta status 201			
+		}		
+	    return ResponseEntity.notFound().build();	// resposta status 404   		
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)// retornar a resposta  status 201 create 
+	public Cliente adicionar(@RequestBody Cliente cliente) { // receber obj tipo cliente json  { "nome": "Leonardo de Caprio", "email": "leo@gmail.com", "telefone": "349999999999"}
+		return repo.save(cliente);		
+	}
+	
+	@PutMapping("/{idCliente}")
+	public ResponseEntity<Cliente> atualizar(@RequestBody Cliente cliente, 
+		@PathVariable Long idCliente) { // receber obj tipo cliente
+		
+		if(!repo.existsById(idCliente)) {  //verificando se existe este cliente
+			return ResponseEntity.notFound().build();	//retorna resposta  status 404		
+		}
+		cliente.setId(idCliente);	
+		cliente = repo.save(cliente);
+		return 	ResponseEntity.ok(cliente); //retorna a resposta status  200
+	}
+	
+	@DeleteMapping("/{idCliente}")
+	public ResponseEntity<Void> delete(@PathVariable Long idCliente){
+		
+		if(!repo.existsById(idCliente)) {  //verificando se existe este cliente
+			return ResponseEntity.notFound().build();			
+		}
+		
+		repo.deleteById(idCliente);
+		return ResponseEntity.noContent().build();//retorna resposta status 204
+	}
+}	
+
+---------------------------------------------------------------------------------------------
+INTRODUÇÃO AO modelmapper feramenta que facilica a conversao de model para modelDTO  
+http://www.matera.com/blog/post/modelmapper-convertendo-objetos-de-maneira-simples
+
+        <dependency>
+			<groupId>org.modelmapper</groupId>
+		  	<artifactId>modelmapper</artifactId>
+		  	<version>2.3.7</version>
+		</dependency>
+		
+		//abaixo tem exemplo claro metodo buscar e criar 
+        
+----------------------------------------------------------------------------------------------
+package com.algaworks.osworks.api.controller;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.validation.Valid;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.algaworks.osworks.api.model.OrdemServicoInput;
+import com.algaworks.osworks.api.model.OrdemServicoModel;
+import com.algaworks.osworks.domain.model.OrdemServico;
+import com.algaworks.osworks.domain.repository.OrdemServicoRepository;
+import com.algaworks.osworks.domain.service.GestaoOrdemServicoService;
+
+@RestController
+@RequestMapping("/ordens-servico")
+public class OrdemServicoController {
+
+	@Autowired
+	private GestaoOrdemServicoService gestaoOrdemServico;
+	
+	@Autowired
+	private OrdemServicoRepository ordemServicoRepository;
+	
+	@Autowired
+	private ModelMapper modelMapper; //ferramenta poderosa que auxilia a conversao de domain para dto 
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public OrdemServicoModel criar(@Valid @RequestBody OrdemServicoInput ordemServicoInput) {
+		OrdemServico ordemServico = toEntity(ordemServicoInput);
+		
+		return toModel(gestaoOrdemServico.criar(ordemServico));
+	}
+	
+	@GetMapping
+	public List<OrdemServicoModel> listar() {
+		return toCollectionModel(ordemServicoRepository.findAll()); //chama funcao converte domain para model 
+	}
+	
+	@GetMapping("/{ordemServicoId}")
+	public ResponseEntity<OrdemServicoModel> buscar(@PathVariable Long ordemServicoId) { //OrdemServicoModel class dto 
+		Optional<OrdemServico> ordemServico = ordemServicoRepository.findById(ordemServicoId);
+		
+		if (ordemServico.isPresent()) {
+			OrdemServicoModel ordemServicoModel = toModel(ordemServico.get());//chama metodo que converte o domainModel em dto 
+			return ResponseEntity.ok(ordemServicoModel);
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	@PutMapping("/{ordemServicoId}/finalizacao")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void finalizar(@PathVariable Long ordemServicoId) {
+		gestaoOrdemServico.finalizar(ordemServicoId);
+	}
+	
+	private OrdemServicoModel toModel(OrdemServico ordemServico) {//metodo que faz a conversao domain para dto 
+		return modelMapper.map(ordemServico, OrdemServicoModel.class);
+	}
+	
+	private List<OrdemServicoModel> toCollectionModel(List<OrdemServico> ordensServico) {//mudar uma lista domain para dto
+		return ordensServico.stream()
+				.map(ordemServico -> toModel(ordemServico))//.map aplica funcao a cada elemento como se fossr um for
+				.collect(Collectors.toList()); 
+	}
+	
+	private OrdemServico toEntity(OrdemServicoInput ordemServicoInput) {
+		return modelMapper.map(ordemServicoInput, OrdemServico.class);
+	}
+	
+}
+
+--------------------------------------------------
+ CORPO JSON
+--------------------------------------------
+{
+ "nome": "Leonardo de Caprio",
+ "email": "leo@gmail.com",
+ "telefone": "349999999999"
+}
+	
+#############################################
+VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.constrants
+#############################################	
+-------------------------------------------------------------
+Para o jdk11 tem que fazer esta implementação
+
+<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+    		<groupId>org.hibernate</groupId>
+    		<artifactId>hibernate-validator</artifactId>
+    		<version>6.0.12.Final</version>
+		</dependency>
+-------------------------------------------------------------		
+as validações sao feitas no domain modulo quando nao ha o dto se tiver dto sera feito no dto
+E tem que colocar @Valid no controller
+Ele trata o erro 500 do servidor e passa erro 400 que é do usuario
+
+@NotEmpty   //nao aceita vazio
+@NotNull    //nao aceita nulo
+@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco
+@Email      //validação para email
+@Size(max = 20 min = 2)  // tamanho das colunas do banco para nao estourar
+@JsonIgnore    //para nao aparecer nao busca	
+	
+no resouce deve ser informado no insert e no update 
+@Valid 
+ex:
+        @PostMapping
+		public Cliente adicionar(@Valid  @RequestBody ...
+
+	
+#############################################
+flyway   // arquivos de configuração para o banco de dados  
+#############################################	
+1) seque o link para configuração
+        https://github.com/npi-ufc-qxd/wiki/wiki/Guia-de-inser%C3%A7%C3%A3o-e-uso-do-Flyway-em-projetos-maven
+	
+2) dentro do pacote resource cria as pasta db/migration	
+3) criar um arquivo dentro de migration criar um arquico   new/file/V001__criar-tabela-cliente.sql    obs o "V" maiusculo     //V001__criar-tabela-cliente.sql   o V001 é obrigatorio significa versao o nome depois aleatorio
+4) sobre o arquivo click  btnDireito/Open With/text edit
+
+OBS PROBLEMA APAGUE A TABELAS QUE FORAM CRIADAS TABELA FLYWAY TBM E AS SEQUENCES QUE FORAM CRIADAS 
+
+#############################################
+Service - responsavel pelas regras de negocio gerencia o cotrollers e o repository
+#############################################	
+
+package com.helitonvieira.helisistema.services;
+
+import java.awt.image.BufferedImage;
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.helitonvieira.helisistema.domain.Cidade;
+import com.helitonvieira.helisistema.domain.Cliente;
+import com.helitonvieira.helisistema.domain.Endereco;
+import com.helitonvieira.helisistema.domain.enums.Perfil;
+import com.helitonvieira.helisistema.domain.enums.TipoCliente;
+import com.helitonvieira.helisistema.dto.ClienteDTO;
+import com.helitonvieira.helisistema.dto.ClienteNewDTO;
+import com.helitonvieira.helisistema.repositories.ClienteRepository;
+import com.helitonvieira.helisistema.repositories.EnderecoRepository;
+import com.helitonvieira.helisistema.security.UserSS;
+import com.helitonvieira.helisistema.services.exceptions.AuthorizationException;
+import com.helitonvieira.helisistema.services.exceptions.DataIntegrityException;
+import com.helitonvieira.helisistema.services.exceptions.ObjectNotFoundException;
+
+@Service
+public class ClienteService {
+	
+	@Autowired
+	private ClienteRepository repo;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder pe;
+	
+	@Autowired
+	private S3Service s3Service;
+	
+	@Autowired
+	private ImageService imageService;
+		
+	@Value("${img.prefix.client.profile}")
+	private String prefix;
+	
+	@Value("${img.profile.size}")
+	private Integer size;
+	
+	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
+		Optional<Cliente> obj = repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
+	}
+	
+	@Transactional
+	public Cliente insert(Cliente obj) {
+		obj.setId(null);
+		obj = repo.save(obj);
+		enderecoRepository.saveAll(obj.getEnderecos());
+		return obj;
+	}
+	
+	public Cliente update(Cliente obj) {
+		Cliente newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não é possível excluir porque há pedidos relacionados");
+		}
+	}
+	
+	public List<Cliente> findAll() {
+		return repo.findAll();
+	}
+	
+	public Cliente findByEmail(String email) {
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !email.equals(user.getUsername())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+	
+		Cliente obj = repo.findByEmail(email);
+		if (obj == null) {
+			throw new ObjectNotFoundException(
+					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Cliente.class.getName());
+		}
+		return obj;
+	}
+	//page controla de quantos em quantos registro quer que carregue do banco de dados 
+	//agiliza o processo de dados e consumo de memoria deixa pagina mais rapida
+	//import org.springframework.data.domain.Page;	
+	public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+		               //findPage(qual a pagina vc quer começa do 0 , quantas linhas por pagina , qual campo vai ordenar , qual direçao ordenar acendente ou decendente)
+		//import org.springframework.data.domain.PageRequest;    obj que prepara as consultas para Page
+		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		                        // PageRequest.of(qual a pagina , tamanho qtd linha , acendente descendente , campo de ordenaçao)    
+		return repo.findAll(pageRequest);
+	}
+	
+	public Cliente fromDTO(ClienteDTO objDto) {
+		return new Cliente(objDto.getId(), objDto.getNome(), objDto.getEmail(), null, null, null);
+	}
+	
+	public Cliente fromDTO(ClienteNewDTO objDto) {
+		Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(), TipoCliente.toEnum(objDto.getTipo()), pe.encode(objDto.getSenha()));
+		Cidade cid = new Cidade(objDto.getCidadeId(), null, null);
+		Endereco end = new Endereco(null, objDto.getLogradouro(), objDto.getNumero(), objDto.getComplemento(), objDto.getBairro(), objDto.getCep(), cli, cid);
+		cli.getEnderecos().add(end);
+		cli.getTelefones().add(objDto.getTelefone1());
+		if (objDto.getTelefone2()!=null) {
+			cli.getTelefones().add(objDto.getTelefone2());
+		}
+		if (objDto.getTelefone3()!=null) {
+			cli.getTelefones().add(objDto.getTelefone3());
+		}
+		return cli;
+	}
+	
+	private void updateData(Cliente newObj, Cliente obj) {
+		newObj.setNome(obj.getNome());
+		newObj.setEmail(obj.getEmail());
+	}
+	
+	public URI uploadProfilePicture(MultipartFile multipartFile) {
+		UserSS user = UserService.authenticated();
+		if (user == null) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
+		BufferedImage jpgImage = imageService.getJpgImageFromFile(multipartFile);
+		jpgImage = imageService.cropSquare(jpgImage);
+		jpgImage = imageService.resize(jpgImage, size);
+		
+		String fileName = prefix + user.getId() + ".jpg";
+		
+		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");
+	}
+}
+
+####################################################################
+Biblioteca ou .jar
+####################################################################
+Biblioteca são os .jar projetos que vc podem utilizar em outros projetos 
+
+COMO CRIAR O proprio .JAR
+
+	btnDireito em cima do projeto > export > java > JAR file > Next > 
+	JAR FILE (onde vai ser salvo e o nome do jar) C:\Users\Gugu\Desktop\calculadora.jar   
+	next > next > finish
+	
+IMPORTAR A BIBLIOTECA .JAR PARA OUTRO PROJETO
+        1- btnDireito em cima do projeto > propriedades > resouce  pega o caminho do projeto
+        2- Abre no windows e cria uma pasta chamada lib
+	3- Pega o .jar e coloca dentro desta pasta 
+	4- BtnDireito Projeto > Build path > configure build path
+	5- librares > add jar > espande projeto vai na pasta e seleciona
+	O jar vai estar na Referencia Library pronto para uso
+		
+
+####################################################################
+Heroku - instalar banco nas nuves aula 58 e 59 udemy  https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8256790#overview
+####################################################################
+
+
+####################################################################
+Autenticação e Autorização token JWT  autorização trafegada cabeçarios das requisiçoes pela url, controla o usuario e tempo de inspiração do token
+(mais abaixo ver os 2 separados)
+Altenticação sistema verifica se o usuario e um usuario valido 
+Autorização processo de identificar qual recurso o usuario pode acessar 
+####################################################################
+ Incluir as dependências no pom.xml
+
+	1)	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
+		
+		APOS INFORMAR O SISTEMA JA NAO RODA SEM A AUTORIZAÇÃO CHAVE TOKEN
+	
+    2)	Dentro da pacote de config cria a class SecurityConfig
+		
+
+-------------------------------------
+Senha  BCryptPasswordEncoder cria um @Bean que pode ser usado em todo sistema pacote config class SecurityConfig
+-------------------------------------
+     Incluir um Bean de BCryptPasswordEncoder no arquivo de configuração
+		@Bean //criando um bean de senha para criptrografar a senha 
+		public BCryptPasswordEncoder bCryptPasswordEncoder() { 
+			return new BCryptPasswordEncoder();
+		}
+	
+	
+	 Incluir um atributo senha na classe Cliente
+		@JsonIgnore    //para nao aparecer nao busca 
+		private String senha;
+		//get e set  add no contrutor com argumento buscar null 
+	 Atualizar ClienteNewDTO
+		@NotEmpty(message="Preenchimento obrigatório")
+		private String senha;
+		//get e set 
+	 Atualizar ClienteService
+		@Autowired
+		private BCryptPasswordEncoder pe; // BCryptPasswordEncoder criptografia criada no pacote config na class SecurityConfig
+	    
+		public Cliente fromDTO(ClienteNewDTO objDto) {
+		//na hora de converter chama pe.encode 
+		Cliente cli = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(), TipoCliente.toEnum(objDto.getTipo()), pe.encode(objDto.getSenha())); //pe.encode(objDto.getSenha()) criptrografando a senha 
+		Cidade cid = new Cidade(objDto.getCidadeId(), null, null);
+		Endereco end = new Endereco(null, objDto.getLogradouro(), objDto.getNumero(), objDto.getComplemento(), objDto.getBairro(), objDto.getCep(), cli, cid);
+		cli.getEnderecos().add(end);
+		cli.getTelefones().add(objDto.getTelefone1());
+		if (objDto.getTelefone2()!=null) {
+			cli.getTelefones().add(objDto.getTelefone2());
+		}
+		if (objDto.getTelefone3()!=null) {
+			cli.getTelefones().add(objDto.getTelefone3());
+		}
+		return cli;
+	}
+	
+	 Atualizar DBService
+		private BCryptPasswordEncoder pe; 
+		// na hora de gravar chama o pe.encode
+		Cliente cli1 = new Cliente(null, "Heliton Silva Vieira", "helitondba@gmail.com", "123", TipoCliente.PESSOAFISICA, pe.encode("123"));
+		
+
+-------------------------------------------------
+Criação de Perfil de usuario 
+-------------------------------------------------
+ Criar o tipo enumerado Perfil (CLIENTE, ADMIN)
+	
+	package com.helitonvieira.helisistema.domain.enums;
+
+public enum Perfil {
+	
+	ADMIN(1, "ROLE_ADMIN"), //ROLE_  é uma exigencia do springSecurity 
+	CLIENTE(2, "ROLE_CLIENTE");
+	
+	private int cod;
+	private String descricao;
+	
+	private Perfil(int cod, String descricao) {
+		this.cod = cod;
+		this.descricao = descricao;
+	}
+	
+	public int getCod() {
+		return cod;
+	}
+	
+	public String getDescricao () {
+		return descricao;
+	}
+	
+	public static Perfil toEnum(Integer cod) {
+		
+		if (cod == null) {
+			return null;
+		}
+		
+		for (Perfil x : Perfil.values()) {
+			if (cod.equals(x.getCod())) {
+				return x;
+			}
+		}
+		
+		throw new IllegalArgumentException("Id inválido: " + cod);
+	}
+
+}
+
+
+ Implementar na classe Cliente:
+	@ElementCollection(fetch=FetchType.EAGER)// para garantir que sempre que busque um cliente venha o tipo perfil admin ou cliente
+	@CollectionTable(name="PERFIS")
+	private Set<Integer> perfis = new HashSet<>();
+	
+	//get set 
+	// meto para retornar o perfil convertendo de numeric para a string armazenada na class
+	public Set<Perfil> getPerfis() {
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+	//metodo para adcionar perfil 
+	public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
+	
+ public void addPerfil(Perfil perfil)
+ Incluir perfil padrão (CLIENTE) na instanciação de Cliente
+ Incluir mais um cliente com perfil ADMIN na carga inicial da base de dados (DBService)
+
+############################
+Autenticação - pessoa se identifica sistema faz a autenticação verificando se esta correto
+############################
+
+ Criar classe de usuário conforme contrato do Spring Security (implements UserDetails)
+	*pacote security class UserSS
+	
+	
+ Criar classe de serviço conforme contrato do Spring Security (implements UserDetailsService)
+ Em SecurityConfig, sobrescrever o método: public void configure(AuthenticationManagerBuilder auth)
+
+ Criar a classe CredenciaisDTO (usuário e senha)
+	public class CredenciaisDTO implements Serializable {
+		private static final long serialVersionUID = 1L;
+		
+		private String email;
+		private String senha;
+		//construtor vazio get e set 
+		
+ Incluir as propriedades de JWT (segredo e tempo de expiração) em application.properties
+	jwt.secret=SequenciaDeCaracteresParaAssinarToken
+    jwt.expiration=86400000   // tempo para inspirar o token (60000 equivale a 1 min)
+
+ Criar uma classe JWTUtil (@Component) com a operação String generateToken(String username)
+	//pacote security class JWTUtil
+
+
+ Criar um filtro de autenticação (ele verifica se o usuario e senha esta correto na inserçao)
+	//pacote security class JWTAuthenticationFilter
+	
+	
+ Em SecurityConfig, registrar o filtro de autenticação
+
+---------------------------------------------
+Autorização - quando passa o token na atenticação do login apos autenticação fazer as autorização dos endpoits
+---------------------------------------------
+ Criar um filtro de autorização
+
+o Acrescentar uma função em JWTUtil para verificar se um dado token é válido
+ Em SecurityConfig, registrar o filtro de autorização
+Autorizando endpoints para perfis específicos
+
+
+
+##########################################
+criptografia usando BCryptPasswordEncoder
+##########################################
+@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();  // descriptografar pode ser chamado PasswordEncoder passwordEncoder devido a criação do @Bean
+	}
+
+	public static void main(String[] args) {
+		System.out.println(new BCryptPasswordEncoder().encode("123"));//criado simpresmente para pegar no console o 123 codificado
+	}
+
+
+##########################################
+Docker - 
+##########################################
+
+	docker - ferramenta de empacotamento de uma aplicação e suas dependencias 
+	em um container que pode ser executado em um servidor linux.
+	
+	-Ambiente de execução auto-contido
+	-kernel compartilhado com host
+	-isolamento dos demais containeres
+	-baixo overhead e tempo de boot 
+	
+	Funcionamento e parecido com uma VM (maquina virtual) mais nao é uma VM
+	
+	1- Maquina virtual(VM)
+		  -harduware > sitema Operacional > Hipervisor > sistema operacional > bibliotecas e aplicações
+		
+	2- Docker
+		  -harduware > sitema Operacional > Docker Engine > bibliotecas e aplicações
+		
+	
+instalando o docker	
+  comandos do linux
+	$ wget -qO https://get.docker.com/ | sh
+	
+	$ sudo usermod -aG docker <usuario>
+	
+	Pode usar os instaladores do docker.com
+	
+
+Subindo um container 
+
+	$ docker run --name container-teste ubuntu:14.04
+	
+		
+		
+********************************************************************
+Configuração e envio projeto Heroku subir base e aplicação aula 58 a 60 
+********************************************************************		
+
+
+####################################################################
+POSTMAN
+####################################################################
+POST
+  {
+        "nome": "FANTA UVA",
+        "codSubcategoria": {
+            "id": 1,
+            "descricao": "REFRIGERANTE"
+        },
+        "preco": 4.87
+    }
+
+
+####################################################################
+POSTMAN
+####################################################################  
+		
+		
+		
+		
+		
+		
+		
+		
