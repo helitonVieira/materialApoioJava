@@ -14,6 +14,10 @@ ECLIPSE
   shift + alt + M = seleciona as linhas ele exporta criando um metodo para estas linhas e se tiver em outro local ele ja instacia o metodo 
   Ctrl + shift + O = Organizar os imports 
   
+    
+   Sysout Ctrl+ ESP  criar o   System.out.println();
+	
+	
   variavel.getInstance() = buscar data atual
 
 PESQUISA
@@ -35,8 +39,19 @@ MANIPULAR TEXTO
   ctrl + shift + F = formatar o codigo
   Alt + shift + R = renomear variavel e classe e já altera todas referencias desta classe 
   
-  
-O total em volumes 
+DEBUG  https://www.youtube.com/watch?v=zS7UG63we4g
+	f6  = Proxima linha
+	F5  = entrar dentro metodo
+	F8  = proceguir
+	
+	Variaveis pode alterar o valor 
+	Metodo pode alterar em tempo de execução que ele volta para inicio 
+	Criar Break Point de exceptions = Console msg em nullPoiter em azul click em cima pode criar break Point onde esta o erro 
+	
+	Botao direito na classe tem algumas opçoes de break
+		ex: dentro de for selecionar hora que quer parar 
+	
+	
 ###################################################################
 CRIANDO TEMPLATE 
 ###################################################################
@@ -941,6 +956,9 @@ ArrayList - nao aceita tipo primitivo tipo int double somente String Integer
 		nomescontains("gugu"); // retorna true verifica se exist no array 
 		nomes.size(); // tamanho quantas posiçao preenchida
 		nomes.indexOf("boi"); //retorna posiçao que o obj encontra se nao encontrar retorna -1
+		
+		pegar valor 
+			nomes.forEach(i -> System.out.print(i.getNome())
 	
 
 data date  https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
@@ -1585,11 +1603,34 @@ public class OrdemServicoController {
 --------------------------------------------------
  CORPO JSON
 --------------------------------------------
+class {} 
 {
  "nome": "Leonardo de Caprio",
  "email": "leo@gmail.com",
  "telefone": "349999999999"
 }
+
+CLASSE E LISTA 
+
+public class IssueRemunerationRateDto {	
+	
+	private String nome;
+	private String email;
+	private List<TelefoneDto> telefone ;  // onde tem a class TelefoneDto com campos fone e contato
+
+"Cliente": {
+        "nome": "Leonardo de Caprio",
+		"email": "leo@gmail.com",
+        "telefone": [
+                        {
+                            "fone": "00000",
+                            "contato": "Raquel" 
+                        },
+                        {
+                            "fone": "11111",
+                            "contato": "Jack" 
+                        }
+                    ] }
 	
 #############################################
 VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.constrants
