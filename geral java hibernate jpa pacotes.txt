@@ -1863,6 +1863,42 @@ IMPORTAR A BIBLIOTECA .JAR PARA OUTRO PROJETO
 Heroku - instalar banco nas nuves aula 58 e 59 udemy  https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8256790#overview
 ####################################################################
 
+############################
+application.properties 
+############################
+No application.properties 
+
+DECLARAR A VARIAVEL   
+	variavel = valorVariavel
+
+	nome = Heliton Silva Vieira
+
+Criar as variaveis que vai ser utilizada em todo sistema
+
+
+Chamando a variavel na classe
+
+Criando variavel 
+	1)variavel simples
+	@Value("${nome:Passar Valor Defaut}")
+	private String varCriada;
+	
+    2)Passando um valor Default coloca o : e passa o valor 
+
+	@Value("${nome:Juliana Andrade Rocha}") // se nao tiver nenhum pega o default
+	private String varCriada;
+	
+TAMBEM PODE ATRIBUIR VALOR PASSADO PELA VARIAVEL DE AMBIENTE
+
+		btnDireito > Run as > Run Configuration 
+			Environment
+			Add nomeVariavel e valor
+			
+OBSERVAÇÃO A ORDEM QUE PEGA O VALOR DA VARIAVEL CRIADA NO APPLICATION.PROPERTIES
+				1 - VARIAVEL DE AMBIENTE
+				2 - APPLICATION.PROPERTIES
+				3 - DEFAULT CRIADO NA CLASSE
+
 
 ####################################################################
 Autenticação e Autorização token JWT  autorização trafegada cabeçarios das requisiçoes pela url, controla o usuario e tempo de inspiração do token
