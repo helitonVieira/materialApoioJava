@@ -2060,6 +2060,15 @@ Criando variavel
 	@Value("${nome:Juliana Andrade Rocha}") // se nao tiver nenhum pega o default
 	private String varCriada;
 	
+VALOR NULL AO TENTAR PEGAR A VARIAVEL (Principalmente quando esta iniciando )
+	Obs: application.properties não aceita variaveis staticas desta forma conseguimos fazer a conversao
+
+	private static String nome;
+	@Value("${url.endpoint.dotnet}")
+	public void setNome(String url) {
+		nome = url;
+	}	
+	
 TAMBEM PODE ATRIBUIR VALOR PASSADO PELA VARIAVEL DE AMBIENTE
 
 		btnDireito > Run as > Run Configuration 
