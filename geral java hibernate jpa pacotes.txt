@@ -363,6 +363,12 @@ Caso não funcione
 CONFIGURAR O MAVEN NO ECLIPSE IDE 	
 	
 http://luizricardo.org/2014/06/instalando-configurando-e-usando-o-maven-para-gerenciar-suas-dependencias-e-seus-projetos-java/	
+
+mvn eclipse:clean
+
+mvn eclipse:eclipse  (if irá preparar o arquivo eclipse .classpathpara você)
+
+
 -----------------------------------------------------------------------------------------------------------------------
 CRIANDO PROJETO MAVEN PELO SPRING
 
@@ -389,7 +395,22 @@ PROPERTIES  (DEFINIR QUAL VERSAO DO JAVA VAI ESTAR UTILIZANDO)
   <properties>
   	<maven.compiler.source> 1.8 </maven.compiler.source>
         <maven.compiler.target> 1.8 </maven.compiler.target>
+		<springdoc-openapi-ui-version>1.6.6</springdoc-openapi-ui-version>
   </properties>	
+  
+______________________________________________ 
+ ERRO NO <project ...
+  (passa o http para https)
+______________________________________________
+  
+  DECLARAÇÃO DE VARIAVEIS PELA PROPERTIES PODE SER USADA NAS DEPENDENCIAS 
+  
+        <dependency>
+    		<groupId>org.springdoc</groupId>
+    		<artifactId>springdoc-openapi-ui</artifactId>
+    		<version>${springdoc-openapi-ui-version}</version>
+		</dependency>
+
 --------------
 DEPENDENCIES () 
     1° Tenta baixar do repositorio local na maquina se nao tiver baixa da web (Maven Dependencies esta caminho do repositorio local) cd  ~/.m2/repository/org/apache  (~/ pegar o usuario logado)
@@ -425,8 +446,156 @@ COMANDOS DO MAVEN
 		
         DELETAR PASTA TARGET:  mvn clean
    	
+#############################################
+Apacha Ant  http://ant.apache.org
+#############################################	
+	O QUE E O ANT
+	
+	E uma API voltada par a automatização de tarefas
+	Ex TAREFAS: 
+	    Copia de arquivos, 
+		Compilação de codigo- fonte, 
+		Compactação de arquivos, 
+		Geração de arquivo JAR
+		
+	UTILIZANDO O ANT 
+
+	1 - LINHA DE COMANDO 
+		***Processo feito para executar linha de comando***
+		
+		a - Baixar   http://ant.apache.org > Dowloading Binary distribu .zip 
+		b - Criar as variaveis de ambiente
+	
+		(usuario) ANT_HOME = D:\program\apache_ant
+		(Path) D:\program\apache_ant\bin
+	
+	TESTAR PELO CMD  
+		set ant_home  (verificar se esta configurado )
+		set path  (verificar se esta configurado )
 	
 	
+	2 - INTEGRA A IDE ECLIPSE
+		Build File 
+			As tarefas do Ant deve executar fica aqui dentro
+			tem padrao definido xml 
+			chamado build.xml mais pode ter outro nome se quiser
+			
+			
+	ESTRUTURA DO BUILD FILE	
+	  formato xml
+	  
+	  Cada build file tem 1 project 
+		1 ou mais target (ALVO)
+			1 ou mais task (Tarefas)
+
+Atributos 
+	name = define o nome para o build file
+	defaul = a target que vai iniciar 
+	depends = indica que para executar tem que executar o depends primeiro 
+
+TASKS (documentação tem lista de task ja definidas) minuto 9:50 https://www.youtube.com/watch?v=JfT-KJBNMBc 
+http://ant.apache.org > manual > Ant tasks > List of Tasks
+
+	javac = compilar tudo que esta neste caminho 
+	destdir = diretorio onde quer gravar os arquivos .class
+    <echo>passar msg é o msm que system.out.print </echo>
+	
+	
+PROPERTY (DECLARAÇÃO DE VARIAVEL COM CHAVE VALOR )
+	* declarado project vizivel para todo projeto global
+	* declarado dentro do target local somente para ele
+  DECLARAÇÃO	
+	<property name="module_dir_DP" value="RoboDP_Java"/>
+  RECUPERAR O VALOR
+    "${module_dir_DP}"
+	
+	
+-----
+ex 1			
+<project basedir="." default="all" name="DP">
+      
+	<!-- Custom Properties -->
+	<property name="module_dir_DP" value="RoboDP_Java"/>
+	
+    <target name="compile" description="compila o codigo">
+		<javac srcdir="src" destdir="build">	
+	</target">
+	
+	<!-- Build All Modules -->
+	<target name="all">
+		<!-- DP EAR Task -->
+		<echo></echo>
+		<echo></echo>
+		<echo>Building RoboDP EAR</echo>
+		<ant dir="${module_dir_DP}" />		
+	</target>
+	
+	
+</project>
+
+----
+ex: 2 Automatização do processo backup copiar o projeto depois zip
+			
+<project basedir="." default="zipFile" name="backup">      
+			
+    <target name="copyFiles"  description="copiar o arquivo">
+		<!-- Criar o diretorio para backup caso nao exista -->
+		<mkdir dir="backup" />
+		
+		<!-- copy Copiar o arquivo informa onde vc quer que seja copiado -->	
+		<!-- fileset os arquivos que vc quer copiar -->
+		<copy todir="backup">
+			<fileset dir="src" />
+		</copy>
+	</target">
+	
+	
+	<target name="zipFile" depends="copyFiles">
+		<!-- destfile = arquivo de destino a ser criado, basedir="arquivo a ser copiado"  -->
+		<zip destfile="backup/src.zip" basedir="backup">	
+	</target>
+	
+	
+</project
+-----
+ex: 2.1  Uso Property Automatização do processo backup copiar o projeto depois zip
+			
+<project basedir="." default="zipFile" name="backup">      
+	
+	<property name="srcDir" value="src"/>
+	<property name="backupDir" value="backup"/>
+	
+    <target name="copyFiles"  description="copiar o arquivo">
+		<!-- Criar o diretorio para backup caso nao exista -->
+		<mkdir dir="${backupDir}" />
+		
+		<!-- copy Copiar o arquivo informa onde vc quer que seja copiado -->	
+		<!-- fileset os arquivos que vc quer copiar -->
+		<copy todir="backup">
+			<fileset dir="${srcDir}" />
+		</copy>
+	</target">
+	
+	
+	<target name="zipFile" depends="copyFiles">
+		<!-- destfile = arquivo de destino a ser criado, basedir="arquivo a ser copiado"  -->
+		<zip destfile="${backupDir}/src.zip" basedir="${backupDir}">	
+	</target>
+	
+	
+</project>
+
+----
+
+COMO CRIAR UM ARQUIVO ANT NO ECLIPSE 
+	https://www.youtube.com/watch?v=nlW3x6crAS8
+	
+EXECUTAR O TARGET POR LINHA DE COMANDO 
+		CMD  ant (roda o ant default)
+			
+			
+	
+		
 	
 #############################################
 Spring Boot
@@ -981,7 +1150,7 @@ data date  https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
 Sleep - espera um tempo para executar  proximo comando 
 
 		try{
-		thread.sleep(1000); // leva 1000 milessegundo ou 1 segundo para executar proximo comando 
+		Thread.sleep(1000); // leva 1000 milessegundo ou 1 segundo para executar proximo comando 
          }catch(Exception erro){}
 
 
@@ -1864,9 +2033,12 @@ Heroku - instalar banco nas nuves aula 58 e 59 udemy  https://www.udemy.com/cour
 ####################################################################
 
 ############################
-application.properties 
+application.properties   https://www.youtube.com/watch?v=_7ttFUC26LQ
 ############################
 No application.properties 
+
+TROCAR A PORTA 8080
+	server.port = 8090
 
 DECLARAR A VARIAVEL   
 	variavel = valorVariavel
