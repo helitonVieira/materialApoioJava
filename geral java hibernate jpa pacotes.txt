@@ -249,51 +249,52 @@ Agora que você sabe o que é HTTP e HTTPS, confira essa lista com códigos HTTP
 Código do Status HTTP
 (Status-code)	Significado do código HTTP
 (Reason-Phrase)	Significado do código HTTP
-       100	Continue							Continuar
+         
+	 100	Continue					Continuar
          101	Switching Protocols				Mudando Protocolos
-         102	Processing						Processando
+         102	Processing					Processando
        
-		 200	Ok								Ok
-         201	Created							Criado
-         202	Accepted						Aceito
-         203	Non-Authoritative Information	Não autorizado
-         204	No Content						Nenhum Conteúdo
+	 200	Ok						Ok
+         201	Created						Criado
+         202	Accepted					Aceito
+         203	Non-Authoritative Information	                Não autorizado
+         204	No Content					Nenhum Conteúdo
          205	Reset Content					Resetar Conteúdo
          206	Partial Content					Conteúdo Parcial
          
-		 300	Multiple Choices				Múltipla Escolha
+	 300	Multiple Choices				Múltipla Escolha
          301	Moved Permanently				Movido Permanentemente
-         302	Found							Encontrado
-         303	See Other						Veja outro
+         302	Found						Encontrado
+         303	See Other					Veja outro
          304	Not Modified					Não modificado
-         305	Use Proxy						Use Proxy
+         305	Use Proxy					Use Proxy
          306	Proxy Switch					Proxy Trocado
          
-		 400	Bad Request						Solicitação Inválida
+	 400	Bad Request					Solicitação Inválida
          401	Unauthorized					Não autorizado
          402	Payment Required				Pagamento necessário
-         403	Forbidden						Proibido
-         404	Not Found						Não encontrado
+         403	Forbidden					Proibido
+         404	Not Found					Não encontrado
          405	Method Not Allowed				Método não permitido
          406	Not Acceptable					Não aceito
-         407	Proxy Authentication Required	Autenticação de Proxy Necessária
+         407	Proxy Authentication Required	                Autenticação de Proxy Necessária
          408	Request Time-out				Tempo de solicitação esgotado
-         409	Conflict						Conflito
-         410	Gone							Perdido
+         409	Conflict					Conflito
+         410	Gone						Perdido
          411	Length Required					Duração necessária
          412	Precondition Failed				Falha de pré-condição
-         413	Request Entity Too Large		Solicitação da entidade muito extensa
-         414	Request-URL Too Large			Solicitação de URL muito Longa
-         415	Unsupported Media Type			Tipo de mídia não suportado
-         416	Request Range Not Satisfiable	Solicitação de faixa não satisfatória
+         413	Request Entity Too Large		        Solicitação da entidade muito extensa
+         414	Request-URL Too Large			        Solicitação de URL muito Longa
+         415	Unsupported Media Type			        Tipo de mídia não suportado
+         416	Request Range Not Satisfiable	                Solicitação de faixa não satisfatória
          417	Expectation Failed				Falha na expectativa
 		 
-		 500	Internal Server Error			Erro do Servidor Interno
+	 500	Internal Server Error			        Erro do Servidor Interno
          501	Not Implemented					Não implementado
-         502	Bad Gateway						Porta de entrada ruim
+         502	Bad Gateway					Porta de entrada ruim
          503	Service Unavailable				Serviço Indisponível
          504	Gateway Time-out				Tempo limite da Porta de Entrada
-         505	HTTP Version Not Supported		Versão HTTP não suportada
+         505	HTTP Version Not Supported		        Versão HTTP não suportada
          
 #############################################
 Configuraçao IDE 
@@ -301,7 +302,7 @@ Configuraçao IDE
 	window > preferences > pesquisa jre (configurar )
 
 
-#############################################
+
 #############################################
 Maven - Instalando manual Spring tool e o intellyj já vem com maven imbutido(usa quando vc quer utilizar os comandos manual cmd e git bash)
 #############################################
@@ -309,7 +310,7 @@ Oque é o maven
 	E uma estrutura de projeto que facilita a compilação em qualquer IDE	
 	Maven (organiza seu projeto para compilar em quanquer framework)
 
-    PASTAS PADRAOo
+    PASTAS PADRAO
 	src/main/java  (todos os arquivos .java)
 	src/main/resouces (todos arquivos que nao é java exemplo .properties)
 	src/test/java (tudo que for arquivos de teste)
@@ -1836,8 +1837,70 @@ Autorização processo de identificar qual recurso o usuario pode acessar
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		
-		
-		
+	OBSERVAÇAO: Apartir deste momento ja trava os acessos só de incluir as dependencias 
+                    Erro 401 não autorizado
+
+-------------------------Arquivo de configuração do spring security para liberar acessos -----------------------
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Autowired    //expecifico para liberar o banco h2
+        private Environment env; //expecifico para liberar o banco h2
+        
+	//Vetor com varios caminhos para agilizar as descrições 
+	private static final String[] PUBLIC_MATCHERS = {
+			"/h2-console/**"
+	};
+       
+       //Vetor com varios caminhos usar mais abaixo para liberar somente para o GET leitura e visualização
+	private static final String[] PUBLIC_MATCHERS_GET = {
+			"/produtos/**",
+			"/categorias/**"
+	};
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+
+		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {   //expecifico para liberar o banco h2
+            http.headers().frameOptions().disable();                             //expecifico para liberar o banco h2
+        }
+
+	
+		http.cors()                                      //http.cors() chama o metodo a baixo liberando tudo que vem quando tiver /**
+		.and().csrf().disable();                         //.and().csrf().disable() ataque quando usa seção como nao usa esta desabilitando
+		http.authorizeRequests()
+		        .antMatchers("/clientes/**").permitAll()                                 //tudo que começar com este caminho liberar tudo
+			.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()            //libera apenas os method GET no controller
+			.antMatchers(PUBLIC_MATCHERS).permitAll()                                //libera tudo para estes acessos que estao neste vetor
+			.anyRequest().authenticated();                                           //todo resto exige autenticação
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	}
+
+	//metodo com configuração padrão para liberar os acessos
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
+		return source;
+	}
+}	    
+-------------------		
 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -1861,7 +1924,7 @@ Senha  BCryptPasswordEncoder cria um @Bean que pode ser usado em todo sistema pa
 	
 	
 	 Incluir um atributo senha na classe Cliente
-		@JsonIgnore    //para nao aparecer nao busca 
+		@JsonIgnore    //para nao aparecer nao busca no get
 		private String senha;
 		//get e set  add no contrutor com argumento buscar null 
 	 Atualizar ClienteNewDTO
