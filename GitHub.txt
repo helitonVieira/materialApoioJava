@@ -42,6 +42,7 @@ ARQUIVO README.txt (arquivo que contem como configurar o sistema deve ser criado
 ********************************************************
 REPOSITORIO JA EXISTENTE 
 ********************************************************
+
 git add . ou(git add -A ou git add * ou git add nomeArquivo "para add  somente arquivo expecifico" )
 git status (verifica se esta tudo verde) 
 git commit -m "descrição do que foi feito" (salva as alterações no git local)
@@ -53,6 +54,14 @@ git remote rm origin (apagar a url que esta amarrada)
 git remote add origin https://github.com/helitonVieira/VSystem.git (vincular em qual projeto quer salvar)
 git branch -M main 
 git push -u origin main
+
+-----MERGE BRANCH PARA MASTER---------
+
+git checkout master (entrar na branch master)
+git merge nomeBranch
+git add .
+git commit -m "merge ..."
+git push origin master 
 
 
 ********************************************************
