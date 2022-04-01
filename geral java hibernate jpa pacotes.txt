@@ -390,7 +390,7 @@ CRIANDO PROJETO MAVEN PELO SPRING
 
 	File > New > project > Maven > Maven Project 
 		X - Create a simple project ...  (marcar) se nao marcar vc vai para opçao de escolher um modelo de projeto
-		Next
+		Next@
 		Group id:  com.vsystem.financeiro  (indentifica o projeto como unico)
 		Artifact id:  contas-pagar-api (nome do projeto)
 		Version: 0.0.1-SNAPSHOT  (versão do projeto "SNAPSHOT" significa que ainda esta em desenvolvimento)
@@ -413,9 +413,13 @@ PROPERTIES  (DEFINIR QUAL VERSAO DO JAVA VAI ESTAR UTILIZANDO)
         <maven.compiler.target> 1.8 </maven.compiler.target>
 		<springdoc-openapi-ui-version>1.6.6</springdoc-openapi-ui-version>
   </properties>	
-  
+-------------------------  
+ CONFIGURAR ECLIPSE PARA JAVA 8 1.8 
+	1) windows > preference > java > installed JREs   (add > standard VM > selecione a pasta raiz JDK a ser usada) DOS comando P/ saber =  SET JAVA_HOME
+		selecione a nova versao >click apply
+	2)windows > preference > java > installed JREs > Execution Environments (JavaSE-1.8) click > selecione > apply and close	
 ______________________________________________ 
- ERRO NO <project ...
+ ERRO NO <project ...PSTS
   (passa o http para https)
 ______________________________________________
   
@@ -1573,6 +1577,24 @@ public class Cliente implements Serializable {
 		return true;
 	}
 }
+
+#############################################	
+INJEÇÃO DE DEPENDENCIA 
+	@Component @Controller @Service @Repository Estas anotações vc esta informando para o Spring que ele vai gerenciar as instancia da classe podendo usar o @Autowired
+	
+	@Autowired	// Função do New ai nao precisa usar new, o Spring gerencia a instancia	
+	
+	@Bean  Usado para informar que o spring vai gerenciar instancia de classe externa projetos fora do nosso
+		Colocar a dependencia do projeto externo
+		E preciso criar a config no pacote config 		
+		ex:  
+		        @Bean
+			public EmailService emailService() {
+			   return new SmtpEmailService();
+			}
+		
+	
+#############################################
 	
 #############################################
 package resources ou cotrollers 
@@ -1584,7 +1606,7 @@ package resources ou cotrollers
 	3) a ser criado @RestController veio com tudo que  o @Controller tem e mais 
 
 @Autowired
-	@Autowired	// Função do New ai nao precisa usar new	
+	@Autowired	// Função do New ai nao precisa usar new, o Spring gerencia a instancia	
 	private EmpresaRepository repository;
 	
 @RequestMapping(method = RequestMethod.GET, value="/empresa")  ou  @GetMapping("/empresa")
