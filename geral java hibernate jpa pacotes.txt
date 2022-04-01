@@ -1580,7 +1580,9 @@ public class Cliente implements Serializable {
 
 #############################################	
 INJEÇÃO DE DEPENDENCIA 
-	@Component @Controller @Service @Repository Estas anotações vc esta informando para o Spring que ele vai gerenciar as instancia da classe podendo usar o @Autowired
+#############################################
+	@Component @Controller @Service @Repository 
+	Estas anotações vc esta informando para o Spring que ele vai gerenciar as instancia da classe podendo usar o @Autowired
 	
 	@Autowired	// Função do New ai nao precisa usar new, o Spring gerencia a instancia	
 	
@@ -1593,8 +1595,6 @@ INJEÇÃO DE DEPENDENCIA
 			   return new SmtpEmailService();
 			}
 		
-	
-#############################################
 	
 #############################################
 package resources ou cotrollers 
