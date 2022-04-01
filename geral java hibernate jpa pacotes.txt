@@ -317,6 +317,22 @@ Configuraçao IDE
 
 
 #############################################
+Estruturas e pastas no java 
+#############################################
+1) model - domain  (classes)
+2) dto          (model resumido somente com os campos que vai usar)
+3) domain.enum  (enumeradores obj com valores definidos ex: tipo(fisico,juridico) , estadoPagamento(pendente, andamento, liquidado))
+4) repository   (usado para comunicar com o banco de dados não diretamente mais crias as Query vai ser usadas no serviços)
+5) resources ou controlers (endpoint para receber a comunicação com as outras api)
+6) service      (responsavel comunicação com banco dados, domain, repository, controlers tbm responsavel pela regra de negocio )
+7) utils        ()
+8) validation   ()
+9) service.exception  controler.exception  ()
+10)security     () 
+11)config       ()
+
+
+
 #############################################
 Maven - Instalando manual Spring tool e o intellyj já vem com maven imbutido(usa quando vc quer utilizar os comandos manual cmd e git bash)
 #############################################
@@ -628,7 +644,7 @@ No Intellij
 			fica  java -jar build/libs/exemplo-maven-0.0.1-SNAPSHOT.jar  (fica dentro pasta target o arquivo jar)
 			
 #############################################
-application,properties
+application,properties  (mais informaçoes na linha 2050)
 #############################################	
   spring.jpa.database=POSTGRESQL      
   spring.datasource.platform=postgres
@@ -1804,34 +1820,34 @@ public class IssueRemunerationRateDto {
 #############################################
 VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.constrants
 #############################################	
--------------------------------------------------------------
-Para o jdk11 tem que fazer esta implementação
-
-<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
-		<dependency>
-    		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-validator</artifactId>
-    		<version>6.0.12.Final</version>
-		</dependency>
--------------------------------------------------------------		
-as validações sao feitas no domain modulo quando nao ha o dto se tiver dto sera feito no dto
-E tem que colocar @Valid no controller
-Ele trata o erro 500 do servidor e passa erro 400 que é do usuario
-
-@NotEmpty   //nao aceita vazio
-@NotNull    //nao aceita nulo
-@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco
-@Email      //validação para email
-@Size(max = 20 min = 2)  // tamanho das colunas do banco para nao estourar
-@JsonIgnore    //para nao aparecer nao busca	
+	-------------------------------------------------------------
+	Para o jdk11 tem que fazer esta implementação
 	
-no resouce deve ser informado no insert e no update 
-@Valid 
-ex:
-        @PostMapping
-		public Cliente adicionar(@Valid  @RequestBody ...
-
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+			<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.12.Final</version>
+			</dependency>
+	-------------------------------------------------------------		
+	as validações sao feitas no domain modulo quando nao ha o dto se tiver dto sera feito no dto
+	E tem que colocar @Valid no controller
+	Ele trata o erro 500 do servidor e passa erro 400 que é do usuario
 	
+	@NotEmpty   //nao aceita vazio
+	@NotNull    //nao aceita nulo
+	@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco
+	@Email      //validação para email
+	@Size(max = 20 min = 2)  // tamanho das colunas do banco para nao estourar
+	@JsonIgnore    //para nao aparecer nao busca	
+		
+	no resouce deve ser informado no insert e no update 
+	@Valid 
+	ex:
+		@PostMapping
+			public Cliente adicionar(@Valid  @RequestBody ...
+	
+		
 #############################################
 flyway   // arquivos de configuração para o banco de dados  
 #############################################	
