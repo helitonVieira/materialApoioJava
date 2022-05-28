@@ -240,7 +240,7 @@ Camada de rede sao 7 mais vamos ver 4 mais importantes
 						   
 Linhas de pedcodEmpresao 		
 		GET       pegar
-        POST      alterar
+                POST      alterar
 		PUT       editar todo corpo  
 		PATCH     editar apenas um valor 
 		OPTIONS   verificar se aceita a operaçao
@@ -303,7 +303,7 @@ Código do Status HTTP
          416	Request Range Not Satisfiable	Solicitação de faixa não satisfatória
          417	Expectation Failed				Falha na expectativa
 		 
-		 500	Internal Server Error			Erro do Servidor Interno
+	        500	Internal Server Error			Erro do Servidor Interno
          501	Not Implemented					Não implementado
          502	Bad Gateway						Porta de entrada ruim
          503	Service Unavailable				Serviço Indisponível
@@ -352,9 +352,9 @@ Oque é o maven
 		Parent (Se o projeto basea em alguem baixa varias bibliotecas.
 		Obrigatorio no spring org.springframework.boot, ele faz um monte de configuracao para o spring)
 		
-		Dependencias 
+		Dependencias (btnDireito > Spring > add Starts)
 			spring-boot-start-web (informa que é um projeto web)
-			spring-boot-devtools (auto reloud)
+			spring-boot-devtools (auto reloud quando tem alteração start automatico) (btnDireito > Spring > add Devtools)
 			spring-boot-jpa (persistencia banco)	
 	
 	
@@ -385,6 +385,86 @@ mvn eclipse:clean
 mvn eclipse:eclipse  (if irá preparar o arquivo eclipse .classpathpara você)
 
 
+#############################################
+SPRING BOOT =  https://blog.betrybe.com/framework-de-programacao/spring-boot-tudo-sobre/
+#############################################
+  Oque é:
+  Spring Boot = Spring Framework + Servidor embutido + Configuraçoes iniciais prontas
+
+	veio para facilitar as configurações iniciais de um projeto
+	servidor embutido 
+	annotations = otimiza codigo
+  
+	O Spring Boot serve para gerenciar dependências de forma opinativa e automática
+   
+   VANTAGENS 
+	Redução drástica no tempo de desenvolvimento
+	Servidor embutido
+	Pom.xml organizado
+   
+   SPRING INITIALIZER facilita a criação dos nossos projetos 
+  
+  -----------------------  
+   3 PRINCIPAIS COMPONENTES DO SPRING BOOT?
+   *SPRING BOOT STARTER 
+	possui inicializadores que unificam diversas dependências e configurações dentro de uma única dependência.
+	
+   *SPRING BOOT AUTOCONFIGURATOR
+	@SpringBootApplication dentro tem varias anotações que configura o spring
+	responsável por dar as coordenadas de configuração para a aplicação
+	une as configuraçoes padroes com as que o desenvolvedor implementou
+	
+   *SPRING BOOT ACTUATOR
+	monitorar a saúde da nossa aplicação
+	fornecendo métricas
+   ---------------------------------	
+   
+
+   MÉTODOS MANIPULADORES DE REQUISIÇÕES	
+   
+   @RestController  faz com que o Spring Boot consiga entender que essa classe é um controlador. 
+   @RequestMapping é utilizada para implementar URL. Essa notação suporta os métodos GET, POST, PUT, DELETE e Patch.
+   
+   ---------------------------------
+   
+   SPRING BOOT VS SPRING MVC 
+     Spring Boot e o Spring MVC são frameworks diferentes
+     projeto web utilizando o Spring Framework, você precisaria configurar o Spring MVC para que o seu projeto se tornasse web
+     Já com o Spring Boot é só  adicionar o módulo Web que você teria as configurações iniciais do Spring MVC.
+     
+	SPRING BOOT 
+	   não faz com que o nosso projeto seja web.
+	
+	SPRING MVC (Model, View, Controller) 
+	   é uma estrutura orientada a HTTP, ou seja, ele “escuta” as requisições feitas na aplicação web
+   ---------------------------------
+   
+   
+  DEVTOOLS SPRING BOOT
+	reiniciemos o projeto automaticamente quando alterado.
+	sejam habilitadas algumas configurações por padrão que são necessárias para o desenvolvimento, 
+	  impedindo que tenhamos que realizar essas configurações na application.properties.
+	seja desabilitado o cache das páginas em HTML quando estamos no ambiente de desenvolvimento.
+  
+  ---------------------------------
+  3. SAIBA QUANDO USAR CADA INJEÇÃO DE DEPENDÊNCIA SPRING
+  
+  Muitas vezes precisamos criar classes que vão “compor” a funcionalidade de outra classe. Isso faz com que a classe X precise saber como instanciar e como utilizar a classe Y, o que faz com que elas se tornem dependentes.
+
+Com isso, o Spring “herdou” os conceitos de Inversão de Controle e Injeção de Dependências que vieram do SOLID. A Inversão de Controle possibilita que outra classe saiba quando é necessário criar e executar alguma função.
+
+Já a Injeção de Dependência se preocupa em manter o fraco acoplamento entre as classes e tira a responsabilidade de uma classe saber como instanciar a outra.
+
+Portanto, avalie bem o seu projeto, leia a documentação do Spring e entenda qual a melhor maneira de utilizar cada injeção de dependência.
+  
+  ---------------------------------
+  
+  ---------------------------------
+  
+  ---------------------------------
+  MICROSSERVIÇOS,  sistema que tem apenas uma responsabilidade.
+ 
+ 
 -----------------------------------------------------------------------------------------------------------------------
 CRIANDO PROJETO MAVEN PELO SPRING
 
@@ -965,7 +1045,7 @@ Sobrescrita metodos   // metodo existe na class pai e filha mesmo nome msm param
 			 
 classes Abstract - que nao pode ser instanciadas ex (class Animal  class Gato class Cachorro )  Animal pode ser uma class abstract
 			   public abstract class Animal
-			   public abstract void falar(); //metodo abstract o primeiro metodo concreto que herdar deve sobrescrever este metodo falar()
+			   public abstract void fala.r(); //metodo abstract o primeiro metodo concreto que herdar deve sobrescrever este metodo falar()
 			 
 			 
 Classe Final - quando e a ultima classe ou seja nao pode ser herdada ex: class(Animal , Cachorro, Gato) cachorro e gato pode ser uma class final			 
@@ -1186,13 +1266,44 @@ public String toString() {
 	}
 
 -------------------------------------------------------------------------------------------------------
-Coleções collections 
+Coleções collections (listas,conjuntos,mapas)
 -------------------------------------------------------------------------------------------------------
-	String i1 = "uva"
-	String i2 = "pera"
-	String i3 = "vaca"
+List = generico mantem a ordem de inserção    ArrayList<String> itens = new ArrayList<>();
+Set = não aceita registro duplicado, ele não é ordenado   Set<String> itens = new HashSet<>();
+   HashSet = nao mantem ordem de inserção        Set<String> itens = new HashSet<>();
+   LinkedHashSet = mantem ordem de inserção      Set<String> itens = new LinkedHashSet<>(); 
+Map = chave, valor     Set<String, Pessoa> itens = new HashMap<String,Pessoa>();
+
+
+Hierarquia 1 (de forma simplificado com mais usados )
+
+
+                                         ---- Set<E> ---- LinkedHashSet<E>
+	iterable<E> ------ Collection<E> ---- List<E>
+					 ---- Queue<E>
+
+
+Hierarquia 2 (de forma simplificado com mais usados )
+
+		  ---- AbstractMap<K,V> ---- HashMap<K,V> ---- LinkedHashMap<K,V>
+        Map<k,V> 
+		  ---- SortdMap<K,V>  ---- NavigableMap<K,V> ---- TreeMap<K,V>
+		  
+---		  
+ArrayList (tipo generico)
 	
-	ArrayList<String> itens = new ArrayList<>(); // declaração 
+	1 - Simples
+	    String i1 = "uva"
+	    String i2 = "pera"
+	    String i3 = "vaca"
+	    
+	    ArrayList<String> itens = new ArrayList<>(); // declaração 
+	
+	2 - Vetor
+	    String[] nomeItens = {uva,pera,vaca}
+	    
+	     ArrayList<String> itens = new ArrayList<String>(Arrays.asList(nomeItens));
+	    
 	
 	itens.add(i1);
 	itens.add(i2);
@@ -1200,26 +1311,141 @@ Coleções collections
 	
 	system.out.print(itens); //retorno  [uva,pera,vaca]
 
-metodos 
+    metodos 
 	itens.remove(0);
 	itens.get(0); //pegar primeira aula 
 	itens.size(); //qts elementos tem na coleção
 	Collections.sort(itens) // ordena ordem alfabetica
 
-Percorer a coleção	
+   Percorer a coleção	
 	for (String item : itens ){
 		system.out.print(item); 
 	}
 
-ou
+   ou
 
-	for (int i = 0; i < itens.size(); i++ ){
+	for (int i = 0; i < itens.size(); i++ ){  // se colocar <= vai estourar e gerar erro no java
 		system.out.print(itens.get(i)); 
 	}
 	
-ou 
-    itens.forEach(item ->{item})		
+   ou 
+        itens.forEach(item ->{item})  //para cada item dentro do itens -> faça {System.out.print()}		
+----
+Set(não aceita item duplicado e não é ordenado)
 
+	Produto p1 = new Produto(1,"mesa",1.5);
+	Produto p2 = new Produto(1,"cadeira",3.5);
+	Produto p3 = new Produto(1,"prato",2.5);
+	
+	Set<Produto> produtoSet = new HashSet<>();
+	produtoSet.add(p1);
+	produtoSet.add(p2);
+	produtoSet.add(p3);
+	
+	for(Produto p : produtoSet){
+	   System.out.println(p);
+	}
+
+LinkedHashSet (para garantir a ordem que foi encerido)
+	Set<Produto> produtoSet = new LinkedHashSet<>();	
+
+HashSet (Manipulação de conjunto)
+
+	ex: conjunto de 3 progamadores onde 1 sabe java ou tor php e outro sabe as duas linquagem
+	
+	   HashSet<Pessoa> sabeJava = new HashSet<Pessoa>();
+	   sabeJava.add('Joao');
+	   sabeJava.add('Maria');
+	   
+	   HashSet<Pessoa> sabePhp = new HashSet<Pessoa>();
+	   sabeJava.add('Pedro');
+	   sabeJava.add('Maria');
+	   
+	Interseção (pegar o elemento que contem nos dois)
+	
+	   HashSet<Pessoa> sabeJavaEPhp = new HashSet<Pessoa>(sabeJava); // pegando as pessoas que sabe java
+	   sabeJavaEPhp.retainAll(sabePhp) // interseção que sabem java e php
+	   
+	   for (Pessoa p : sabeJavaEPhp ){
+		system.out.println(p);  //Maria
+	   }
+	
+	Diferença (pessoas que sabem somente java e não sabe php)   
+	   
+	   HashSet<Pessoa> sabeJavaEPhp = new HashSet<Pessoa>(sabeJava); // pegando as pessoas que sabe java
+	   sabeJavaEPhp.removeAll(sabePhp) // diferença que sabem java
+	   
+	   for (Pessoa p : sabeJavaEPhp ){
+		system.out.println(p);  //Maria
+	   }
+
+HashMap (chave valor) recuperação rapida do valor
+
+	 HashMap<String,Pessoa> mapa = new HashMap<String,Pessoa>();
+	 mapa.put("10","Joao")
+	 mapa.put("20","Maria")
+	 mapa.put("30","Paulo")
+	 
+	 Pessoa alguem = mapa.get("20");  //alguem recebe Maria
+
+
+LinkedHashMap (para garantir a ordem que foi encerido)
+	
+	HashMap<String,Pessoa> mapa = new LinkedHashMap<String,Pessoa>();
+	
+	
+Ordenação Ordem (criar classe para ordenar crescente decrescente) usa implements comparable
+
+	public class PessoaPorPeso implements Comparable{
+	   
+	   String nome;
+	   float peso;
+	   float altura;
+	   
+	   @Override
+	   public int compareTo(Object arg0){
+	      PessoaPorPeso p = (PessoaPorPeso) arg0;
+	      
+	      return(int) (this.peso - p.peso)*100 // forma crescente *100 para trabalhar com casa decimali
+	                 //(p.peso - this.peso) caso seja decrescente
+	   }
+	}
+
+
+Ordenação atraves de metodo Comparator
+
+	public static Comparator<Pessoa> PesoComparator = new Comparator<Pessoa>(){
+	   
+	   public int compare(Pessoa p1, Pessoa p2){
+	      return (int) (p1.peso*100 - p2.peso*100)
+	   }
+	};
+	
+	public static Comparator<Pessoa> AlturaComparator = new Comparator<Pessoa>(){
+	   
+	   public int compare(Pessoa p1, Pessoa p2){
+	      return (int) (p1.altura*100 - p2.altura*100)
+	   }
+	};
+  
+  //ordena ordem alfabetica 	
+	public static Comparator<Pessoa> NomeComparator = new Comparator<Pessoa>(){
+	   
+	   public int compare(Pessoa p1, Pessoa p2){
+	      return p1.nome.compareTo(p2.nome); // p2.comparTo(p1) para decrescente
+	   }
+	};
+
+   //utilizar os metodos criados 
+   
+	ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>(); //popular lista com pessoas 
+	Collections.sort(pessoas , Pessoa.PesoComparator); // ordenar por peso
+	Collections.sort(pessoas , Pessoa.AlturaComparator); // ordenar por altura
+	Collections.sort(pessoas , Pessoa.NomeComparator);  // ordena por nome
+	
+
+
+	
 ------------------ITERATOR----------------------------------
 
 Iterator <String> lista = itens.iterator(); // pega todos itens e joga na lista 
@@ -1269,6 +1495,8 @@ arvore
 					stmt.close(); //muito usado para finalizar conecxao com banco 
 				}
 			}
+			
+			
 #############################################
 JPA
 #############################################
@@ -1346,7 +1574,7 @@ private Integer id;
 
 
 #############################################
-package domain
+package domain jpa
 #############################################
 
 https://www.youtube.com/watch?v=d_5iZJ8p9x8&list=PLbA-jMwv0cuUp3UKlLHng6E-xgD037bXz&index=2
@@ -1360,7 +1588,15 @@ Mapeamento basico https://receitasdecodigo.com.br/hibernate/primeiros-passos-par
 
 Chave composta  https://receitasdecodigo.com.br/hibernate/chaves-compostas-com-hibernate
 	@CodEmpresaClass(EmpresaCodEmpresa.class)   // Quando mais de 1 @CodEmpresa para definir qual
-	@Embeddable // cria uma classe para informar os codEmpresas (Segundo autor prefercodEmpresaa)
+	@Embeddable //Quando vc cria outra classe mais todos os atributos vai ser visto na classe que vc coloca o @Embeddable
+	              Deixa a classe mais limba 
+		      tem que colocar a anotação na classe referenciada tbm
+		      ex: classe Cliente(cod, nome) com Endereco(rua,bairro,cidade,estado,pais) na classe (cliente) coloca parametro
+				
+				@Embeddable
+				private Endereco
+		     SERIA COMO SE TUDO QUE TEM NA CLASSE ENDEREÇO ESTIVESSE NA CLASSE CLIENTE
+                      cria uma classe para informar os codEmpresas (Segundo autor prefercodEmpresaa)
 
 -------------------------	
 Muitos para um https://receitasdecodigo.com.br/hibernate/hibernate-manytoone-muitos-para-um-com-objeto-relacional
@@ -2118,6 +2354,7 @@ OBSERVAÇÃO A ORDEM QUE PEGA O VALOR DA VARIAVEL CRIADA NO APPLICATION.PROPERTI
 				2 - APPLICATION.PROPERTIES
 				3 - DEFAULT CRIADO NA CLASSE
 
+CONEXAO COM BANCOS DE DADOS 
 
 ####################################################################
 Autenticação e Autorização token JWT  autorização trafegada cabeçarios das requisiçoes pela url, controla o usuario e tempo de inspiração do token
