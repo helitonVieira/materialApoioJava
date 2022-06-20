@@ -1,9 +1,29 @@
 Curso de Rest API 
-API
+API  
+	tecnologia desenvolvida para que outro sistema possa usar as funcionalidades de outro sistema
+	api pode ser controlador de arquivo, controlador de rede , api Rest
+   API REST
+        Utiliza protocolo http
+	metodos (get, post, delete,put)
+   Endpoint (url)
+   SSL (segurança tudo vai criptografado)
+   Autenticação(tokens)   
+   Resposta(json,xml)
 
 	Software consumidor <--------   API ---------->    Software Provedor 
-
-Web Service = é uma tipo de api 
+	
+WEB SERVICE
+	Web Service = é uma tipo de api 
+	Webservice nome dado a tecnologia que permite a comunicação entre aplicações de 
+	   maneira independente de sistema operacional e de linguagem de programação
+   
+   Motivo para uso
+	Integração para uso de serviço distintos
+	Padronização do retorno de cada requisição de serviço
+	
+	computador (https://www.youtube.com)------> web service ------> banco de dados --------> web service (xml, json)-------> reposta computador 
+	
+	protocolos SOAP,REST
 
 	software restaurante <--------> API do ifood  <---------> iFood
 	

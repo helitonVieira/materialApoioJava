@@ -1,5 +1,6 @@
 aulas spring boot thymelyve https://www.youtube.com/user/alexegidio/search?query=Spring+Boot+%2B+Thymeleaf+%2B+JPA
 site oficial do spring boot  ///      spring.io
+vieirasystem2019@gmail.com   Asdf,.........
 #######################################################################################################
 PORTA 8080  OUTRO SERVIÇO JA UTILIZANDO A PORTA
 ######################################################################################################
@@ -210,11 +211,11 @@ Protocolo HTTP
 #############################################
 
 
-           ___________                 REQUEST                ___________  
+                   ___________                 REQUEST                ___________  
 		  |           |   ------------------------------>    |           | 
 		  | NAVEGADOR |                                      |  SERVIDOR |
 		  |___________|                 RESPONSE             |___________|
-                          <------------------------------ 
+                                  <------------------------------ 
 						   
 		REQUEST = seu navegador manda uma informação para o servcodEmpresaor 
 		RESPONSE = resposta do servcodEmpresaor para o navegador
@@ -474,8 +475,8 @@ CRIANDO PROJETO MAVEN PELO SPRING
 		Group id:  com.vsystem.financeiro  (indentifica o projeto como unico)
 		Artifact id:  contas-pagar-api (nome do projeto)
 		Version: 0.0.1-SNAPSHOT  (versão do projeto "SNAPSHOT" significa que ainda esta em desenvolvimento)
-		Packaging: jar (server tomcat ja vem imbutido)
-		           war (usar o server externo) https://www.youtube.com/watch?v=UQuinl-kHxo
+		Packaging: jar (.jar armazena classes de uma biblioteca que podemos usar na nossa aplicação., server tomcat ja vem imbutido)
+		           war (.war geralmente é responsavel por compactar todos os arquivos necessarios para rodarmos uma aplicação WEB (HTML, CSS, JS, Imagens, Classes Java, JAR's, etc)usar o server externo) https://www.youtube.com/watch?v=UQuinl-kHxo
 		Finaliza
 		
 	pom.xml
@@ -879,6 +880,7 @@ metodo (tipoDeRetorno nomeMetodo)
 		int soma = classe.somarNumeros(10,25,32,65);
 		
 Construtores - serve para inicializar os valores dos atributos 
+	Também conhecidos pelo inglês constructors, os construtores são os responsáveis por criar o objeto em memória, ou seja, instanciar a classe que foi   definida. Eles são obrigatórios, msm que não colocar as classes ja vem com construtor vazio embutido
 
 			public class Pessoa{
 				String nome;
@@ -1050,11 +1052,13 @@ classes Abstract - que nao pode ser instanciadas ex (class Animal  class Gato cl
 			 
 Classe Final - quando e a ultima classe ou seja nao pode ser herdada ex: class(Animal , Cachorro, Gato) cachorro e gato pode ser uma class final			 
 	public final class Cachorro extends Animal{
-		final String habitate = "Planeta terra" // atributo nao muda	
-		
+		final String habitate = "Planeta terra" // atributo nao muda		
 	}
 	
 Interface - 100% abstract so pode ser herdada de outra interface
+	A Interface obrigar o programador a seguir o padrão do projeto, 
+	obriga a implementar seus métodos, ele deverá sempre seguir o padrão de implementação da Interface.
+	
 	public interface Animal {
 		Sting habitat = "Planeta terra" //automaticamente ja é public abstract final  e os atributos tem que ser inicializados
 		void durmir(); // metodos são public abstract por padrao
@@ -1589,7 +1593,7 @@ Mapeamento basico https://receitasdecodigo.com.br/hibernate/primeiros-passos-par
 Chave composta  https://receitasdecodigo.com.br/hibernate/chaves-compostas-com-hibernate
 	@CodEmpresaClass(EmpresaCodEmpresa.class)   // Quando mais de 1 @CodEmpresa para definir qual
 	@Embeddable //Quando vc cria outra classe mais todos os atributos vai ser visto na classe que vc coloca o @Embeddable
-	              Deixa a classe mais limba 
+	              Deixa a classe mais limpa 
 		      tem que colocar a anotação na classe referenciada tbm
 		      ex: classe Cliente(cod, nome) com Endereco(rua,bairro,cidade,estado,pais) na classe (cliente) coloca parametro
 				
@@ -1602,7 +1606,7 @@ Chave composta  https://receitasdecodigo.com.br/hibernate/chaves-compostas-com-h
 Muitos para um https://receitasdecodigo.com.br/hibernate/hibernate-manytoone-muitos-para-um-com-objeto-relacional
 exemplo:1(	Mapeando a tab_item_pedcodEmpresao 
 
-            @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)    
+            @ManyToOne(fetch = FetchType.EAGER,  cascade=CascadeType.ALL)    //FetchType.EAGER (garante que a coleção vem junto na busca)
 			@JoinColumn(name="cod_item")   //define qual coluna é responsável pela ligação entre os objetos.
 			private Item item; )
 	
@@ -2051,6 +2055,7 @@ class {}
  "nome": "Leonardo de Caprio",
  "email": "leo@gmail.com",
  "telefone": "349999999999"
+ "dtaPreVenda" : "2022-06-21T18:25:43-05:00" ,
 }
 
 CLASSE E LISTA 
@@ -2304,6 +2309,105 @@ IMPORTAR A BIBLIOTECA .JAR PARA OUTRO PROJETO
 
 ####################################################################
 Heroku - instalar banco nas nuves aula 58 e 59 udemy  https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8256790#overview
+   CONFIGURAÇÃO
+        Cria a conta no heroku 
+	   vieirasystem2019@gmail.com faca,...........
+	   helitondba@gmail.com faca,...........
+        
+	Cria a app (new app) https://dashboard.heroku.com/new-app
+	   nome: app-estudo > salva
+	   
+	Adicionar o MySql 
+	   informar cartao de credito caso utrapasse limite do plano gratis https://dashboard.heroku.com/account/billing
+	   aba Overview > Configure Add-ons > pesquisa Mysql > Seleciona clearDB Mysql > selecione o plano gratis 
+
+	Instale o Heroku CLI  https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
+		abra terminal cmd > digite: heroku login > (seta para cima > confirma  ou informe email e senha)
+   
+   ASSOCIAR VINCULAR O PROJETO LOCAL AO HEROKU	
+	Abra o terminal gitbash na pasta do projeto 
+        comando: (heroku git:remote -a nomeAppCriadoHeroku) 
+	          heroku git:remote -a app-vsystem
+	
+	git remote -v  (verificação)
+	    DEVE APARECER DESTA MANEIRA MOSTRANDO QUE O HEROKU ESTA VINCULADO 
+		heroku  https://git.heroku.com/app-vsystem.git (fetch)
+		heroku  https://git.heroku.com/app-vsystem.git (push)
+		origin  https://github.com/helitonVieira/backEndAula1crudProduto.git (fetch)
+		origin  https://github.com/helitonVieira/backEndAula1crudProduto.git (push)
+
+      
+   
+   BACKUP MYSQL
+	abra o cmd 
+	selecione a pasta onde vai ficar o arquivo 
+	comando: (mysqldump -u userBD -p nomeBD > nomeArquivoSeraCriado.sql)
+	          mysqldump -u root -p vsystemevento > arquivo.sql
+		  
+   OBTER URL DO BANCO DE DADOS HEROKU
+	abra o git bash na pasta do projeto 
+	comando: heroku config | grep CLEARDB_DATABASE_URL
+		mysql://bebe10e13815ed:ce289ab2@us-cdbr-east-05.cleardb.net/heroku_c56081e8e9a6e9a?reconnect=true
+	
+	MONTAR O COMANDO PARA SUBIR SCRIPT DO BACKUP(mysql --host= --user= --password= --reconnect < arquivoBKP.sql)		
+		mysql --host=us-cdbr-east-05.cleardb.net --user=bebe10e13815ed --password=ce289ab2 --reconnect heroku_c56081e8e9a6e9a < arquivo.sql
+           
+        SUBIR O SCRIPT DO BANCO DE DADOS PARA HEROKU
+	   Abra cmd
+	   entre no caminho que esta o back do banco 
+	   executa o comando criado a cima mysql --host=us-cdbr-east-05.cleardb.net --user=bebe10e13815ed --password=ce289ab2 --reconnect heroku_c56081e8e9a6e9a < arquivo.sql	   
+	   
+	   
+   CRIAR APPLICATION.PROPERTIES DE PRODUÇÃO 
+
+	spring.datasource.url=mysql://bebe10e13815ed:ce289ab2@us-cdbr-east-05.cleardb.net/heroku_c56081e8e9a6e9a?reconnect=true
+
+        spring.jpa.hibernate.ddl-auto=none
+        spring.jpa.show-sql=false
+        spring.jpa.properties.hibernate.format_sql=false
+	
+   CRIE O ARQUIVO Procfile na raiz do projeto para comunicar com heroku
+
+	(troque pelo nome do seu projeto):
+	web: java -Dserver.port=$PORT -Dspring.profiles.active=prod $JAVA_OPTS -jar 
+		
+			target/cursomc-0.0.1-SNAPSHOT.jar
+		Notas:
+		      -D serve para passar parâmetros ao Heroku
+		      $PORT é a variável em que o Heroku armazena a porta pela qual a API vai ser acessada
+		      Para gerar o .jar do projeto: 
+		      Window -> Preferences -> Installed JREs
+		      Selecione o item existente e clique Edit
+		      Clique Directory e selecione a pasta do JDK (não a do JRE), clique Finish
+		      Clique Apply and Clone
+		      Clique Project -> Clean
+		      Run As -> Maven Install (o banco de dados precisa estar online)
+		      Verifique o arquivo .jar gerado na pasta target
+		      
+CRIAR O ARQUIVO (system.properties) na raiz do projeto para informar a versao do java para heroku	
+			java.runtime.version=11
+			
+			
+POM.XML deve conter o plugin	
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>				
+			</plugin>
+		</plugins>
+	</build>
+
+
+no heroku click em OPEN APP Pegar o caminho que esta sua aplicação testar no postman
+	https://app-vsystem.herokuapp.com	
+			
 ####################################################################
 
 ############################
@@ -2316,7 +2420,7 @@ TROCAR A PORTA 8080
 
 DECLARAR A VARIAVEL   
 	variavel = valorVariavel
-
+        BigDecimal valorTotal ;
 	nome = Heliton Silva Vieira
 
 Criar as variaveis que vai ser utilizada em todo sistema
