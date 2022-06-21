@@ -1,0 +1,14 @@
+Componente não aparece na tela HTML
+	1) todo componente tem seu import no ( app.module.ts ) 
+	   pode ter 1 ou mais biblioteca para importar 
+	   como verificar: 
+		material aba API tem o import do componente ex: import {MatDatepickerModule} from '@angular/material/datepicker';
+		caso tenha mais import vai aparecer no Inspecionar(F12) da pagina aba console 
+		na descriçao do erro console vem nome do import a ser feito ex: MatDatepickerModule
+		
+	2) verifica se esta criado no .ts do componente 
+		objeto ex:  item: Item = {id: null, descricao: null}
+		instancia do objeto no formulario ex: 
+			descricao = new FormControl(null, Validators.minLength(2));
+		ou      descricao = new FormControlName(null, Validators.minLength(2)); 	
+		
