@@ -1,4 +1,10 @@
 Componente não aparece na tela HTML
+
+	403 autorização expirou 
+	
+	400 verificar a url
+	    Obj pode não esta sendo reconhecido (update pre venda Marcelo uba) foi preciso instanciar uma nova classe
+	
 	1) todo componente tem seu import no ( app.module.ts ) 
 	   pode ter 1 ou mais biblioteca para importar 
 	   como verificar: 

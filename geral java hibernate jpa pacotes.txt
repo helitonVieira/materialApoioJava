@@ -2037,7 +2037,7 @@ public class OrdemServicoController {
 	
 	private List<OrdemServicoModel> toCollectionModel(List<OrdemServico> ordensServico) {//mudar uma lista domain para dto
 		return ordensServico.stream()
-				.map(ordemServico -> toModel(ordemServico))//.map aplica funcao a cada elemento como se fossr um for
+				.map(ordemServico -> toModel(ordemServico))//.map aplica funcao a cada elemento como se fosse um for
 				.collect(Collectors.toList()); 
 	}
 	
