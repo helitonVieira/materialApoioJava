@@ -5,6 +5,7 @@
 ********************************************************
 CONFIGURAR O SSH PARA NÃO FICAR PEDINDO USUARIO E SENHA TODA VEZ 
 usuario > Configurações > Chave SSH e GPG 
+******no BitBucket a chave ssh deve ser colocado no profile e nunca no projeto pois no projeto da permissão somente para leitura*************
 
 Git bash  comando:     ssh-keygen -t rsa -b 4096 -C "helitondba@gmail.com"  
 	1) Sera criado uma pasta C:\Users\hs81035\.ssh (Quando roda o comando acima mostra o caminho que foi criado a pasta .ssh)
