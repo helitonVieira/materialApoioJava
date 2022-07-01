@@ -965,6 +965,11 @@ BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)
 		 @Getter(AccessLevel.NONE) - deixa oculto nem aparece 
 		 
 	------------------------------
+	Para que serve o ToString ????
+		1 - Sempre que cria a classe ex: Cliente ja vem com o toString que pertence a classe Object
+			mas se não for subscrito ele tras um codigo ao inves das informaçoes por isso tem que criar o msm
+	
+	------------------------------
 		 @ToString - implementar o metodo ToString com todas propriedades em cima da classe
 		 @ToString.Exclude - Em cima da propriedade não vai para o metodo @ToString
 	outra forma de trabalhar com  @ToString
