@@ -7,6 +7,9 @@ PORTA 8080  OUTRO SERVIÇO JA UTILIZANDO A PORTA
 1) netstat -noa | findstr 8080 
 2) taskkill /PID "PID number" /F
 
+
+https://downforeveryoneorjustme.com/ (verificar se o site esta no ar)
+
 ###################################################################
 ECLIPSE
 ###################################################################
@@ -828,6 +831,7 @@ Foreach:
 		}
 		
 		nomes.forEach(nome -> {
+		    //pode colocar as condições if 
 			System.out.print(nome);
 		})
 		
@@ -944,7 +948,7 @@ Encapsulamento  - proteger os atributos maior controle de entrada e saida Get e 
 
 
 ####################################################################################################################################################		 
-BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)
+BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)  https://www.youtube.com/watch?v=W0ywxkvc4_M
 		 
 		 deve ser instalado pelo maven arquivo pom.xml biblioteca lombok 
 		 
@@ -952,7 +956,20 @@ BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)
 		 - em cima da class para todas propriedades
 		 - em cima do atributo somente para o unico atributo 
 	
-	ctrol + O (ver as propriedades da classe)	 
+	ctrol + O (ver as propriedades da classe)
+    -------------
+    ERRO IMPORTANTE	LOMBOK NAO FUNCIONA VER MIN 6:40 (https://www.youtube.com/watch?v=W0ywxkvc4_M)
+	  1 fecha o eclipse
+	  2 entra na pasta do maven que foi instalado o lombok
+		ex: C:\Users\hvieira\.m2\repository\org\projectlombok\lombok\1.18.24
+	  3 execute o comando =   java -jar lombok-1.18.24.jar
+		vai abrir a tela do lombok 
+		localizar seu eclipse caso não ache click specify location 
+	  4 click em install/update	
+	  5 pode fechar Quit.. 
+		abri o eclipse que o lombok vai funcionar 	
+	
+	
 	------------------------------
 	Poderoso comando que ja vem com todas as anotações 
 		 @Data - cria @Getter @Setter  @equalsAndHashCode  @RequiredArgsConstructor(@NonNull em cima propriedades para passar para construtor argumento)
@@ -965,6 +982,7 @@ BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)
 		 @Getter(AccessLevel.NONE) - deixa oculto nem aparece 
 		 
 	------------------------------
+	ToString
 	Para que serve o ToString ????
 		1 - Sempre que cria a classe ex: Cliente ja vem com o toString que pertence a classe Object
 			mas se não for subscrito ele tras um codigo ao inves das informaçoes por isso tem que criar o msm
@@ -1236,7 +1254,82 @@ ArrayList - nao aceita tipo primitivo tipo int double somente String Integer
 		nomes.indexOf("boi"); //retorna posiçao que o obj encontra se nao encontrar retorna -1
 		
 		pegar valor 
-			nomes.forEach(i -> System.out.print(i.getNome())
+			nomes.forEach(i -> System.out.print(i.getNome()))
+			
+			ou
+			
+			nomes.forEach(nome -> {
+				//pode colocar as condições if 
+				System.out.print(nome);
+			})
+			
+		AVANÇADO PASSAR VARIOS ENDEREÇOS PARA UM CLIENTE E TAMBEM CONSEGUE QUE FAZER COM QUE O CLIENTE RECEBA VARIOS ENDEREÇOS
+		
+		@Getter
+        @Setter
+        @ToString
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor
+		
+		public class Cliente { 	
+			private String nome ; 
+			private List<Endereco> endereco = new ArrayList<>();
+		}
+		----------
+		@Getter
+        @Setter
+        @ToString
+        @Builder
+        @NoArgsConstructor
+        @AllArgsConstructor	
+		
+		public class Endereco { 	
+			private String rua ; 
+			private Integer numero;
+			private String bairro;
+			
+		}
+        ----------
+         public class ClienteMapper {
+         
+             public Cliente retornoComVariosEndereco(Cliente response) {           	
+         		
+             	
+                 return ConsultaContaCadastradaResponseDTO.builder()
+                 		.nome(getDebNome83())                 		
+                        .enderecos(EnderecosMapper.entidadeParaDto(response.getEnderecos()))
+                        .build();        		 
+                 		          
+             }
+         }
+		----------	
+		
+	    public class EnderecosMapper { 	 
+
+            public static List<Endereco> entidadeParaDto(List<Endereco> lista) {
+            
+            	List<Cliente> listaDTO = new ArrayList<>(0);
+            
+            	lista.forEach(l -> {
+            		// if caso nescessario
+            		if (0 == 0 ) {
+            			listaDTO.add(Cliente.builder()
+            					.rua(l.getRua())
+            					.numero(l.getNumero())
+								.bairro(l.getBairro())
+								.build());
+            		}
+            	}
+            
+            	);
+            
+            	return listaDTO;
+            
+	   }
+	   ---------
+
+		
 	
 
 data date  https://docs.oracle.com/javase/8/docs/api/java/util/Date.html

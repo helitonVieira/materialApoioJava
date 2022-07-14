@@ -1,0 +1,33 @@
+anotações JAX-RS  https://download.eclipse.org/microprofile/microprofile-open-api-1.0/microprofile-openapi-spec.html
+
+ @APIResponses(value = {
+            @APIResponse(responseCode = "200", description = "Transferência validada.", content =
+            @Content(mediaType = "application/json", schema = @Schema(implementation = TransferenciaResponseDTO.class))),
+            @APIResponse(responseCode = "400", description = "Request inválido.", content =
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+            @APIResponse(responseCode = "422", description = "Validação nas regras de negócio.", content =
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class))),
+            @APIResponse(responseCode = "500", description = "Erro inesperado durante o processamento.", content =
+            @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionResponse.class)))})
+    @Operation(summary = "Realiza validação de uma transferência entre Contas Bradesco", description = "Realiza validação de uma transferência entre Contas Bradesco")
+    @Parameter(in = ParameterIn.HEADER, name = "x-stateless-open", required = true, description = "Cabeçalho para dados não sensíveis")
+    @Parameter(in = ParameterIn.HEADER, name = "x-stateless-closed", required = true, description = "Cabeçalho para dados sensíveis")
+    @POST
+    @Path("transferencia/consistir")
+    TransferenciaResponseDTO consistir(
+            @Valid @RequestBody(name = "Transferência Request", description = "Valida a transferência a ser realizada", required = true,
+                    content = @Content(mediaType = "application/json", schema = @Schema(implementation = TransferenciaRequestDTO.class)))
+                    TransferenciaRequestDTO transferir
+    );
+
+@Tag Um contêiner de várias tags.
+
+@APIResponses = Um contêiner para várias respostas de uma operação de API.
+@APIResponse = Descreve uma única resposta de uma operação de API.
+@Content = Fornece esquema e exemplos para um tipo de mídia específico.
+@Schema = Permite a definição de tipos de dados de entrada e saída.
+
+@Operation = Descreve uma operação ou normalmente um método HTTP em um caminho específico.
+@Parameter = Descreve um único parâmetro de operação.
+@Parameters = Encapsula os parâmetros de entrada.
+@RequestBody = Descreve um único corpo de solicitação.
