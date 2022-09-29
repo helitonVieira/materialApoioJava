@@ -85,7 +85,10 @@ F6 (proxima linha )
 F5 (Entrar no metodo)
 F8 (continuar)
 Ctrl + shift + D (mostrar valor variavel)
-CTRL + shift + I (mostrar valor variavel)
+CTRL + shift + I (mostrar valor variavel)4
+
+
+
 
 ***************************
 
@@ -2796,7 +2799,7 @@ Configuração e envio projeto Heroku subir base e aplicação aula 58 a 60
 POSTMAN
 ####################################################################
 POST
-  {
+    {
         "nome": "FANTA UVA",
         "codSubcategoria": {
             "id": 1,
@@ -2804,11 +2807,30 @@ POST
         },
         "preco": 4.87
     }
+	
+GET (passa os valores pela URL)
+
+	http://localhost:8080/ymtj-srv-transferencia/api/v1/programacao/consultarProgramacao/agencia/6505/conta/5401
+
+
+New Environment (para criar variaveis fixas e não ficar precisando copiar coloar senha )
 
 
 ####################################################################
-POSTMAN
+Swagger
 ####################################################################  
+
+
+Swagger (simplificar o desenvolvimento e documentar api)
+
+SWAGGER EDITOR (Onde criamos as especificações do nosso swagger ) htts://editor.swagger.io
+SWAGGER CODEGEN (Usamos nas linguagens @.... este usamos no java)
+SWAGGER UI (Parte visual dos endpoint que conseguimos testar )
+
+Schema (criar componentes 
+         reduzir codigo )
+		 
+Segurança (autenticação dos campos no swagger ui aparece com um cadeado)
 		
 		
 		
