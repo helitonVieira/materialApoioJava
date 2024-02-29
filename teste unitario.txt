@@ -1,0 +1,478 @@
+TESTE SPRINGBOOT     
+
+		mock junit (https://www.youtube.com/watch?v=EwnDQQlPMGw&t=275s)
+
+USE ESTA DECLARAÇÃO PARA NAO PRECISAR FICAR ESCREVENDO Mockito frente dos metodos 
+	import static org.mockito.*; 
+
+
+RODAR NA PROPRIA CLASSE 
+
+	Run As // rodar normal o testes
+	Coverage As //pinta a classe e o teste para ver o quanto a classe esta coberta com o teste 
+	
+NOME DO METODO A SER TESTADO 
+        void quando_entao
+		public void quandoFindByID_entaoRetorneProduto
+
+MOCKMVC (testar controllers)
+
+pom.xml dependencia do  spring-mock-mvc
+
+criar a classe com msm nome com sulfixo test no final  
+	ex: nomeDaClasseControllerTest
+	
+	
+*******************************************************************************************	
+	@WebMvcTest   //quando rodar sabe que é uma classe test rodar na web
+	class FilmeControllerTest {
+	
+	@Autowired
+    private FilmeController controller; //nome da classe que vai ser testada
+
+	//Quando a classe usa @Autowired este comando instancia tudo que vem antes evitando estouro de null
+	@BeforeEach
+	private void setUp() {
+		MockitoAnnotations.openMocks(this);
+		
+	}
+
+    //antes de chamar esta classe de testes para não precisar subir toda aplicação passar somente o que vai usar
+    @BeforeEach   
+	public void setup() {
+		RestAssuredMockMvc.standaloneSetup(this.controller)
+	}
+	
+	//colocar nos imports para facilirar as declarações  
+	      import static io.restassured.module.mockmvc.RestAssuredMockMvc.*;
+		  
+	given()
+		.accept(ContentType.JSON)  //passar na requisição
+	.when()	//quando 
+		.get("/filmes/{param}",1L)//fizer um get no 
+    .then() //então
+		.statusCode(HttpsStatus.OK.value());
+		
+************************************************
+
+assertNotNull(propriedadesRedisConfig.getId());
+assertTrue(propriedadesRedisConfig.getIsExibeAlerta());
+assertEquals(3, propriedadesRedisConfig.getQtdMaxExibicaoAlerta());
+
+*****************************************************************************************************************************************************************************
+CRIANDO TESTES UNITARIOS PARA SERVICE   
+
+REFERENCIAS	
+	https://www.youtube.com/watch?v=c8PFBxiVO8o&t=128s 
+	https://dicasdejava.com.br/mockito-como-testar-chamada-de-metodo/
+	https://www.youtube.com/watch?v=AKT9FYJBOEo
+
+1 - CRIAR A CLASS QUE VAI EXTENDER PARA TODAS OUTRAS CLASS 
+
+		
+@SpringBootTest
+@AutoConfigureMockMvc
+public class AplicationConfigTest {
+
+}
+
+2 - COPIE TODOS Autowired E PASSE PARA @Mock @MockBean menos a classe que estiver testando deixe ela como @InjectMocks (@Autowired)
+
+    @Mock //faz papel da instancia e não precisa colocar o new ... 
+	
+	@InjectMocks  //anotação dada para classe que esta sendo testada
+
+    @Mock ou em alguns casos @MockBean
+    private ParcelaMock parcelaMock;
+	
+	@Autowired
+    private VencimentoParcelaService service; 
+	
+	@BeforeEach
+	public void setup() {
+	MockitoAnnotations.openMocks(this); ou MockitoAnnotations.initMocks(this); //fala para iniciar os mocks desta class
+		service = new VencimentoParcelaService(flag true);  // quando tem algum parametro do properties aplication que ja vai iniciado deve ir declarado aqui caso erro continue       instacie dentro do proprio teste
+	}
+
+
+3 - Declaração 
+
+
+    @Test
+    @DisplayName("Deve percorrer o fluxo montando as parcelas")
+    void testVencimentoParcelaFluxo() {
+	
+4- cria o primeiro mock com a entrada e saida do service se tiver 
+
+		VencimentoParcelasRequest request = VencimentoParcelasRequestHelper.getMock();
+		
+		
+		------------ CLASSE MOCADA -------------
+		
+		package br.com.bradesco.brai.srv.motor.calculo.helper;
+
+        import br.com.bradesco.brai.srv.motor.calculo.model.parcela.VencimentoParcelasRequest;
+        
+        public class VencimentoParcelasRequestHelper {
+        	
+        	public static VencimentoParcelasRequest getMock() {
+        		return VencimentoParcelasRequest.builder()				
+        				 .cprodtBdsco(12)
+        			     .csProd(961)  
+        			     .cProdtOper(0)
+        			     .dtaCelebContr("2022-10-07")
+        			     .codModldAtulz(1)
+        			     .cidtfdIndcd(83)  
+        			     .codPlanoPgto(503) 
+        			     .qtdParcela(2)
+        			     .toper(0)
+        			     .dinfMdVctoFinal("")
+        			     .dinfMdVctoPrim("2023-01-05")
+        			     .ddiaVctoInfMd(0)
+        				 .build();
+        	}
+        
+        }
+		
+		------------- CLASSE MOCADA SAIDA -----------------
+                		
+                		package br.com.bradesco.brai.srv.motor.calculo.helper;
+                
+                import java.util.ArrayList;
+                import java.util.List;
+                
+                import br.com.bradesco.brai.srv.motor.calculo.model.parcela.FEMPWABK;
+                import br.com.bradesco.brai.srv.motor.calculo.model.parcela.VencimentoParcelasResponse;
+                
+                public class VencimentoParcelasResponseHelper {
+                	
+                	public static VencimentoParcelasResponse getMock() {
+                		return VencimentoParcelasResponse.builder()				
+                				.qpcelas(2)
+                			    .toper(0)
+                			    .dtaVctoContr("2023-02-06")
+                			    .parcelas( getParcelas())
+                				 .build();
+                	}
+                	
+                	public static List<FEMPWABK> getParcelas() {
+                		
+                		List<FEMPWABK> listaDTO = new ArrayList<>(0);
+                		listaDTO.add( 
+                				FEMPWABK.builder()  
+                					.qpcelas(1)
+                					.dvctoPcela("2023-01-05")
+                					.cincidPrinc(1)
+                					.cincidJuro(1)
+                					.cincidCm(4)
+                					.build());
+                		
+                		listaDTO.add( 
+                				FEMPWABK.builder()  
+                				.qpcelas(2)
+                				.dvctoPcela("2023-02-06")
+                				.cincidPrinc(1)
+                				.cincidJuro(1)
+                				.cincidCm(4)
+                				.build());
+                		
+                		return listaDTO;	
+                	}			
+                
+                }
+         -------------OUTRA FORMA  CLASSE MOCADA SAIDA -----------------  
+
+			VencimentoParcelasResponse vencimentoParcelasResponse = Mockito.mock(VencimentoParcelasResponse.class)
+			
+		------------------------------------------------------
+		
+5 - Condiçao  when
+
+
+	Quando chamar o repository.findById( igual ao mock criado ) .entao retorna (venda)
+
+     Mockito.when(repository.findById(ArgumentMatchers.eq(vendaId))).thenReturn(venda)    
+	 when(repository.findById(eq(vendaId))).thenReturn(venda) // OUTRA FORMA DE ESCREVER MSM COISA
+	 
+	doNothing().when(repository).findById() //Quando não quero que verifique metodo dentro da class retornar nada
+		
+
+Mockito.any() // pode ser usado classe tipo Map<String, String>
+ArgumentMatchers.any(Produto.class) 
+ArgumentMatchers.any(BigDecimal.class)//quando for passar uma classe  
+ArgumentMatchers.any() //vazio quando for passar qualquer coisa 
+ArgumentMatchers.anyString() //quando for passar string no arqumento 
+ArgumentMatchers.anyInt() //quando for passar inteiro 	
+ArgumentMatchers.eq(nome)  //quando for comparar se igual a uma string	ou valor definido anteriormente
+
+verify(repository, times(1)).findById(eq(vendaId));  //(verif se metodo foi chamado) verifica class repository foi chamado 1 vez para o metodo mocado findById com parametro vendaId
+		
+		
+6 - IF mocado 
+
+	ex: if(valor > 0){}
+	
+	mock: tem que criar 2 testes 1 quando entra outro quando não entra 
+	   
+	    //BigDecimal valor = 0;	 QUANDO VALOR RETORNA ZERO 
+		Mockito.when(venda.getValor).thenReturn(BigDecimal.ZERO);
+		//int QUANDO GETCOD RETORNA 1 
+		Mockito.when(venda.getCod).thenReturn(1);
+		//String QUANDO GETNOME RETORNA Heliton
+		Mockito.when(venda.getNome).thenReturn("Heliton");
+		
+		Produto produtos = new Produto();
+		 .thenReturn(Optional.of(produtos))
+
+6 - loop  
+	ex: venda.getItens().forEach(
+			itemVenda -> estoqueService.adicionaNoEstoque(itemVenda.getId(), itemVenda.getQtd())
+	    );
+		//passar 3 vezes pela chamada do metodo 
+		Mockito.verify(repository, Mockito.times(wantedNumberOfInvocations: 3
+		)).adicionaNoEstoque(ArgumentMatchers.anyString(),ArgumentMatchers.any(BigDecimal.class) );
+	 
+	 
+7 - fechamento 
+       
+	  DELETE verifica quando chamando repository passando 1 vez pelo metodo .delete passando a classe Venda
+
+		Mockito.verify(repository, Mockito.times(wantedNumberOfInvocations: 1
+		)).delete(ArgumentMatchers.any(Venda.class));
+   
+
+8 - mock List 
+
+		
+
+          List<ItemVenda> itens = IntStream
+				.range(0,2) //incluir 2 item
+				.mapToObj( value -> ItemVenda.builder()
+							.id(1)
+							.nome("vaca tolada")
+							.build())
+				.collect(Collectors.toList());
+				
+	RETORNAR LISTA VAZIA 
+			mokito.when(venda.getItens());thenReturn(Collections.emptyList());
+
+
+
+
+
+9 - EXCEPTIONS  https://www.youtube.com/watch?v=Men2u5EOvTQ&list=PLA8Qj9w4RGkWgyYa485pgf-VAoJgL4rW1&index=17
+
+						
+		  @TEST
+		  public void whenFindBy_ReturnObjectNotException(){
+			
+			when(repository.findById(anyInt())).thenThrow(new ObjectNotFoundException("Objeto não encontrado"));
+			
+			try{
+				service.findById(ID);
+			} catch
+				Assertions.assertEquals(ObjectNotFoundException.class, ex.getClass()); // verifica sempre se a class exception é a msm
+				Assertions.assertEquals("Objeto não encontrado", ex.getMessage()); //verifica msg	acegura se esta correto		
+			
+		    }
+
+        ex 2)  https://www.youtube.com/watch?v=ZjYQerJ0Yqg
+		
+		IllegalStateException exception = assertThrows(IllegalStateException.class, () -> orderService.create(order));
+		assertEquals("msg escrita na exception" , exception.getMessage());
+          
+
+15 - Quando tem um metodo que vc não quer que chame no teste 
+
+	ex: VencimentoParcelasResponse response =  service.fluxoRuk(body, mock);
+	Assertions.assertEquals(User.class, response.getClass()); //ACEGURA QUE A CLASSE DE RETORNO SEMPRE SERA A CLASS USER CASO MUDE VAI DAR ERRO NO TEST 
+	Assertions.assertNotNull(response); //ACEGURAR QUE ELE NÃO É NULO
+	Assertions.assertEquals(ID , response.getId()) // COMPARAR ID DO MOCK COM 
+	Mockito.verify(estoqueService, Mockito.never()).adicionarNoEstoque(ArgumentMatchers.any(),ArgumentMatchers.any());
+	Mockito.verify(repository).save(agenda);  // verifica se o metodo save foi chamado passando parametro agenda
+	
+	Assertions.assertThat(produto.getID()).isNotNull(); // verificar se um campo não esta null
+	assertThat(entidade1).info.description();
+	
+	
+	AdicionarPeriodoDataPrimeiraParcelaService
+	
+	########################################################################################################################################
+	***********************************************************************************************
+	INTRODUÇÃO AO TDD
+	***********************************************************************************************
+	visão geral 
+		https://www.youtube.com/watch?v=nEohtTFeNsM&list=PLyo0RUAM69UufupuvTfSM0XffFTvZReet&index=1
+	
+	TDD (test driven development)
+	metodos deve ser pequenos com 1 unica funcionalidade
+	tempo que passamos lendo codigo para entender 
+	
+	
+	Para que tdd..
+		Entender como codigo funciona antes de implementar documentar como vc quer que o codigo funcione
+		
+		Escrever primeiro o test e depois o codigo
+		
+	
+	
+	
+	configurações do JUnit
+		https://www.youtube.com/watch?v=_BP3SLcB0QE&list=PLyo0RUAM69UufupuvTfSM0XffFTvZReet&index=2
+		
+		
+		https://www.youtube.com/watch?v=uGhH4D4Pyww&list=PLyo0RUAM69UufupuvTfSM0XffFTvZReet&index=3
+		
+	METODO
+	  public int soma(int a , int b){
+		return a + b
+	  }
+	  
+	TEST UNITARIO 
+	
+		@Test
+		Public void testSoma(){
+			a = 6;
+			b = 3;
+			int esperado = 6;   //classe do response mocado valores fixos para comparar no final 
+			
+			int obtido = ClasseTrabalhando.soma(a,b);
+			
+			assertEquals(obtido, esperado);
+			
+		}
+		
+		
+###########################################################################################################################################
+teste no mapper
+###########################################################################################################################################
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("Testes unitarios para CwsRequestTransferenciaMapper")
+class CwsProgramacaoEfetivarResponseMapperTest {
+
+    @InjectMocks
+    private CwsProgramacaoEfetivarResponseMapper mapper;    
+     
+    @Test
+    @DisplayName("Deve mapear CWSRequest com todas as acoes")   
+    void testEntidadeParaDto() {
+	    		
+    	ProgramacaoEfetivarResponseDto responseMock = getProgramacaoResponseDto();
+    	
+    	EnvioHelper envioHelper = new EnvioHelper();
+        EnvioResponse response = envioHelper.getMockResponse();        
+     
+        ProgramacaoEfetivarResponseDto dto = mapper.entidadeParaDto(response);        
+         
+        assertEquals(responseMock.getCredNome(), dto.getCredNome());   
+    }   
+   
+}
+
+
+@Captor
+
+@Rule
+
+
+Assertions.assertEquals(User.class, response.getClass());
+
+
+
+#####################################################
+
+@ExtendWith(MockitoExtension.class)
+@DisplayName("Pool3205ServiceTest")
+class Pool3205ServiceTest {
+	private static final String URL_CALE = "https://cale-srv-dia-util-corp.corp.cloud.corpd.bradesco.com.br/api/diasuteis/pais/";
+
+	@Mock
+	ICaleVerificaSeDiaUtilGateway caleVerificaSeDiaUtilGateway;
+
+	@Mock
+	GeralRokMapper mapper;
+
+	@Mock
+	GeralRok geral;
+
+	@InjectMocks
+	Pool3205Service service;
+
+	@BeforeEach
+	private void setUp() {
+		MockitoAnnotations.openMocks(this);
+	}
+
+	@Test
+	@DisplayName("Deve consultar cale retorna se o dia é util")
+	void testCale_returnSeDiaUtil() {
+
+		GeralRok geral = GeralRokObjectFactory.getMock();
+
+		FEMPWrk wrk = geral.getWrk();
+		service.setCaleUrl(URL_CALE);
+		CaleVerificaSeDiaUtilResponse cale = new CaleVerificaSeDiaUtilResponse("2022-10-10", true, "2022-10-11", null,
+				9);
+		String dtaVerifica = "2023-02-01";
+
+		when(caleVerificaSeDiaUtilGateway.verificaSeDiaUtil(dtaVerifica, HttpHeaders.EMPTY)).thenReturn(cale);
+
+		CaleVerificaSeDiaUtilResponse response = caleVerificaSeDiaUtilGateway.verificaSeDiaUtil(dtaVerifica,
+				HttpHeaders.EMPTY);
+
+		when(mapper.geralRok(wrk, geral.getRuk(), geral.getWabk(), geral.getWafk())).thenReturn(geral);
+
+		geral = mapper.geralRok(wrk, geral.getRuk(), geral.getWabk(), geral.getWafk());
+
+		// when(response.isDataInformadaUtil()).thenReturn(Boolean.TRUE);
+
+		when(service.verificarCale(geral, dtaVerifica)).thenReturn(geral);
+		service.verificarCale(geral, dtaVerifica);
+		
+		when(calculoIOFService.calcularIOF(ArgumentMatchers.any(CalculoIOFRequestDTO.class)))
+    	 .thenReturn(calculoIOFResponse);
+		 
+		 when(calculoIOFService.calcularIOF(ArgumentMatchers.any(CalculoIOFRequestDTO.class)))
+    	 .thenReturn(calculoIOFResponse);
+
+		assertEquals(CaleVerificaSeDiaUtilResponse.class, response.getClass());
+		assertEquals(response.isDataInformadaUtil(), true);
+		assertEquals(GeralRok.class, geral.getClass());
+
+		assertEquals(response.isDataInformadaUtil(), cale.isDataInformadaUtil());
+
+	}
+		
+		
+		PROBLEMA NAO INSTANCIAR TROQUEI DECLARAÇÃO DA CLASSE
+	  
+	  //@ExtendWith(MockitoExtension.class)
+        @RunWith(MockitoJUnitRunner.class)
+		
+		0)De 2 click no erro ele manda direto para problema
+		
+		1) pode ser que algum mock tenha que vir  primeiro 
+		when(this.planoPagamentoRequest.sendGet(Mockito.any(PlanoPagamentoBradescoGeneric.class),Mockito.any(HttpHeaders.class)))
+			.thenReturn(planoPagamento);
+		
+		2)quando tem varias classe pode ser que classes filhas tbm tem que estar com o @InjectMocks anotado ao inves de @Mock
+		
+		3) excesso de when() desnecessario 
+		
+		4)se a classe tiver um new da classe que sera mocada cria uma nova instancia e desconsidera o mock
+		
+		
+		
+		
+		@ExtendWith(MockitoExtension.class)
+        @ExtendWith(SpringExtension.class)
+		
+		chamada de controller dentro de outro metodo para testar 
+		
+		try {
+			when(controllerIOF.calcularIOF(any(CalculoIOFRequestDTO.class)))
+			.thenReturn(new ResponseEntity<>(calculoIOFResponse, HttpStatus.OK));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}

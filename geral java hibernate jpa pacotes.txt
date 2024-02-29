@@ -247,7 +247,7 @@ Camada de rede sao 7 mais vamos ver 4 mais importantes
 						   
 Linhas de pedcodEmpresao 		
 		GET       pegar
-                POST      alterar
+        POST      alterar
 		PUT       editar todo corpo  
 		PATCH     editar apenas um valor 
 		OPTIONS   verificar se aceita a operaçao
@@ -271,7 +271,7 @@ Agora que você sabe o que é HTTP e HTTPS, confira essa lista com códigos HTTP
 Código do Status HTTP
 (Status-code)	Significado do código HTTP
 (Reason-Phrase)	Significado do código HTTP
-       100	Continue							Continuar
+         100	Continue							Continuar
          101	Switching Protocols				Mudando Protocolos
          102	Processing						Processando
        
@@ -545,6 +545,8 @@ COMANDOS DO MAVEN
 	
 	LISTAR ls : verifica se esta no diretorio que tem o pom.xml
 	
+	
+	
 	COMPILAR E EMPACOTAR PROJETO 
 		ls : verifica se esta no diretorio que tem o pom.xml
 		mvn package (compilar)
@@ -770,18 +772,46 @@ Operadores
 		aritimeticos(+-*/)  ex: soma = 8+3;
 		mod %  ex: resto = x%y;
 		
-Comparação  (<,>,>=)
+Comparação  (<,>,>=)  
 		== iqual  ex:  10==10;
         != diferente	ex:  10!=10;
+		
+		https://pt.stackoverflow.com/questions/3905/como-comparar-strings-em-java#:~:text=O%20m%C3%A9todo%20compareTo%20retorna%3A,for%20menor%20que%20a%20segunda
+		COMPARAÇÃO DE String
+		
+		String usa  != para null          if (nome != null) {}
+		
+		System.out.println("STR".equalsIgnoreCase("str")); //retorna true
+		System.out.println("###STR###".contains("STR")); //retorna true
+		System.out.println("str1".compareToIgnoreCase("STR2")); //retorna -1, ignorando a capitalização
+		System.out.println("str1".startsWith("str")); //returna true, pois "str1" começa com "str"
+		System.out.println("str1".endsWith("r1")); //return true, pois "str1" termina com "r1"
+		System.out.println("str2".matches("\\w{3}\\d")); //return true, pois corresponde à expressão regular
+		
+
+Vazio 
+		String str1 = "";
+		System.out.println(str1.isEmpty());
+		System.out.println(str1.length() == 0);
+		System.out.println(str1.equals(""));
+		
+		
+		
 Incremento  (++ e --)
 			++valor; implementa o valor na mesma linha
 			valor++; implementa o valor so na proxima linha
 
- IF:
+ Condições 
+      IF:
 		if(expressao){
 			aplica
 		}else{
 		aplica};
+		
+		IF DIRETO    (condição>0) ? “verdadeiro” : “Falso”
+		ex:
+		int numeroDias = //valor entre 1 e 30
+         System.out.println((numeroDias <= 15) ? “Primeira quinzena” : “Segunda quinzena”);
 		
  Aula 14) expressao and(&&)  if ( x>1 && x<20)
 			 or(||)  if ( x>1 || x<20)
@@ -803,7 +833,12 @@ While:
 	int x = 1;
 	while(x<10){
 		System.out.print(x);
+		
+		if(x ==8){
+			break;		
+		}
 		x++;
+		
 	}
 	
 DoWhile:
@@ -1084,9 +1119,10 @@ Classe Final - quando e a ultima classe ou seja nao pode ser herdada ex: class(A
 Interface - 100% abstract so pode ser herdada de outra interface
 	A Interface obrigar o programador a seguir o padrão do projeto, 
 	obriga a implementar seus métodos, ele deverá sempre seguir o padrão de implementação da Interface.
+	Quando devo implementar uma interface???? deve se pensar como um contrato se tudo for obrigatorio implemente a interface definindo como um padrao.	
 	
 	public interface Animal {
-		Sting habitat = "Planeta terra" //automaticamente ja é public abstract final  e os atributos tem que ser inicializados
+		String habitat = "Planeta terra" //automaticamente ja é public abstract final  e os atributos tem que ser inicializados
 		void durmir(); // metodos são public abstract por padrao
 		
 		//*obs classe não pode extends herdar de uma interface elas implementao
@@ -1121,7 +1157,7 @@ Class JOptionPane -	import javax.swing.JOptionPane; //caixa de dialogo grafica i
 			int nome = JOptionPane.showConfirmDialog(null,"Voce e casado?"); //opção sim =0 nao=1 cancelar=2  fechar=-1
 			
 			
-37 Try catch tratamento	
+37 Try catch, throws tratamento	
              
 			1)	try{//expressao pode ocorrer erro 
 				}catch(Exception erro){ //(Exception erro) captura todo tipo de excessão
@@ -1136,9 +1172,24 @@ Class JOptionPane -	import javax.swing.JOptionPane; //caixa de dialogo grafica i
 			         //ArithmeticException - divisao por zero
 					 System.out.print("Nenhum numero pode ser dividido por zero")
 					 
-				} finally{   // independente se ocorrer erro vai ser executado 
+				} finally{   // independente se ocorrer erro vai ser executado qundo precisa fechar algo arquivo ou banco de dados
 					System.out.print("Fim")
 				}
+				
+			3) e.getMessage  //pega a msg que vc passou 
+			   e.printStackTrace //fala onde o erro ocorreu
+			   
+			4) throws   //usado quando os erros for tratados dentro de uma class
+			DECLARAÇÃO DO METODO
+				public static double pegarNumero() throws Exception{
+					//obriga colocar tratamento quando for chamar o metodo try cath
+				}
+			 DENTRO DO METODO 
+				if(2==2){
+					new throws 
+				}
+			   
+			   
 38 converte conversão dados				
 				
 		  string para inteiro   ex:  int x = Integer.parseInt("27");
@@ -1146,6 +1197,23 @@ Class JOptionPane -	import javax.swing.JOptionPane; //caixa de dialogo grafica i
           string para boolean   ex:  boolean x = Boolean.parseBoolean("true"); 
           converter para string ex:  String x = String.valueOf(1);
 		   BigDecimal x  = BigDecimal.valueOf(9);
+		   
+	BigDecimal arredondar casas decimal	 
+
+		valor.setScale(2,BigDecimal.ROUND_HALF_EVEN);  //arredonda automatico >5 para cima <5 para baixo
+		valor.setScale(2,BigDecimal.ROUND_HALF_UP);    //arredonda para cima 
+		valor.setScale(2,BigDecimal.ROUND_HALF_DOWN); //arredonda para baixo
+		valor.setScale(2,RoundingMode.FLOOR);         // truncar valor 
+		
+		 
+		//não arredonda truncando pega valor e deixa como esta sem arredondar
+					DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+			        decimalFormat.setRoundingMode(RoundingMode.DOWN);
+			        String str = decimalFormat.format(valor).toString();
+			        str = str.replace(".","");
+			        str = str.replace(",", ".");
+			        str = str.trim();
+			        valor =  new BigDecimal(str) ;
 
 39 Separa Split - nao funciona com $
 
@@ -1263,9 +1331,45 @@ ArrayList - nao aceita tipo primitivo tipo int double somente String Integer
 			
 			nomes.forEach(nome -> {
 				//pode colocar as condições if 
-				System.out.print(nome);
+				System.out.print(nome); 
 			})
 			
+			
+			List<ItemVenda> itens = IntStream
+				.range(0,2) //incluir 2 item
+				.mapToObj( value -> ItemVenda.builder()
+							.id(1)
+							.nome("vaca tolada")
+							.build())
+				.collect(Collectors.toList());
+				
+		
+public static List<CadastroOcorrencia89ResponseDTO> entidadeParaDto(List<YMTJW82SResponseAreaSaidaFuncaoTj89Ocorr89> lista) {
+
+		List<CadastroOcorrencia89ResponseDTO> listaDTO = new ArrayList<>(0);
+
+		lista.forEach(l -> {
+			// pegar somente quanto tiver valores
+			if (l.getCrBanco89() > 0) {
+				listaDTO.add(CadastroOcorrencia89ResponseDTO.builder()
+						.banco(l.getCrBanco89())
+						.agencia(l.getCrAgencia89())
+						.conta(l.getCrConta89())
+						.digito(l.getCrDigito89())
+						.tipoConta(l.getCrTipoCta89())
+						.nome(l.getCrNome89())
+						.rcodeConta(l.getRcodeCta89())
+						.codMsg(l.getCodMsg89())
+				        .codMsgGmsg(l.getCodMsgGmsg89())
+						.build());
+			}
+		});
+
+		return listaDTO;
+
+	}	
+
+	
 		AVANÇADO PASSAR VARIOS ENDEREÇOS PARA UM CLIENTE E TAMBEM CONSEGUE QUE FAZER COM QUE O CLIENTE RECEBA VARIOS ENDEREÇOS
 		
 		@Getter
@@ -1340,6 +1444,21 @@ data date  https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
 			jdk 8 - import java.text.SimpleDateFormat;
 				@JsonFormat(pattern="dd/MM/yyyy HH:mm")
 				private Date instante;
+				
+		/*metodo que adicionar dias no java 8 */
+		public static String addDiasDate(String dtaInicio, int qtdDias) { // dtaInicio tem que ser dd/mm/yyyy OU dd.mm.yyyy
+    	
+    	dtaInicio = dtaInicio.replace(".", "/");
+    	
+		DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/uuuu")
+			    .withResolverStyle(ResolverStyle.STRICT); //para não aceitar data invalida tipo 31/02/2022
+		LocalDate data = LocalDate.parse(dtaInicio, parser);
+		LocalDate dtaAtual = data.plusDays(qtdDias);
+		
+		return String.valueOf(dtaAtual); //retorno aaaa-mm-dd
+    }
+	
+	
 			
 			jdk 11- import java.time.LocalDateTime; 
 				@JsonFormat(pattern="dd/MM/yyyy HH:mm")
@@ -1431,6 +1550,10 @@ ArrayList (tipo generico)
 
 	for (int i = 0; i < itens.size(); i++ ){  // se colocar <= vai estourar e gerar erro no java
 		system.out.print(itens.get(i)); 
+		
+		if (qtdDia > itens.get(indicador).getqInicAliqtIof() && qtdDia < itens.get(indicador).getqFimAliqtIof()) {
+				break;
+			}
 	}
 	
    ou 
@@ -1492,6 +1615,17 @@ HashMap (chave valor) recuperação rapida do valor
 	 mapa.put("30","Paulo")
 	 
 	 Pessoa alguem = mapa.get("20");  //alguem recebe Maria
+	 
+	 
+	 EX:        HttpHeaders header = new HttpHeaders();
+				
+				for (Map.Entry<String, String> entry : headers.entrySet()) {
+				   
+					System.out.println(entry.getKey() + "/" + entry.getValue());
+				    
+					header.add(entry.getKey(), entry.getValue());
+				}
+					
 
 
 LinkedHashMap (para garantir a ordem que foi encerido)
@@ -1951,7 +2085,7 @@ package resources ou cotrollers
 	private EmpresaRepository repository;
 	
 @RequestMapping(method = RequestMethod.GET, value="/empresa")  ou  @GetMapping("/empresa")
-	  //mapeamento requeste recebendo da tela 
+	  //mapeamento request recebendo da tela 
 	  //method = RequestMethod.GET, GET pela url
 
 	@GetMapping("/hello")
@@ -1966,6 +2100,17 @@ package resources ou cotrollers
 	  
 	 -------------------------------------
 	package com.vsystem.clienteSystem.controller;
+	
+-------------------------------------
+ResponseEntity retorno resposta corretos http
+
+GET  return ResponseEntity.ok(cliente); //ResponseEntity.ok  resposta status 200
+GET  return ResponseEntity.notFound().build();	// resposta status 404 
+POST return new ResponseEntity<>(response, HttpStatus.CREATED);
+PUT  return ResponseEntity.ok(cliente); //ResponseEntity.ok  resposta status 200
+DELETE return ResponseEntity.noContent().build();//retorna resposta status 204
+
+-------------------------------------	
 
 import java.util.List;
 import java.util.Optional;
@@ -2010,10 +2155,10 @@ public class ClientesController {
 	
 	@GetMapping("/{clienteId}")
 	public ResponseEntity<Cliente> busca(@PathVariable Long clienteId){
-		Optional<Cliente>cliente =	repo.findById(clienteId);
+		Optional<Cliente>cliente =	repo.findById(clienteId); // Optional muito usado pois pode ser que encontre ou não no banco 
 		
 		if (cliente.isPresent()) {  //.isPresent() = se tiver informação     .empty = vazio 
-			return ResponseEntity.ok(cliente.get()); //ResponseEntity.ok  resposta status 201			
+			return ResponseEntity.ok(cliente.get()); //ResponseEntity.ok  resposta status 200			
 		}		
 	    return ResponseEntity.notFound().build();	// resposta status 404   		
 	}
@@ -2046,7 +2191,22 @@ public class ClientesController {
 		repo.deleteById(idCliente);
 		return ResponseEntity.noContent().build();//retorna resposta status 204
 	}
+	
+	//Pegar informação do header cabecario cabeçario 
+	public ResponseEntity<Cliente> calcular(@NotBlank @RequestBody ClienteRequestDTO body
+		                                     ,@RequestHeader Map<String, String> headers) { //pegar os dados do headers
+		 System.out.println("meu header" + headers );
+		 System.out.println("HEADER x-stateless-open É: " + headers.get("x-stateless-open") );
 }	
+
+
+
+---------------------------------------------------------------------------------------------
+.mostrar msg e rastreiar problemas
+
+slf4j.Logger  https://www.youtube.com/watch?v=ChIy6-ySpPM
+como trabalhar como logger no sistema e gerar arquivo de log
+
 
 ---------------------------------------------------------------------------------------------
 INTRODUÇÃO AO modelmapper feramenta que facilica a conversao de model para modelDTO  
@@ -2182,8 +2342,94 @@ public class IssueRemunerationRateDto {
                     ] }
 	
 #############################################
-VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.constrants
+VALIDAÇAO data inteiro e valor monetario 
 #############################################	
+
+package br.com.bradesco.brai.srv.motor.calculo.service;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.bradesco.brai.srv.motor.calculo.exception.BadRequestException;
+import br.com.bradesco.brai.srv.motor.calculo.utils.Utils;
+
+@Service
+public class ValidacaoCampoService {
+
+	@Autowired
+	Utils utils;
+
+	public void validaFormatData(String nomeCampo, String dta) {
+
+		if (dta.length() == 10) {
+
+			if (!dta.substring(4, 5).equals("-") || !dta.substring(7, 8).equals("-")) {
+				throw new BadRequestException(400, nomeCampo,
+						"Data tem que estar no formato YYYY-MM-DD, com 10 caracteres");
+			}
+			;
+
+		} else {
+			throw new BadRequestException(400, nomeCampo,
+					"Data tem que estar no formato YYYY-MM-DD, com 10 caracteres");
+		}
+
+		try {
+
+			dta = utils.conversorDataBrasil(dta);
+			// dta = dta.replace("-", "/");
+
+			DateTimeFormatter parser = DateTimeFormatter.ofPattern("dd/MM/uuuu")
+					.withResolverStyle(ResolverStyle.STRICT);
+			LocalDate dta1 = LocalDate.parse(dta, parser);
+
+		} catch (Exception ex) {
+			throw new BadRequestException(400, nomeCampo + "  Data informada não é uma data valída!", ex.getMessage());
+
+		}
+
+	}
+
+	public void validaInteiro(String nomeCampo, String campo) {
+
+		for (int i = 0; i < campo.length(); i++) {
+			if (Character.isDigit(campo.charAt(i)) == false) {
+
+				throw new BadRequestException(400, nomeCampo + " inválido",
+						"Campo não informado. Campo com conteúdo inválido.");
+			}
+
+		}
+
+	}
+
+	public void validaValor(String nomeCampo, String campo) {
+
+		for (int i = 0; i < campo.length(); i++) {
+			if (Character.isDigit(campo.charAt(i)) == false) {
+				if (!String.valueOf(campo.charAt(i)).equals(".")) {
+					// if (!String.valueOf(campo.charAt(i)).equals(",")) {
+					throw new BadRequestException(400, nomeCampo + " inválido",
+							"Campo não informado. Campo com conteúdo inválido.");
+					// }
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+	
+#############################################
+VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.constrants  https://www.baeldung.com/javax-validation
+#############################################
 	-------------------------------------------------------------
 	Para o jdk11 tem que fazer esta implementação
 	
@@ -2198,12 +2444,33 @@ VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.cons
 	E tem que colocar @Valid no controller
 	Ele trata o erro 500 do servidor e passa erro 400 que é do usuario
 	
-	@NotEmpty   //nao aceita vazio
-	@NotNull    //nao aceita nulo
-	@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco
+	OBS INT OU INTEGER NÃO ACEITA @NotEmpty  @NotBlank 
+	
+	@NotEmpty   //nao aceita vazio (nao aceita em int)
+	@NotNull    //nao aceita nulo   
+	@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco (nao aceita em int)
 	@Email      //validação para email
 	@Size(max = 20 min = 2)  // tamanho das colunas do banco para nao estourar
 	@JsonIgnore    //para nao aparecer nao busca	
+	
+	*****************de acordo com tipo *************************
+	      @NotNull(message = "Name cannot be null")
+          private String name;
+	      
+          @AssertTrue
+          private boolean working;
+	      
+          @Size(min = 10, max = 200, message 
+            = "About Me must be between 10 and 200 characters")
+          private String aboutMe;
+	      
+          @Min(value = 18, message = "Age should not be less than 18")
+          @Max(value = 150, message = "Age should not be greater than 150")
+          private int age;
+	      
+          @Email(message = "Email should be valid")
+          private String email;
+    ******************************************
 		
 	no resouce deve ser informado no insert e no update 
 	@Valid 
@@ -2752,7 +3019,225 @@ criptografia usando BCryptPasswordEncoder
 	public static void main(String[] args) {
 		System.out.println(new BCryptPasswordEncoder().encode("123"));//criado simpresmente para pegar no console o 123 codificado
 	}
+##########################################
+ Exemplo de conexão com Java Puro 
+ ##########################################
 
+https://www.youtube.com/watch?v=jl0rfsVX1ss
+
+
+public static void sendGet2(CalculoSeguroRequest request, TokenResponse tokenResponse) {
+
+		String urlDesc = "https://ymtj-srv-cadastramento-contas-pjl2.pj.cloud.corpd.bradesco.com.br/api/v1/consultar/agencia/6505/conta/5401/digito/01/controle/0/qtdOcorrencia/010/ultCrBanco/0/ultCrAgencia/0/ultCrConta/0/ultCrTpCta/0";
+
+		HttpURLConnection connection = null;
+		BufferedReader reader = null;
+
+		try {
+			
+			System.setProperty("javax.net.ssl.trustStore", "C:/.keystore");
+			System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+
+			URL url = new URL(urlDesc);
+			connection = (HttpURLConnection) url.openConnection();
+			connection.setRequestMethod("GET");
+			connection.addRequestProperty("x-stateless-open",
+					"eyJwZXJpZmVyaWNvIjoiT1BFTkJBTktJTkciLCJpZGlvbWEiOiIxIiwiY2FuYWwiOjU0MSwiZW1wcmVzYSI6MjM3LCJ1dWlkIjoiMDM3ODU5YjItMmMzNS00ZjJjLWEwYzktOWIxNTM0NmI2N2E0IiwiZGVwZW5kZW5jaWEiOjF9");
+			connection.addRequestProperty("x-stateless-closed",
+					"eyJmcndrIjp7InRpY2tldCI6IkJBQjFFMDg2NzFDMDkyMjAwMDAyIiwiaWRzZXNzYW8iOiIwMTM0MTc2MTZBMUE1RDJIMDFGNEE3MDYxQTJGODY3RiIsInRpcG9Vc3VhcmlvIjoiQ1BGIiwidXN1YXJpbyI6IjI2Njg4MTk4ODE5In19");
+			reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+			StringBuilder jsonSB = new StringBuilder();
+			String line;
+
+			while ((line = reader.readLine()) != null) {
+				jsonSB.append(line);
+			}
+
+			System.out.println(jsonSB.toString());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			IOUtils.closeQuietly(reader);
+
+			if (connection != null) {
+				connection.disconnect();
+
+			}
+		}
+	}
+##########################################
+RestTemplate  - https://www.youtube.com/watch?v=2163qLWZraY
+##########################################
+
+		OBSERVAÇÃO USE O @JsonProperty("cTpoCusto") NO OBJETO DE RETORNO CASO NAO ESTEJA RETORNANDO OS DADOS
+
+ 
+--explicação 
+classe response tem que ter o toString para melhor visualizar
+
+existe 3 tipos 
+
+	restTemplate.getForObject()      // retorna o objeto ClienteResponse direto 
+	restTemplate.getForEntity()      // retorna o ResponseEntity<ClienteResponse> com mais informação status etc... 
+	restTemplate.exchange  // vc pode usar para get e para post 
+	
+---------------------------
+EX: 1 SIMPLES  getForObject
+
+	String url = "https://brai-srv-cons-gestaoparam-corp"  //não pode ter barra no final erro url not absolute
+	RestTemplate restTemplate = new RestTemplateBuilder()
+		.rootUri("url")
+		.basicAuthorization(username:"gugu", password:"123")
+		.build();
+		
+ClienteResponse clientes =	restTemplate.getForObject("/{id}", //ja declarado em cima não precisa colocar url inteira obs a barra / sempre alqui
+		ClienteResponse.class,         //classe de response
+		1); // os parametros informado no {id}
+		
+		System.out.println(clientes);
+	
+---------------------------
+EX: 2 getForEntity RETORNA UM ResponseEntity
+
+String url = "https://brai-srv-cons-gestaoparam-corp"  
+	RestTemplate restTemplate = new RestTemplateBuilder()
+		.rootUri("url")
+		.basicAuthorization(username:"gugu", password:"123")
+		.build();
+		
+ResponseEntity<ClienteResponse> clientes =	restTemplate.getForEntity("/{id}",  
+		ClienteResponse.class,          
+		1); 
+		
+		System.out.println(clientes.getBody());
+		
+---------------------------		
+EX: 3  getForObject RETORNANDO LISTA
+
+	String url = "https://brai-srv-cons-gestaoparam-corp" 
+	RestTemplate restTemplate = new RestTemplateBuilder()
+		.rootUri("url")
+		.basicAuthorization(username:"gugu", password:"123")
+		.build();
+		
+ClienteResponse[] clientes =	restTemplate.getForObject("/{id}", 
+		ClienteResponse[].class,         
+		1); 
+		
+		System.out.println( Arrays.toString(clientes));
+
+	
+---------------------------
+EX: 4 restTemplate.exchange RETORNA UM ResponseEntity
+
+String url = "https://brai-srv-cons-gestaoparam-corp"  
+	RestTemplate restTemplate = new RestTemplateBuilder()
+		.rootUri("url")
+		.basicAuthorization(username:"gugu", password:"123")
+		.build();
+		
+ResponseEntity<List<ClienteResponse>> clientes =	restTemplate.exchange("/",  //complemento da url  
+	HttpMethod.GET,   //metodo se GET ou POST
+	new HttpEntity<>(headers),
+	new ParameterizedTypeReference<List<ClienteResponse>>() {	
+	}).getBody();
+		
+		System.out.println(clientes.getBody());
+		
+		
+---------------------------
+EX: 5 restTemplate.exchange trabalhar com paginação    https://www.youtube.com/watch?v=AapEEmyTt2s
+
+1) criar um model PageableResponse
+
+String url = "https://brai-srv-cons-gestaoparam-corp"  
+	RestTemplate restTemplate = new RestTemplateBuilder()
+		.rootUri("url")
+		.basicAuthorization(username:"gugu", password:"123")
+		.build();
+		
+ResponseEntity<List<ClienteResponse>> clientes =	restTemplate.exchange("/",  //complemento da url  
+	HttpMethod.GET,   //metodo se GET ou POST
+	new HttpEntity<>(headers),
+	new ParameterizedTypeReference<List<ClienteResponse>>() {	
+	}).getBody();
+		
+		System.out.println(clientes.getBody());		
+		
+		
+Cliente Spring com RestTemplate pt 01 GET
+
+public TGstaoParmProdtEmptmFinan sendGet(CalculoSeguroRequest request, TokenResponse tokenResponse,HttpHeaders headers) {
+		
+		String urlDesc = "https://brai-srv-cons-gestaoparam-corp.corp.cloud.corpd.bradesco.com.br/v1/produtos/legados/12/961/regrasGerais?fromDateReferenceSearch=1990-10-10&toDateReferenceSearch=2050-10-10&page=1&size=5";
+
+		StringBuilder url = new StringBuilder();
+		//url.append(caleUrl).append("calcular/").append(dataInicio).append("/").append(dataFinal).append("?idPais=9").append("&ultimoDiaAnoUtil=true");
+		
+		url.append(urlDesc);
+		
+		LOGGER.info("Efetuando consulta na API cadastro para a URL: {}", url);
+		
+		CaleVerificaSeDiaUtilResponse cale = sendGet3(request, tokenResponse,HttpHeaders.EMPTY);
+
+		try {
+
+			return restTemplate.exchange(url.toString(), 
+					HttpMethod.GET, new HttpEntity<>(headers),
+					new ParameterizedTypeReference<TGstaoParmProdtEmptmFinan>() {
+					}).getBody();
+
+		} catch (HttpServerErrorException e) {
+			throw new ExternalServiceException(ERRO_EXTERNO_DO_SERVICO_CADASTRO, e, e.getLocalizedMessage());
+		} catch (Exception e) {
+			throw new GatewayAccessException(ERRO_AO_ACESSAR_A_URL_CADASTRO, e, e.getLocalizedMessage());
+		}
+		
+	}
+	
+	EX RESTTEMPLATE POST 
+	
+	
+	@Override
+	public CalculoSeguroResponse sendGet(CalculoSeguroRequest body, Map<String, String> headers) {
+		
+			try {			
+		
+				url = "http://localhost:8080/v1/calculoSeguro" ;		
+				
+				HttpHeaders header = new HttpHeaders();
+				
+				for (Map.Entry<String, String> entry : headers.entrySet()) {		
+				    
+					header.add(entry.getKey(), entry.getValue());
+				}
+					
+
+			
+			LOGGER.info("Efetuando consulta na API Calculo Seguro para a URL: {}", url);
+		
+			ResponseEntity<CalculoSeguroResponse> response = restTemplate.exchange(
+					url, 
+					HttpMethod.POST, 
+					new HttpEntity<>(body,header),
+					new ParameterizedTypeReference<CalculoSeguroResponse>() {})
+					;
+			
+			
+			
+			return response.getBody();
+			
+			
+
+		} catch (RestClientException e) {
+			LOGGER.error(ERRO_EXTERNO_DO_SERVICO_CADASTRO, e);
+			throw new MsgException(500, ERRO_AO_ACESSAR_A_URL_CADASTRO, e.getLocalizedMessage());
+		} catch (Exception e) {
+			LOGGER.error(ERRO_AO_ACESSAR_A_URL_CADASTRO, e);
+			throw new GatewayAccessException(ERRO_AO_ACESSAR_A_URL_CADASTRO, e, e.getLocalizedMessage());
+		}
+	}
 
 ##########################################
 Docker - 
@@ -2833,9 +3318,76 @@ Schema (criar componentes
 Segurança (autenticação dos campos no swagger ui aparece com um cadeado)
 		
 		
+####################################################################
+Testes unitarios 
+####################################################################	
+		
+JUNIT	https://www.vogella.com/tutorials/JUnit/article.html
+
+
+
+assertEquals = assertEquals(4, calculadora.multiply(2, 2),"mensagem de falha opcional");
+
+assertTrue = assertTrue('a' < 'b', () → "mensagem de falha opcional");
+
+assertFalso = assertFalse('a' > 'b', () → "mensagem de falha opcional");
+
+assertNotNull = assertNotNull(yourObject, "mensagem de falha opcional");
+
+assertNull = assertNull(yourObject, "mensagem de falha opcional");
+
+
+ VISÃO GERAL DAS ANOTAÇÕES JUNIT5		
+ 
+ 
+ @Test
+Identifica um método como um método de teste.
+
+@Disabled("reason")
+Desabilita um método de teste com um motivo de opção.
+
+@BeforeEach
+Executado antes de cada teste. Usado para preparar o ambiente de teste, por exemplo, inicializar os campos na classe de teste, configurar o ambiente, etc.
+
+@AfterEach
+Executado após cada teste. Usado para limpar o ambiente de teste, por exemplo, excluir dados temporários, restaurar padrões, limpar estruturas de memória caras.
+
+@DisplayName("<Name>")
+<Nome> que será exibido pelo executor de teste. Ao contrário dos nomes de métodos, o nome pode conter espaços para melhorar a legibilidade.
+
+@RepeatedTest(<Number>)
+Semelhante a, @Testmas repete o teste um <Número> de vezes
+
+@BeforeAll
+Anota um método estático que é executado uma vez, antes do início de todos os testes. Ele é usado para realizar atividades intensivas em tempo, por exemplo, para se conectar a um banco de dados. Os métodos marcados com esta anotação precisam ser definidos staticpara funcionar com JUnit.
+
+@AfterAll
+Anota um método estático que é executado uma vez, após a conclusão de todos os testes. Ele é usado para realizar atividades de limpeza, por exemplo, para se desconectar de um banco de dados. Os métodos anotados com esta anotação precisam ser definidos staticpara funcionar com JUnit.
+
+@TestFactory
+Anota um método que é uma Fábrica para criar testes dinâmicos
+
+@Nested
+Permite aninhar classes de teste internas para agrupar seus testes e ter métodos @BeforeEach e @AfterEach adicionais.
+
+@Tag("<TagName>")
+Tags um método de teste, testes no JUnit 5 podem ser filtrados por tag. Por exemplo, execute apenas testes marcados com "rápido".
+
+@ExtendWith
+Permite registrar uma classe Extension que adiciona funcionalidade aos teste
+
+
+
+--------------
+MOCK MOCKITO  https://www.vogella.com/tutorials/Mockito/article.html
+--------------
 		
 		
-		
-		
+	public int getUniqueId() {
+        return 42;
+    }
+	
+	//MOCK definindo que o retorno do metodo seja 42
+	when(databaseMock.getUniqueId()).thenReturn(42);
 		
 		

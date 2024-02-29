@@ -35,6 +35,7 @@ COMANDOS VERIFICAÇÃO
 
 CLONAR PROJETO
 	git clone URL = baixa o projeto e ja fica vinculada ao github
+	git clone -b <NomeBranch> <URL> Baixar uma branch do projeto 
 	
 ARQUIVO README.txt (arquivo que contem como configurar o sistema deve ser criado na pasta raiz 
 						como utilizar,instruções , comentarios , versao etc)
@@ -104,7 +105,7 @@ git branch nomeBranch = criar nova branch
 git branch = verificar as branch existentes, * aparece na frente da que vc esta utilizando, branch main pode nao aparecer mais existe
 git checkout nomeBranch = selecionar a branch que vai utilizar
 git push origin nomeBranch = salvar no remoto branch especifica
-git pull origin master = Baixar as atualizaçoes do remoto (origin é origem do remoto obtido(git remote -v) master é a branc que vai baixar na sua maquina)
+git pull	 origin master = Baixar as atualizaçoes do remoto (origin é origem do remoto obtido(git remote -v) master é a branc que vai baixar na sua maquina)
 ************************************************************************
 
 ------------------------------CONFLITOS NO SERVIDOR--------------------------------------------
@@ -122,7 +123,9 @@ git pull (Vai baixar na sua maquina codigo todo comentado que vc tera que editar
 	>>>>>>>>>>>>>>>>>>>>>>>>> e1az3j...	
   
 --------------------------------------------------------------------------
+DUAS PESSOAS ALTERARAM O MSM ARQUIVO (CONFITO)
 
+		git pull --rebase
 DESFAZER ou VOLTAR PARA VERSAO ANTERIOR
 
 		ANTES DE ADD AO GIT 
