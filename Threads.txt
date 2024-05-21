@@ -1,0 +1,116 @@
+https://www.youtube.com/watch?v=9TtULlGYG6U&list=PLuYctAHjg89YNXAXhgUt6ogMyPphlTVQG&index=5
+
+Entendendo Threads (NAO RECOMENDADO QUANDO TEM MUITOS CALCULOS,
+			UMA VARIAVEL QUE PERCORE TODO O CODIGO PODE SOFRER ALTERAÇAO PELA OUTRA THREAD)
+
+paralelismo  quando threds diferente nao usam a msm variavel
+concorencia quando threds diferente usam a msm variavel
+
+computador tem que ter mais de 1 nucleo para o paralelismo 
+Um unico nucleo ele vai decidindo qtas linhas passa de cada thread
+
+
+
+PARA EVITAR CONCORENCIA UTILIZAMOS O SYNCHRONIZED (NAO USA PARA COLEÇÕES E LISTAS)
+Quando utilizar 
+* Quando temos variaveis que muda de valor durante o percurso muitos calculos 
+
+1) isolamento no metodo (DESVANTAGEM VC ACABA COM O PARALELISMO USO DA Threads POIS VAI ACONTECER UM ENFILERAMENTO QUE VAI PASSAR UMA DE CADA VEZ)
+
+	public synchronized soma(double a , double b){
+		//dados dentro do metodo
+	}
+2) isolamento em parte do codigo
+	synchronized(this) {	
+		//codigo que vai ficar na fila 
+	}
+	
+	
+3) mais de 1 isolamento criar variaveis para 1 nao ficar esperando o outro
+
+	static Object lock1 = new Object();
+	static Object lock2 = new Object();
+	
+	synchronized(lock1) {	
+		//codigo que vai ficar na fila 
+	}
+	
+	synchronized(lock2) {	
+		//codigo que vai ficar na fila 
+	}
+	
+4) CORRETO A SER USADO 
+	*DESCOBRIR O RECURSO QUE ESTA COM CONCORENCIA
+	*FAZER O ISOLAMENTO SOMENTE DA PARTE QUE TEM A CONCORENCIA
+	
+	EX: abaixo temos a variavel "i" que é utilizada por todas as threads neste caso isolamos somente ela
+
+    int j
+	
+	synchronized(this) {	
+		 i++;
+		 j = i + 2;
+	}
+	
+	double jElevado = Math.pow(j,100);
+	
+	
+	
+LIST E COLECTIONS 
+Acontece um problema de sumir algumas threads nao chega no final e nao apresenta msg de erro 
+resolver este problema 
+
+	1) 
+
+    	private static List<String> lista = ArrayList<>();
+		
+		public static soma(){
+		//solucao garante que todas vai aparecer 
+		
+		lista = Collections.synchronizedList(lista);
+		
+		/*Outras que pode ser usadas*/
+		
+		lista = Collections.synchronizedList(lista);
+		lista = Collections.synchronizedCollection(lista);
+		lista = Collections.synchronizedMap(lista);
+		lista = Collections.synchronizedSet(lista);
+		
+		
+		}
+	
+	2) alterando logo na criação da variavel  CopyOnWriteArrayList   (pesado que faz uma copia do array inteiro, nao usar quando tem varios add e remove)
+	
+	private static List<String> lista = CopyOnWriteArrayList<>();
+	
+	private static Map<Integer,String> lista = ConcurrentHashMap<>();
+	
+
+
+Multihread em servidor WEB
+
+https://spring.io/guides/gs/scheduling-tasks/
+
+https://spring.io/guides/gs/batch-processing/
+https://www.baeldung.com/spring-scheduled-tasks	
+https://www.baeldung.com/introduction-to-spring-batch
+
+
+javaEE gerenciado 
+javaSE não é gerenciado muitos problemas com threads 
+jar ()
+	
+@Scope("")	
+define o ciclo de vida do Bean 
+
+@Scope("singleton")	  //crea o bean a class uma unica vez e deixa disponivel para outros acessos
+@Scope("prototype")	  //cada vez que é chamado ele cria uma nova instancia da chamada 
+
+
+ARQUITERURA DE SOFT
+ARQUITERURA DE APLICAÇÃO
+
+
+Sistemas escalaveis
+4552 bug
+dusanki
