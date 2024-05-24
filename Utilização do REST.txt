@@ -1,0 +1,62 @@
+https://www.devmedia.com.br/construindo-uma-api-restful-em-java/29904
+
+
+youtub  https://www.youtube.com/watch?v=hTpGw2t1bsk
+
+
+rest x soap
+
+rest e utilizado pelo facebook 
+
+SOAP
+- ultiliza protocolo xml devido ao tamanho das msg ocupa mais rede problema para aplicaçoes mobile.
+- complexo para comunicar via web service ultiliza HTML5  para isso usa bibliotecas especificas precisa de geradores de codigo e manutenção em diferentes plataformas.
+- sua contrução foi pensada em comunicar entre servidores que para dispositimo mobile nao é tao seguro
+
+REST 
+- mais simples projetado para cliente pequenos ideal para dispositivos de capacidade limitadas 
+- as respostas sao chaveaveis aumentando a performace mobile
+- ao inves de xml comunica de diversas formas JSON mais usado causa uma carga menor na rede 
+-------------------------------------------------------
+REST 
+-formado por um conjunto de regras no topo do protocolo http
+- para entendelo devemos saber cada uma de suas regras para considerar REST 
+-o web service deve ser ou possuir: Interface uniforme, Stateless, Cacheável, Cliente-Servidor, Sistema em camadas e Código sob demanda. Veremos em detalhes cada uma delas a seguir. 
+-REST deverá ser baseado em recursos identificados por URLs
+Portanto, quando quisermos obter um recurso, como um produto, faremos uma requisição GET para a URL que o localiza.
+ao inves de criar as funçoes utiliza as do http (GET, POST, PUT, DELETE e HEAD) o mesmo  obter create , postar  , colocar update, excluir deletar ,cabeça select 
+
+crud 
+
+Create	CREATE
+Read (Retrieve)	SELECT
+Update	UPDATE
+Delete (Destroy)	DELETE
+
+Stateless é a regras mais importante do rest dita que cada requisição deverar conter nao deve haver manutençao de estado entre as requisiçoes unica responsabilidade do servido utilizar os dados recebidos na requisição 
+
+CACHEÁVEL servidor indica ao cliente possibilidade de fazer cache dos resultados assim reduzir o trafego de dados cliente e servidor ( tecnica baseada em ETag)
+
+Cliente-Servidor 
+interface uniforme é regra que separa as responsabilidade cliente e do servidor, servidor armazenamento dos dados, cliente apresentação com interface do usuario exclusiva manutenção da sessão 
+
+Sistema em camadas  - cluster de servidores varios servidores interligados em nó de forma que nunca pare o serviço mesmo na manutenção de um deles 
+
+Codigo Sob Demanda - javaScript executada pelo cliente vinculados aos metodos http 
+
+HTTP Methods - GET, POST, PUT, DELETE e HEAD 
+
+metodo Idempotência - que possui o msm resultado mesmo executada varias vezes, problema de internet sabendo que o metodo é idempotência pode repetilo sem que o usuario perceba que foi uma nova solicitação.
+
+HTTP GET - operação de leitura buscar informação pode ser atraves da url formato json ou xml dependendo da disponibilidade no servidor é uma operação idempotênte pois nao altera o estado de leitura
+
+HTTP DELETE -  deletar uma ou mais instancia utilizando ID na URL, pode ser uma operação critica pois o servidor a disponibiliza apenas para requisições com ID a ser deletado
+em caso de excluir todas informaçoes e um caso idempotencia
+
+HTTP HEAD - menos comum normalmente nao disponibilizado pelo servidor objetivo parecido com GET ao inves de trazer informações completa pode ser usado como um sum qtde total ou data da ultima modificação ele tbm é idempotente pois nao causa alteraçoes. 
+
+HTTP POST - criar e atualizar não é idempotente pois tem alteração 
+
+HTTP PUT(colocar) - não muito comum na web, e para fazer uma atualização completa especificado pela url e criar recurso especificando o ID muito pouco usado pois pode nao ser disponibilizada pelo servidor poir o servidor que tem responsabilidade de criar o ID 
+
+
