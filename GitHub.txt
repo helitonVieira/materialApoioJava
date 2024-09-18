@@ -128,7 +128,9 @@ DUAS PESSOAS ALTERARAM O MSM ARQUIVO (CONFITO)
 		git pull --rebase
 DESFAZER ou VOLTAR PARA VERSAO ANTERIOR
 
-		ANTES DE ADD AO GIT 
+	ANTES DE ADD AO GIT		 
+		git checkout -- testGit.txt
+		git checkout -- .
 		git restore nomeArquivo.txt  (volta a versao do ultimo commit)
 		
 		DEPOIS DO COMMIT   
