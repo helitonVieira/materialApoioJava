@@ -1343,7 +1343,129 @@ ArrayList - nao aceita tipo primitivo tipo int double somente String Integer
 							.build())
 				.collect(Collectors.toList());
 				
+=======================================================
+Funções LAMBDA
+=======================================================		
+SAM simple abstract metodo 
+Lambda uma classe abstrata com um unico metodo que pode ser abreviado ex: Runnable e ActionListener
+
+LAMBDA      (argumento)-> implementação do metodo
+             ()-> System.out.println("Ola mundo");
+
+ex 1 LAMBDA:  Runnable
+
+		new Thread(new Runnable() {
+			@Overridepublic void run() {
+				System.out.println("Ola mundo");
+			}
 		
+		}).run();
+		
+Pode ser assim	
+	
+		new Thread(() -> System.out.println("Ola mundo")).run();
+		
+		
+Usando a expressão lambida este msm codigo ficaria 
+
+		new Thread(() -> System.out.println("Ola mundo")).run();
+		
+ex 2 LAMBDA:  ActionListener
+
+        JButton jButton = new JButton();
+		jButton.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e ){
+				System.out.println("Ola mundo");
+			}
+		
+		});
+		
+		
+Pode ser assim:
+	
+	JButton jButton2 = new JButton();
+	jButton2.addActionListener( e -> System.out.println("Ola mundo"));
+	
+=======================================================
+Funções Stream 
+=======================================================	
+
+Trabalhar com Arrays List
+	
+	List<Integer> lista = Arrays.asList(1,5,8,9,1,4,7,6,9,9);
+1)	
+	for(Integer x : lista){
+	  System.out.println(x);
+	}
+	
+	Usando o stream 
+	
+	lista.stream().forEach(e -> System.out.println(e));
+	
+2) .skip(2)   Pular elementos do inicio no caso 2 primeiros nao iriam imprimir
+
+	lista.stream()
+	.skip(2) 
+	.skip(1)     //Pode ter mais de 1
+	.forEach(e -> System.out.println(e));
+	
+2) .limit(2)   busca elementos do inicio no caso 2 primeiros nao iriam imprimir
+
+	lista.stream()
+	.limit(2) 	 
+	.forEach(e -> System.out.println(e));
+	
+3) .distinct()   // retira os elementos repetidos 
+
+4) .filter()   //vc pode criar seu proprio filtro
+
+	lista.stream()
+	.filter( e -> e%2 == 0)  //buscar somente os numeros pares	 
+	.forEach(e -> System.out.println(e));
+	
+
+4) .map()   //manipular e transformar os elementos 
+
+	lista.stream()
+	.map( e -> e * 2)  //pega todos da lista e multiplica por 2  nao muda a lista original somente que vai imprimir no forEach
+	.forEach(e -> System.out.println(e));
+	
+5) retornos final 
+
+	long count = lista.stream()
+				.filter( e -> e % 2 == 0)  //contar todos os pares
+				.count();
+				
+6)min e max
+
+		Optional<Integer> min = lista.stream()
+								.filter( e -> e % 2 == 0)  // todos os pares
+								.min(Comparator.naturalOrder());  // tem que usar o Comparator
+								
+		Optional<Integer> min = lista.stream()
+								.filter( e -> e % 2 == 0)  // todos os pares
+								.max(Comparator.naturalOrder());  // tem que usar o Comparator	
+
+7) .collect  // retorno customizados 
+
+		List<Integer> novaList = lista.stream()
+								.filter( e -> e % 2 == 0)  // todos os pares
+								.collect(Collectors.toList());      // .toList armazenar os valores na nova lista	     
+
+
+  Este ideal para agrupar por idade , endereço, 	
+		Map<Boolean, List<Integer>> novaList = lista.stream()
+		                                       .collect(Collectors.groupingBy(e -> e % 3));  // separa em true os que sao divisiveis por 3 
+								
+
+   joining agrupar strings 
+				String collect = lista.stream()
+				.map(e -> String.valueOf(e))
+				.collect(Collectors.joining(";"));  vai juntar todos os numeros e separar por ;
+				
+				
+=======================================================		
 public static List<CadastroOcorrencia89ResponseDTO> entidadeParaDto(List<YMTJW82SResponseAreaSaidaFuncaoTj89Ocorr89> lista) {
 
 		List<CadastroOcorrencia89ResponseDTO> listaDTO = new ArrayList<>(0);
