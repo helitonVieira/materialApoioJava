@@ -10,6 +10,8 @@ PORTA 8080  OUTRO SERVIÇO JA UTILIZANDO A PORTA
 
 https://downforeveryoneorjustme.com/ (verificar se o site esta no ar)
 
+https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Headers  (saber mais headers HTTP)
+
 ###################################################################
 ECLIPSE
 ###################################################################
@@ -17,6 +19,7 @@ ECLIPSE
   Alt + Shft + A = selecionar em bloco icone na barra ferramentas Toggle Block selection mode 
   shift + alt + M = seleciona as linhas ele exporta criando um metodo para estas linhas e se tiver em outro local ele ja instacia o metodo 
   Ctrl + shift + O = Organizar os imports 
+  Seleciona as linhas Ctrl + /  = comentar varias linhas
   
     
    Sysout Ctrl+ ESP  criar o   System.out.println();
@@ -48,13 +51,24 @@ DEBUG  https://www.youtube.com/watch?v=zS7UG63we4g
 	F5  = entrar dentro metodo
 	F8  = proceguir
 	
+	PEGAR VALORES
+		              Seleciona a variavel botao direito "Watch"  Mostra o valor da variavel na expressions
+	CTR + SHIF + I	= Seleciona a variavel botao direito "Inspecionar"
+	
 	Variaveis pode alterar o valor 
 	Metodo pode alterar em tempo de execução que ele volta para inicio 
 	Criar Break Point de exceptions = Console msg em nullPoiter em azul click em cima pode criar break Point onde esta o erro 
 	
 	Botao direito na classe tem algumas opçoes de break
 		ex: dentro de for selecionar hora que quer parar 
-	
+###################################################################
+Intellij
+###################################################################	
+
+DEBUG
+	F8 proxima linha
+	F7 entrar dentro metodo
+	F9 seguir 
 	
 ###################################################################
 CRIANDO TEMPLATE 
@@ -120,8 +134,12 @@ Paradigma Declarativo - programação funcional, logica, liguagem de marcaçao
 Principios SOLID
 #############################################
 	
-	Spr - reponsabilidade unica - a classe tem que ter apenas uma tarefa 
+	Spr(Sigle responsibility principle) - reponsabilidade unica - a classe tem que ter apenas uma tarefa 
 		ex: class pedido separar parte que trata do item,outra class cuidando dos pedidos , outra cuidando da impressao
+		*reaproveitamento de codigo mais facilmente
+		*refatorar mais facil 
+		*testes unitarios mais simples 
+		*entendimento de codigo mais simples
 	
 	Ocp open close - aberto para extenção fechado para alteração 
 					 tem a mesma regra do Design Patter Strategy 
@@ -364,6 +382,23 @@ Oque é o maven
 			spring-boot-devtools (auto reloud quando tem alteração start automatico) (btnDireito > Spring > add Devtools)
 			spring-boot-jpa (persistencia banco)	
 	
+
+
+	<dependency> Quando nao é informada a <VERSION> 0.0.0 </VERSION> o Spring Boot busca a versão recomendada pela versao do Spring responsavel
+				por isso é o <parent> </parent> para verificar basta entra no maven > spring-boot-starter-parent > pesquisar a biblioteca
+	
+	<parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.6</version>
+        <relativePath/>
+    </parent>		
+			
+	<dependency>
+		<groupId>org.springframework.kafka</groupId>
+		<artifactId>spring-kafka</artifactId>
+	</dependency>
+	
 	
 Baixar o Maven https://maven.apache.org/download.cgi > Arquivos > arquivos zip binario
 Descompaquitar o arquivo
@@ -431,7 +466,7 @@ SPRING BOOT =  https://blog.betrybe.com/framework-de-programacao/spring-boot-tud
    
    @RestController  faz com que o Spring Boot consiga entender que essa classe é um controlador. 
    @RequestMapping é utilizada para implementar URL. Essa notação suporta os métodos GET, POST, PUT, DELETE e Patch.
-   
+   @Configuration  Informado em cima da classe quer dizer que quando for iniciar o projeto vai passar por esta classe normalmente carregando parametros
    ---------------------------------
    
    SPRING BOOT VS SPRING MVC 
@@ -1070,19 +1105,61 @@ BIBLIOTECA PROJECT LOMBOK 	(Automatiza os get set hashcode equals)  https://www.
 				.telefone(new Telefone()) //caso coloque o nome ai teria ficado .informarTelefone(new Telefone())
 				.telefone(new Telefone())
 				.build();
-	------------------------------	
+	-------------------LOG LOGGER -----------	
 				@Slf4j - em cima da class 
 	LOG 
-	biblioteca a ser usada:  import org.slf4j.Logger
+	biblioteca a ser usada: 
 	
+			import org.slf4j.Logger
+			import lombok.extern.slf4j.Slf4j;	
+			import org.slf4j.LoggerFactory;
+	
+	
+	@Slf4j
 	Public class Cliente
-	private static final logger log = LoggerFactory.getLogger(Cliente.class) - //  @Slf4j em cima da class elimina esta linha deixa mais elegante o codigo 
+	private static final Logger log = LoggerFactory.getLogger(Cliente.class) - //  @Slf4j em cima da class elimina esta linha deixa mais elegante o codigo 
 	
 	//uso
 	log.info("Teste");
+	log.warn();
+	log.error(); 
 	
+	//uso desses tem que ser configurado app.propert para aparecer 
+	log.trace();
+	log.debug();
+	
+	//configuração application.properties
+		erarquia dos log
+			log.trace();
+			log.debug();
+			log.info("Teste");
+			log.warn();
+			log.error();
+		
+		#logging
+		logging.level.root=INFO // padrao que mostrara apartir do info o warn e trace nao aparece 
+		logging.level.br.com.agenda = DEBUG // (br.com.agenda)caminho na aplicacao apartir deste caminho aceita os log debug para aparecer no console  
+	    logging.level.br.com.conta = DEBUG // pode ir liberando por parte a aplicacao
+		
+		
 	Existem outras para log que ja esta implementada no lombok como: @Log4j, @Log4j2 , @CommonsLog 
+	
+	https://www.google.com/search?q=como+pegar+as+informa%C3%A7%C3%B5es+do+body+no+java+utilizando+logger.info&sca_esv=ae2d012acb0463ba&rlz=1C1FCXM_pt-PTBR1012BR1012&sxsrf=ACQVn083NwkjSl_7BGvLB0WsGyAYLBfjwQ%3A1706796880104&ei=UKe7Za70Bdfb5OUPl7-g4Ao&udm=&ved=0ahUKEwiu3PftqYqEAxXXLbkGHZcfCKwQ4dUDCBE&uact=5&oq=como+pegar+as+informa%C3%A7%C3%B5es+do+body+no+java+utilizando+logger.info&gs_lp=Egxnd3Mtd2l6LXNlcnAiQmNvbW8gcGVnYXIgYXMgaW5mb3JtYcOnw7VlcyBkbyBib2R5IG5vIGphdmEgdXRpbGl6YW5kbyBsb2dnZXIuaW5mbzIFECEYoAEyBRAhGKABMgUQIRifBUjFggFQlAtYwXZwAngAkAEAmAHvAaABvRiqAQYwLjIwLjG4AQPIAQD4AQHCAgoQABhHGNYEGLADwgIIECEYoAEYwwTiAwQYACBBiAYBkAYI&sclient=gws-wiz-serp#fpstate=ive&vld=cid:e1a246f7,vid:ICfYdaqz9Hk,st:0
 	------------------------------	
+	
+	////////////////////////////////////////////////////++
+	
+	<dependency>
+<groupId>com.google.code.gson</groupId>
+<artifactId>gson</artifactId>
+<version>2.9.0</version>
+</dependency>
+</dependencies>
+
+private static final Gson gson = new Gson();
+LOGGER.info("<<<<<REQUEST>>>>> de fluxoFinanceiro/porValorParcela: {}", gson.toJson(calculoValorRequest));
+
+
 		
 ##End####################################################################################################################################################		
 Herança - extends  só pode ter 1 classe pai 
@@ -1117,6 +1194,7 @@ Classe Final - quando e a ultima classe ou seja nao pode ser herdada ex: class(A
 	}
 	
 Interface - 100% abstract so pode ser herdada de outra interface
+    Interface classe que tem expecificações para outras classes, classe que herda tem que implementar todos os metodos
 	A Interface obrigar o programador a seguir o padrão do projeto, 
 	obriga a implementar seus métodos, ele deverá sempre seguir o padrão de implementação da Interface.
 	Quando devo implementar uma interface???? deve se pensar como um contrato se tudo for obrigatorio implemente a interface definindo como um padrao.	
@@ -1200,9 +1278,9 @@ Class JOptionPane -	import javax.swing.JOptionPane; //caixa de dialogo grafica i
 		   
 	BigDecimal arredondar casas decimal	 
 
-		valor.setScale(2,BigDecimal.ROUND_HALF_EVEN);  //arredonda automatico >5 para cima <5 para baixo
-		valor.setScale(2,BigDecimal.ROUND_HALF_UP);    //arredonda para cima 
-		valor.setScale(2,BigDecimal.ROUND_HALF_DOWN); //arredonda para baixo
+		valor.setScale(2,BigDecimal.ROUND_HALF_EVEN);  //arredonda automatico >5 para cima <= 5 para baixo
+		valor.setScale(2,BigDecimal.ROUND_HALF_UP);    //arredonda para cima o >=5
+		valor.setScale(2,BigDecimal.ROUND_HALF_DOWN); //arredonda para baixo o <=5
 		valor.setScale(2,RoundingMode.FLOOR);         // truncar valor 
 		
 		 
@@ -1465,7 +1543,7 @@ Trabalhar com Arrays List
 				.collect(Collectors.joining(";"));  vai juntar todos os numeros e separar por ;
 				
 				
-=======================================================		
+=======================================================
 public static List<CadastroOcorrencia89ResponseDTO> entidadeParaDto(List<YMTJW82SResponseAreaSaidaFuncaoTj89Ocorr89> lista) {
 
 		List<CadastroOcorrencia89ResponseDTO> listaDTO = new ArrayList<>(0);
@@ -2191,7 +2269,34 @@ INJEÇÃO DE DEPENDENCIA
 			public EmailService emailService() {
 			   return new SmtpEmailService();
 			}
+	
+		ex2: 
+            @Configuration    // Importante usar dizer quando estarta a app ja carrega as variaveis 
+			public class Configuracao {
+			
+        	  @Bean("gol")
+			  public Carro gol(){
+					Carro carro = new Carro();
+					carro.setAno(2024);
+					carro.setCor("Branco");
+					
+					return carro;
+			 }
+			 
+			  @Bean("Polo")
+			  public Carro polo(){
+					Carro carro = new Carro();
+					carro.setAno(2024);
+					carro.setCor("Verde");
+					
+					return carro;
+			 }
 		
+		
+		buscando 
+			@Autowired
+			@Qualifier("gol")
+			private Carro carro;
 	
 #############################################
 package resources ou cotrollers 
@@ -2573,7 +2678,9 @@ VALIDAÇAO (JAKARTA BEAN VALIDATION )  ele usa o pacote do javax.validation.cons
 	@NotBlank   //nao aceita vazio nem nulo nem com somente espaço branco (nao aceita em int)
 	@Email      //validação para email
 	@Size(max = 20 min = 2)  // tamanho das colunas do banco para nao estourar
-	@JsonIgnore    //para nao aparecer nao busca	
+	@JsonIgnore    //para nao aparecer nao busca
+
+    @JsonPropertyOrder({"cod","nome","valor"})	//Ordenar saida do json declara em cima da classe colocando os nomes dos atributos
 	
 	*****************de acordo com tipo *************************
 	      @NotNull(message = "Name cannot be null")
@@ -3361,6 +3468,98 @@ public TGstaoParmProdtEmptmFinan sendGet(CalculoSeguroRequest request, TokenResp
 		}
 	}
 
+
+#############################################
+Thread synchronized
+#############################################
+
+https://www.youtube.com/watch?v=9TtULlGYG6U&list=PLuYctAHjg89YNXAXhgUt6ogMyPphlTVQG&index=5
+
+Entendendo Threads (NAO RECOMENDADO QUANDO TEM MUITOS CALCULOS,
+			UMA VARIAVEL QUE PERCORE TODO O CODIGO PODE SOFRER ALTERAÇAO PELA OUTRA THREAD)
+
+paralelismo  quando threds diferente nao usam a msm variavel
+concorencia quando threds diferente usam a msm variavel
+
+computador tem que ter mais de 1 nucleo para o paralelismo 
+Um unico nucleo ele vai decidindo qtas linhas passa de cada thread
+
+
+
+PARA EVITAR CONCORENCIA UTILIZAMOS O SYNCHRONIZED (NAO USA PARA COLEÇÕES E LISTAS)
+Quando utilizar 
+* Quando temos variaveis que muda de valor durante o percurso muitos calculos 
+
+1) isolamento no metodo (DESVANTAGEM VC ACABA COM O PARALELISMO USO DA Threads POIS VAI ACONTECER UM ENFILERAMENTO QUE VAI PASSAR UMA DE CADA VEZ)
+
+	public synchronized soma(double a , double b){
+		//dados dentro do metodo
+	}
+2) isolamento em parte do codigo
+	synchronized(this) {	
+		//codigo que vai ficar na fila 
+	}
+	
+	
+3) mais de 1 isolamento criar variaveis para 1 nao ficar esperando o outro
+
+	static Object lock1 = new Object();
+	static Object lock2 = new Object();
+	
+	synchronized(lock1) {	
+		//codigo que vai ficar na fila 
+	}
+	
+	synchronized(lock2) {	
+		//codigo que vai ficar na fila 
+	}
+	
+4) CORRETO A SER USADO 
+	*DESCOBRIR O RECURSO QUE ESTA COM CONCORENCIA
+	*FAZER O ISOLAMENTO SOMENTE DA PARTE QUE TEM A CONCORENCIA
+	
+	EX: abaixo temos a variavel "i" que é utilizada por todas as threads neste caso isolamos somente ela
+
+    int j
+	
+	synchronized(this) {	
+		 i++;
+		 j = i + 2;
+	}
+	
+	double jElevado = Math.pow(j,100);
+	
+	
+	
+LIST E COLECTIONS 
+Acontece um problema de sumir algumas threads nao chega no final e nao apresenta msg de erro 
+resolver este problema 
+
+	1) 
+
+    	private static List<String> lista = ArrayList<>();
+		
+		public static soma(){
+		//solucao garante que todas vai aparecer 
+		
+		lista = Collections.synchronizedList(lista);
+		
+		/*Outras que pode ser usadas*/
+		
+		lista = Collections.synchronizedList(lista);
+		lista = Collections.synchronizedCollection(lista);
+		lista = Collections.synchronizedMap(lista);
+		lista = Collections.synchronizedSet(lista);
+		
+		
+		}
+	
+	2) alterando logo na criação da variavel  CopyOnWriteArrayList   (pesado que faz uma copia do array inteiro, nao usar quando tem varios add e remove)
+	
+	private static List<String> lista = CopyOnWriteArrayList<>();
+	
+	private static Map<Integer,String> lista = ConcurrentHashMap<>();
+
 ##########################################
 Docker - 
 ##########################################
@@ -3421,6 +3620,12 @@ GET (passa os valores pela URL)
 
 
 New Environment (para criar variaveis fixas e não ficar precisando copiar coloar senha )
+
+
+Headers 
+
+Content-Type = application/json
+
 
 
 ####################################################################
