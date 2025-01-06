@@ -129,11 +129,22 @@ DUAS PESSOAS ALTERARAM O MSM ARQUIVO (CONFITO)
 DESFAZER ou VOLTAR PARA VERSAO ANTERIOR
 
 	ANTES DE ADD AO GIT		 
-		git checkout -- testGit.txt
-		git checkout -- .
+		git checkout -- nomeArquivo.txt
+		git checkout -- .  (excluir de todos os arquivos)
 		git restore nomeArquivo.txt  (volta a versao do ultimo commit)
+	
+	DEPOIS DE ADD AO GIT	
+        git reset HEAD nome_do_arquivo 
+		git reset HEAD nome_do_arquivo: Remove o arquivo do índice, mantendo as mudanças.
+        git checkout -- nome_do_arquivo: Descarta as alterações e restaura o arquivo para o último commit.(Nota) Cuidado com git checkout --: Esse comando irá descartar permanentemente as alterações feitas no arquivo, então tenha certeza de que deseja perder essas mudanças.
+	
+	DEPOIS DO COMMIT  
+
+		git reset --soft HEAD~1: Desfaz o último commit, mantendo as alterações.
+		git reset --hard HEAD~1: Desfaz o último commit e descarta as alterações.
+		git revert <commit-hash>: Cria um novo commit que reverte um commit específico.
+		git checkout <commit-hash> -- nome_do_arquivo: Restaura um arquivo específico para um estado anterior.
 		
-		DEPOIS DO COMMIT   
 		git log = verificar as versoes disponiveis e copiar a chave do log que vai querer voltar
 		git reset --tipo chaveDoLogQueVaiVoltar = vai mandar vc ir para onde vc quer ir (voltar) existe 3 forma de utilizado 
 		TIPOS 
