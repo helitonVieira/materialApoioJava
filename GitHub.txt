@@ -83,7 +83,7 @@ git config --global user.email "helitondba@gmail.com"
 6 git add .  (comando para que o git receba os arquivor que nunca foram salvos e comecem a rastrealos )
 7 git status (cor verde prontos para ser versionado commit) 
 8 git commit -m "crud produto Back end do aula1 do projeto Angular"
-9 git log (para ver informaçoes do projeto {chave, autor , email, data hora , descriçao do commit} )
+9 git log (para ver informaçoes do projeto {chave, assunto , email, data hora , descriçao do commit} )
 
 		10 mandar o projeto para o git hub 
 			* entra no seu git (https://github.com/)	 

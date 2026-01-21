@@ -296,7 +296,7 @@ Código do Status HTTP
 		 200	Ok								Ok
          201	Created							Criado
          202	Accepted						Aceito
-         203	Non-Authoritative Information	Não autorizado
+         203	Non-Authoritative Information	Não assuntoizado
          204	No Content						Nenhum Conteúdo
          205	Reset Content					Resetar Conteúdo
          206	Partial Content					Conteúdo Parcial
@@ -310,7 +310,7 @@ Código do Status HTTP
          306	Proxy Switch					Proxy Trocado
          
 		 400	Bad Request						Solicitação Inválida
-         401	Unauthorized					Não autorizado
+         401	Unauthorized					Não assuntoizado
          402	Payment Required				Pagamento necessário
          403	Forbidden						Proibido
          404	Not Found						Não encontrado
@@ -2035,7 +2035,7 @@ Chave composta  https://receitasdecodigo.com.br/hibernate/chaves-compostas-com-h
 				@Embeddable
 				private Endereco
 		     SERIA COMO SE TUDO QUE TEM NA CLASSE ENDEREÇO ESTIVESSE NA CLASSE CLIENTE
-                      cria uma classe para informar os codEmpresas (Segundo autor prefercodEmpresaa)
+                      cria uma classe para informar os codEmpresas (Segundo assunto prefercodEmpresaa)
 
 -------------------------	
 Muitos para um https://receitasdecodigo.com.br/hibernate/hibernate-manytoone-muitos-para-um-com-objeto-relacional
@@ -2714,7 +2714,7 @@ flyway   // arquivos de configuração para o banco de dados
 1) seque o link para configuração
         https://github.com/npi-ufc-qxd/wiki/wiki/Guia-de-inser%C3%A7%C3%A3o-e-uso-do-Flyway-em-projetos-maven
 	
-2) dentro do pacote resource cria as pasta db/migration	
+2) dentro do pacote resource cria as pasta db/migration	 (obs problema pois em alguns caso ele fica dentro da pasta main)
 3) criar um arquivo dentro de migration criar um arquico   new/file/V001__criar-tabela-cliente.sql    obs o "V" maiusculo     //V001__criar-tabela-cliente.sql   o V001 é obrigatorio significa versao o nome depois aleatorio
 4) sobre o arquivo click  btnDireito/Open With/text edit
 
@@ -3058,7 +3058,7 @@ OBSERVAÇÃO A ORDEM QUE PEGA O VALOR DA VARIAVEL CRIADA NO APPLICATION.PROPERTI
 CONEXAO COM BANCOS DE DADOS 
 
 ####################################################################
-Autenticação e Autorização token JWT  autorização trafegada cabeçarios das requisiçoes pela url, controla o usuario e tempo de inspiração do token
+Autenticação e Autorização token JWT  assuntoização trafegada cabeçarios das requisiçoes pela url, controla o usuario e tempo de inspiração do token
 (mais abaixo ver os 2 separados)
 Altenticação sistema verifica se o usuario e um usuario valido 
 Autorização processo de identificar qual recurso o usuario pode acessar 
@@ -3227,12 +3227,12 @@ Autenticação - pessoa se identifica sistema faz a autenticação verificando s
  Em SecurityConfig, registrar o filtro de autenticação
 
 ---------------------------------------------
-Autorização - quando passa o token na atenticação do login apos autenticação fazer as autorização dos endpoits
+Autorização - quando passa o token na atenticação do login apos autenticação fazer as assuntoização dos endpoits
 ---------------------------------------------
- Criar um filtro de autorização
+ Criar um filtro de assuntoização
 
 o Acrescentar uma função em JWTUtil para verificar se um dado token é válido
- Em SecurityConfig, registrar o filtro de autorização
+ Em SecurityConfig, registrar o filtro de assuntoização
 Autorizando endpoints para perfis específicos
 
 
